@@ -1,6 +1,7 @@
 \documentclass[conference]{IEEEtran}
 \usepackage{natbib}
 \usepackage{url}
+\usepackage{hyperref}
 
 
 \ifCLASSINFOpdf
@@ -14,7 +15,7 @@
 
 \begin{document}
 
-\title{Roamify: Roaming Redefined\\ Changing the Way World Travels}
+\title{\textbf{Roamify: Roaming Redefined}\\ \textit{Changing the Way World Travels}}
 
 
 \author{\IEEEauthorblockN{Vikranth Udandarao}
@@ -39,12 +40,12 @@ Email: noel22338@iiitd.ac.in}
 \and
 \IEEEauthorblockN{Armaan Singh}
 \IEEEauthorblockA{Computer Science Engineering Dept\\
-IIIT Delhi1\\
+IIIT Delhi\\
 Email: armaan22096@iiitd.ac.in}
 \and
 \IEEEauthorblockN{Dhruv Kumar}
 \IEEEauthorblockA{Computer Science Engineering Dept\\
-IIIT Delhi1\\
+IIIT Delhi\\
 Email: dhruv.kumar@iiitd.ac.in}}
 
 
@@ -101,31 +102,25 @@ Email: dhruv.kumar@iiitd.ac.in}}
 
 \maketitle
 
-
 \begin{abstract}
 
-Travelling without planning is a challenge for travellers. This paper delves into the heart of a common dilemma: the desire to explore without the hassle of planning. Roamify, an AI-generated itinerary service, empowers travellers with curated suggestions tailored to their destination preferences. It is aimed at empowering travellers with personalized experiences along the way. Taking inspiration from personal experiences grappling with itinerary complexities, it emerges as an innovative solution, leveraging artificial intelligence (AI) generated itineraries to empower travellers with customized recommendations tailored to the destination's preferences. This introduction lays the foundation for an exploration into how Roamify redefines roaming, making travel not just about reaching a place but also about unlocking memorable experiences along the way.
-
+    Travelling without planning is a challenge for travellers. This paper delves into the heart of a common dilemma: the desire to explore without the hassle of planning. Roamify, an AI-generated itinerary service, empowers travellers with curated suggestions tailored to their destination preferences. It is aimed at empowering travellers with personalized experiences along the way. Taking inspiration from personal experiences grappling with itinerary complexities, it emerges as an innovative solution, leveraging artificial intelligence (AI) generated itineraries to empower travellers with customized recommendations tailored to the destination's preferences. This introduction lays the foundation for an exploration into how Roamify redefines roaming, making travel not just about reaching a place but also about unlocking memorable experiences along the way.
 
 \end{abstract}
 
-
 \IEEEpeerreviewmaketitle
 
-
-
 \section{Introduction}
-    
-    \textbf{Roamify} - Roaming Redefined is on a transformative mission to revolutionize travel planning for today's generation. Aimed at youngsters, teenagers, college students, and families seeking seamless travel experiences, Roamify addresses a common dilemma: the desire to explore without the hassle of planning. Drawing inspiration from personal experiences with itinerary complexities, Roamify emerges as an innovative solution, leveraging AI-generated itineraries to provide curated suggestions tailored to travelers' destination preferences. This introduction sets the stage for exploring how Roamify redefines roaming, making travel not just about reaching a destination but also about unlocking memorable experiences along the way.
-    
-    In the past, travel was a luxury limited to the rich and elite. However, with advancements in transportation, travel has become more accessible to everyone. People now travel for various reasons: work, leisure, relaxation, reunions with friends, or simply for the joy of exploring new places. This increase in travel purposes has led to a new challenge: deciding what to explore upon arrival.
-    
-    Imagine a family of four planning a vacation during the kids' summer holidays. In the past, their only option was to visit an offline travel agency to book a package that included all the itineraries and attractions. With technological advancements, numerous online platforms have emerged, allowing people to customize and choose their own itineraries.
-    
-    Despite these advancements, a significant problem persists: many online travel websites struggle to attract users, even after being in existence for several years. Additionally, while tools like ChatGPT offer some assistance, they have limitations, such as outdated training data.
-    
-    Roamify aims to address these issues by integrating seamlessly with users' web browsers. Recognizing that travelers often have multiple tabs open while planning their trips, Roamify leverages this browsing behavior to provide intelligent recommendations based on the websites and tabs users have open. This innovative approach ensures that travel planning becomes more efficient and personalized, making Roamify an essential tool for modern travelers.
 
+\textbf{Roamify} - Roaming Redefined is on a transformative mission to revolutionize travel planning for today's generation. Aimed at youngsters, teenagers, college students, and families seeking seamless travel experiences, Roamify addresses a common dilemma: the desire to explore without the hassle of planning. Drawing inspiration from personal experiences with itinerary complexities, Roamify emerges as an innovative solution, leveraging AI-generated itineraries to provide curated suggestions tailored to travelers' destination preferences. This introduction sets the stage for exploring how Roamify redefines roaming, making travel not just about reaching a destination but also about unlocking memorable experiences along the way.
+
+In the past, travel was a luxury limited to the rich and elite. However, with advancements in transportation, travel has become more accessible to everyone. People now travel for various reasons: work, leisure, relaxation, reunions with friends, or simply for the joy of exploring new places. This increase in travel purposes has led to a new challenge: deciding what to explore upon arrival.
+
+Imagine a family of four planning a vacation during the kids' summer holidays. In the past, their only option was to visit an offline travel agency to book a package that included all the itineraries and attractions. With technological advancements, numerous online platforms have emerged, allowing people to customize and choose their own itineraries.
+
+Despite these advancements, a significant problem persists: many online travel websites struggle to attract users, even after being in existence for several years. Additionally, while tools like ChatGPT offer some assistance, they have limitations, such as outdated training data.
+
+Roamify aims to address these issues by integrating seamlessly with users' web browsers. Recognizing that travelers often have multiple tabs open while planning their trips, Roamify leverages this browsing behavior to provide intelligent recommendations based on the websites and tabs users have open. This innovative approach ensures that travel planning becomes more efficient and personalized, making Roamify an essential tool for modern travelers.
 
 \section{Literature Review}
 
@@ -147,7 +142,6 @@ Llama is a highly sophisticated language model known for its ability to handle l
 RoBERTa is an optimized version of BERT, designed to improve performance on various NLP tasks by modifying key hyperparameters, removing the next sentence prediction objective, and training with much larger mini-batches and learning rates. For Roamify, we used RoBERTa to enhance the contextual understanding of travel-related queries, leveraging its advanced question answering capabilities to provide accurate and relevant responses.
 
 By evaluating these models, we aim to determine the most effective approach for generating personalized travel itineraries. The following sections detail the methodology, model configurations, training processes, and evaluation metrics used in this comparative study.
-
 
 
 \section{Methodology}
@@ -250,19 +244,6 @@ To evaluate the performance of the models, we used several metrics including:
 
 The following sections will present the results of these evaluations and compare the performance of each model in generating travel itineraries.
 
-
-
-To evaluate the performance of the models, we used several metrics including:
-\begin{itemize}
-    \item BLEU Score: Measures the accuracy of the generated text against reference text.
-    \item ROUGE Score: Evaluates the overlap of n-grams between the generated and reference text.
-    \item Perplexity: Assesses the model's confidence in its predictions.
-\end{itemize}
-
-The following sections will present the results of these evaluations and compare the performance of each model in generating travel itineraries.
-
-
-
 \section{Models}
 
 In this section, we provide an in-depth overview of the five models used in this study: BERT, T5, DistilBERT, Llama, and RoBERTa. Each model was selected for its unique strengths and fine-tuned to generate personalized travel itineraries.
@@ -351,12 +332,6 @@ For this study, we fine-tuned the \texttt{deepset/roberta-base-squad2} model usi
 
 The RoBERTa model was used to enhance the contextual understanding of travel-related queries, providing accurate answers to specific questions within the travel itineraries.
 
-The following section will present the evaluation metrics and results of these models, highlighting their performance in generating travel itineraries.
-
-
-
-
-
 \section{Results and Evaluation}
 
 To evaluate the performance of the five models (BERT, T5, DistilBERT, Llama, and RoBERTa), we used several standard metrics including BLEU Score, ROUGE Score, and Perplexity. These metrics assess the accuracy, overlap of n-grams, and confidence in predictions, respectively.
@@ -416,13 +391,9 @@ RoBERTa showed strong performance in understanding and responding to travel-rela
 
 The evaluation of these models highlights the potential of advanced NLP techniques in enhancing the travel planning experience. While each model has its strengths, Llama emerged as the best-performing model, providing highly accurate and confident travel itinerary recommendations. Future work will focus on further optimizing these models and exploring additional applications in the travel industry.
 
-
-
-
-
 \section{Conclusion}
 
-This study explored the use of four state-of-the-art NLP models—BERT, T5, DistilBERT, and Llama—for generating personalized travel itineraries through Roamify, an AI-powered itinerary generation service. The comparative analysis of these models provided valuable insights into their performance and suitability for the task.
+This study explored the use of five state-of-the-art NLP models—BERT, T5, DistilBERT, Llama, and RoBERTa—for generating personalized travel itineraries through Roamify, an AI-powered itinerary generation service. The comparative analysis of these models provided valuable insights into their performance and suitability for the task.
 
 \subsection{Key Findings}
 
@@ -431,6 +402,7 @@ This study explored the use of four state-of-the-art NLP models—BERT, T5, Dist
     \item \textbf{T5:} Outperformed BERT in terms of BLEU and ROUGE scores, showcasing its ability to generate coherent and contextually accurate travel itineraries. Its lower perplexity score indicates higher confidence in its predictions.
     \item \textbf{DistilBERT:} While more efficient, DistilBERT showed slightly lower performance compared to BERT and T5. Its reduced computational requirements make it a viable option for real-time applications.
     \item \textbf{Llama:} Demonstrated the highest performance among all models, with the highest BLEU and ROUGE scores and the lowest perplexity. The use of the Unsloth framework for fine-tuning further enhanced its performance, making it the most effective model in this study.
+    \item \textbf{RoBERTa:} Showed strong performance in understanding and responding to travel-related queries, with good BLEU and ROUGE scores and lower perplexity compared to BERT and DistilBERT.
 \end{itemize}
 
 \subsection{Future Work}
@@ -454,91 +426,70 @@ The findings of this study highlight the potential of advanced NLP techniques in
 
 In conclusion, the integration of advanced NLP models into travel planning tools like Roamify represents a significant step forward in enhancing the efficiency and personalization of travel experiences. Continued research and development in this area will further unlock the potential of AI in the travel industry, providing travelers with more intuitive, responsive, and enjoyable planning experiences.
 
-
-
-
 \section{User Survey and Interview Analysis}
 
-    \subsection{Survey Methodology}
-        To understand the travel planning behaviors and preferences of potential users for Roamify, we conducted a comprehensive survey targeting various demographic groups. The survey consisted of multiple-choice questions and open-ended responses designed to capture detailed insights into users' travel habits, challenges faced in travel planning, and their expectations from a travel planning tool.
-        
-    \subsection{Survey Results and Analysis}
-        The survey received responses from 64 participants, covering a diverse range of age groups and travel frequencies. The key findings from the survey are summarized below:
-        
-        \begin{itemize}
-            \item \textbf{Demographic Breakdown}: The majority of respondents were young adults (19-25 years) and adults (26-64 years), indicating that travel planning is a significant activity among working professionals and young individuals.
-            \item \textbf{Travel Frequency}: Most respondents travel once every 6 months or once a year, highlighting a preference for occasional travel due to work and life commitments.
-            \item \textbf{Types of Travel}: Casual, entertainment, and work travel were the most common, underscoring the importance of leisure and professional commitments in travel plans.
-            \item \textbf{Itinerary Planning}: Online travel websites and YouTube videos are the primary sources for itinerary planning, showing a shift towards digital platforms and social media for travel information.
-            \item \textbf{Customization Preferences}: A significant majority prefer customized itineraries over preselected packages, emphasizing the need for personalized travel planning tools.
-            \item \textbf{Satisfaction with Travel Agencies}: Satisfaction levels with travel agencies vary, with many users expressing moderate satisfaction, indicating potential areas for improvement in travel agency services.
-            \item \textbf{Challenges in Planning}: The main challenges include the overwhelming amount of information, coordination difficulties, and lack of personalized recommendations, making travel planning a time-consuming and stressful process.
-        \end{itemize}
-        
-    \subsection{Interview Methodology and Findings}
-        In addition to the survey, we conducted in-depth interviews with selected participants to gain deeper insights into their travel planning experiences. The interviews focused on understanding the specific pain points and expectations from a travel planning tool.
-        
-        \textbf{Key Insights from Interviews:}
-        
-        \begin{itemize}
-            \item \textbf{Frequency of Travel}: Interviewees typically travel 3-4 times a year, with a mix of long vacations and short trips, emphasizing the need for flexible and comprehensive planning tools.
-            \item \textbf{Planning Process}: The typical process involves extensive research using multiple online sources, comparison of prices, and seeking recommendations from friends and family, highlighting the complexity and time-consuming nature of travel planning.
-            \item \textbf{Challenges}: Common challenges include dealing with an overwhelming amount of information, coordinating different trip elements, and finding reliable, personalized recommendations. These issues often lead to stress and inefficiencies in planning.
-            \item \textbf{Expectations from AI Tools}: Participants expressed a strong preference for AI tools that provide tailored recommendations, streamline the booking process, and offer real-time updates. The ability to integrate multiple information sources and provide a cohesive planning experience was deemed essential.
-            \item \textbf{Personalization}: The importance of personalization was reiterated, with users seeking tools that can adapt to their unique interests and preferences, ensuring a more enjoyable and relevant travel experience.
-            \item \textbf{User Experience}: There is a high demand for user-friendly interfaces that offer seamless integration with other platforms, clear information presentation, and robust customer support.
-        \end{itemize}
-        
-    \subsection{Ongoing Implications}
-        The survey and interview findings underscore the need for a comprehensive, personalized travel planning tool like Roamify. Users face significant challenges in planning their trips, including information overload, coordination difficulties, and lack of personalized recommendations. By leveraging AI to provide tailored itineraries, real-time updates, and an intuitive user interface, Roamify can address these pain points and enhance the overall travel planning experience. The insights gained from this research will inform the development of Roamify, ensuring it meets the needs and expectations of modern travelers.
-        
+\subsection{Survey Methodology}
+To understand the travel planning behaviors and preferences of potential users for Roamify, we conducted a comprehensive survey targeting various demographic groups. The survey consisted of multiple-choice questions and open-ended responses designed to capture detailed insights into users' travel habits, challenges faced in travel planning, and their expectations from a travel planning tool.
 
+\subsection{Survey Results and Analysis}
+The survey received responses from 64 participants, covering a diverse range of age groups and travel frequencies. The key findings from the survey are summarized below:
 
+\begin{itemize}
+    \item \textbf{Demographic Breakdown}: The majority of respondents were young adults (19-25 years) and adults (26-64 years), indicating that travel planning is a significant activity among working professionals and young individuals.
+    \item \textbf{Travel Frequency}: Most respondents travel once every 6 months or once a year, highlighting a preference for occasional travel due to work and life commitments.
+    \item \textbf{Types of Travel}: Casual, entertainment, and work travel were the most common, underscoring the importance of leisure and professional commitments in travel plans.
+    \item \textbf{Itinerary Planning}: Online travel websites and YouTube videos are the primary sources for itinerary planning, showing a shift towards digital platforms and social media for travel information.
+    \item \textbf{Customization Preferences}: A significant majority prefer customized itineraries over preselected packages, emphasizing the need for personalized travel planning tools.
+    \item \textbf{Satisfaction with Travel Agencies}: Satisfaction levels with travel agencies vary, with many users expressing moderate satisfaction, indicating potential areas for improvement in travel agency services.
+    \item \textbf{Challenges in Planning}: The main challenges include the overwhelming amount of information, coordination difficulties, and lack of personalized recommendations, making travel planning a time-consuming and stressful process.
+\end{itemize}
 
+\subsection{Interview Methodology and Findings}
+In addition to the survey, we conducted in-depth interviews with selected participants to gain deeper insights into their travel planning experiences. The interviews focused on understanding the specific pain points and expectations from a travel planning tool.
 
+\textbf{Key Insights from Interviews:}
 
+\begin{itemize}
+    \item \textbf{Frequency of Travel}: Interviewees typically travel 3-4 times a year, with a mix of long vacations and short trips, emphasizing the need for flexible and comprehensive planning tools.
+    \item \textbf{Planning Process}: The typical process involves extensive research using multiple online sources, comparison of prices, and seeking recommendations from friends and family, highlighting the complexity and time-consuming nature of travel planning.
+    \item \textbf{Challenges}: Common challenges include dealing with an overwhelming amount of information, coordinating different trip elements, and finding reliable, personalized recommendations. These issues often lead to stress and inefficiencies in planning.
+    \item \textbf{Expectations from AI Tools}: Participants expressed a strong preference for AI tools that provide tailored recommendations, streamline the booking process, and offer real-time updates. The ability to integrate multiple information sources and provide a cohesive planning experience was deemed essential.
+    \item \textbf{Personalization}: The importance of personalization was reiterated, with users seeking tools that can adapt to their unique interests and preferences, ensuring a more enjoyable and relevant travel experience.
+    \item \textbf{User Experience}: There is a high demand for user-friendly interfaces that offer seamless integration with other platforms, clear information presentation, and robust customer support.
+\end{itemize}
 
-
-
-
-
+\subsection{Ongoing Implications}
+The survey and interview findings underscore the need for a comprehensive, personalized travel planning tool like Roamify. Users face significant challenges in planning their trips, including information overload, coordination difficulties, and lack of personalized recommendations. By leveraging AI to provide tailored itineraries, real-time updates, and an intuitive user interface, Roamify can address these pain points and enhance the overall travel planning experience. The insights gained from this research will inform the development of Roamify, ensuring it meets the needs and expectations of modern travelers.
 
 \section{Conclusion}
 The conclusion goes here.
 
-
-
-
-
 \section*{Acknowledgment}
-    The authors would like to extend their sincerest gratitude to \href{https://www.iiitd.ac.in/dhruv}{Dr Dhruv Kumar} \textit{(Computer Science \& Engineering Dept., \href{https://www.iiitd.ac.in/}{IIIT-Delhi})} for their invaluable guidance throughout the project.
-    Their insightful feedback and expertise have been instrumental in shaping this project into its final form.
-
-
-
+The authors would like to extend their sincerest gratitude to \href{https://www.iiitd.ac.in/dhruv}{Dr Dhruv Kumar} \textit{(Computer Science \& Engineering Dept., \href{https://www.iiitd.ac.in/}{IIIT-Delhi})} for their invaluable guidance throughout the project.
+Their insightful feedback and expertise have been instrumental in shaping this project into its final form.
 \begin{thebibliography}{1}
 
-    % Sample Reference
-    \bibitem{IEEEhowto:kopka}
-        @article{article,
-        author = {Filho, Angelo and Morabito, Reinaldo},
-        year = {2023},
-        month = {11},
-        pages = {122437},
-        title = {An effective approach for bi-objective multi-period touristic itinerary planning},
-        volume = {240},
-        journal = {Expert Systems with Applications},
-        doi = {10.1016/j.eswa.2023.122437}
-        }
+% Sample Reference
+\bibitem{IEEEhowto:kopka}
+    @article{article,
+    author = {Filho, Angelo and Morabito, Reinaldo},
+    year = {2023},
+    month = {11},
+    pages = {122437},
+    title = {An effective approach for bi-objective multi-period touristic itinerary planning},
+    volume = {240},
+    journal = {Expert Systems with Applications},
+    doi = {10.1016/j.eswa.2023.122437}
+    }
 
-    \bibitem{IEEEhowto:openai}
-        OpenAI. (2023). "ChatGPT Release Notes." Retrieved from \url{https://help.openai.com/en/articles/6825453-chatgpt-release-notes}.
+\bibitem{IEEEhowto:openai}
+    OpenAI. (2023). "ChatGPT Release Notes." Retrieved from \url{https://help.openai.com/en/articles/6825453-chatgpt-release-notes}.
 
-    \bibitem{IEEEhowto:econsultancy}
-        Econsultancy. (2023). "Travel: How OTAs are adding generative AI to test the future of trip planning." Retrieved from \url{https://econsultancy.com/travel-ota-generative-ai/}.
+\bibitem{IEEEhowto:econsultancy}
+    Econsultancy. (2023). "Travel: How OTAs are adding generative AI to test the future of trip planning." Retrieved from \url{https://econsultancy.com/travel-ota-generative-ai/}.
 
-    \bibitem{IEEEhowto:srdvtechnologies}
-        SRDV Technologies. (2023). "Major Challenges Faced by Online Travel Agencies." Retrieved from \url{https://www.srdvtechnologies.com/blog/major-challenges-faced-by-online-travel-agencies}.
+\bibitem{IEEEhowto:srdvtechnologies}
+    SRDV Technologies. (2023). "Major Challenges Faced by Online Travel Agencies." Retrieved from \url{https://www.srdvtechnologies.com/blog/major-challenges-faced-by-online-travel-agencies}.
 
 \end{thebibliography}
 
@@ -629,7 +580,5 @@ In addition to the survey, we conducted in-depth interviews with selected partic
     \item What do you expect from a travel planning app or tool in terms of user experience?
     \item Have you ever used an AI-driven travel planning website where you can ask for personalized travel suggestions? If so, how was your experience?
 \end{enumerate}
-
-
 
 \end{document}
