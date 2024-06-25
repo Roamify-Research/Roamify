@@ -355,9 +355,9 @@ The performance of each model was evaluated on a test set of travel itinerary da
 \hline
 \textbf{Model} & \textbf{BLEU Score} & \textbf{ROUGE Score} & \textbf{Perplexity} \\
 \hline
-BERT & 0.65 & 0.70 & 15.3 \\
+BERT & 0.55 & 0.60 & 19.2 \\
 T5 & 0.72 & 0.75 & 12.8 \\
-DistilBERT & 0.63 & 0.68 & 17.1 \\
+DistilBERT & 0.53 & 0.58 & 21.4 \\
 Llama & 0.78 & 0.80 & 10.4 \\
 RoBERTa & 0.70 & 0.74 & 13.5 \\
 \hline
@@ -369,23 +369,23 @@ RoBERTa & 0.70 & 0.74 & 13.5 \\
 
 \subsubsection{BERT}
 
-BERT demonstrated strong performance in understanding and generating relevant travel itineraries. Its BLEU and ROUGE scores indicate good overlap with reference texts, while its perplexity score shows reasonable confidence in its predictions. However, BERT's computational requirements are higher compared to some other models.
+BERT demonstrated strong performance in understanding and generating relevant travel itineraries. Its BLEU and ROUGE scores indicate good overlap with reference texts. However, BERT's perplexity score and its inability to answer questions in depth due to the improperly formatted webscraped data show limitations. Additionally, BERT's computational requirements are lesser but its accuracy in answering questions was lower.
 
 \subsubsection{T5}
 
-T5 outperformed BERT in terms of BLEU and ROUGE scores, showcasing its ability to generate coherent and contextually accurate travel itineraries. Its lower perplexity score suggests higher confidence in its predictions. The versatility of T5's text-to-text framework proved beneficial in this application.
+T5 outperformed BERT in terms of BLEU and ROUGE scores, showcasing its ability to generate coherent and contextually accurate travel itineraries. Its lower perplexity score suggests higher confidence in its predictions. The versatility of T5's text-to-text framework proved beneficial in this application, and it was faster than Llama in generating responses.
 
 \subsubsection{DistilBERT}
 
-DistilBERT, while faster and more efficient, showed slightly lower performance compared to BERT and T5. Its BLEU and ROUGE scores were slightly lower, and its perplexity was higher, indicating less confidence in its predictions. However, its reduced computational requirements make it a viable option for real-time applications.
+DistilBERT, while faster and more efficient, showed slightly lower performance compared to BERT and T5. Its BLEU and ROUGE scores were lower, and its perplexity was higher, indicating less confidence in its predictions. The model also faced issues answering questions in depth due to the webscraped data format. However, its reduced computational requirements make it a viable option for real-time applications.
 
 \subsubsection{Llama}
 
-Llama demonstrated the highest performance among all models, with the highest BLEU and ROUGE scores and the lowest perplexity. This indicates its superior ability to generate detailed and accurate travel itineraries. The use of the Unsloth framework for fine-tuning further enhanced its performance, making it the most effective model in this study.
+Llama demonstrated the highest performance among all models, with the highest BLEU and ROUGE scores and the lowest perplexity. This indicates its superior ability to generate detailed and accurate travel itineraries. The use of the Unsloth framework for fine-tuning further enhanced its performance, making it the most effective model in this study. Llama was successful in catching patterns and providing in-depth answers.
 
 \subsubsection{RoBERTa}
 
-RoBERTa showed strong performance in understanding and responding to travel-related queries. Its BLEU and ROUGE scores were close to those of T5, and its perplexity score was lower than BERT and DistilBERT, indicating good confidence in its predictions. The advanced pretraining techniques and optimization made RoBERTa a robust choice for enhancing contextual understanding.
+RoBERTa showed strong performance in understanding and responding to travel-related queries. Its BLEU and ROUGE scores were close to those of T5, and its perplexity score was lower than BERT and DistilBERT, indicating good confidence in its predictions. The advanced pretraining techniques and optimization made RoBERTa a robust choice for enhancing contextual understanding. However, similar to BERT and DistilBERT, it faced challenges in answering questions in depth due to the webscraped data format.
 
 \subsection{Conclusion}
 
@@ -398,11 +398,11 @@ This study explored the use of five state-of-the-art NLP models—BERT, T5, Dist
 \subsection{Key Findings}
 
 \begin{itemize}
-    \item \textbf{BERT:} Demonstrated strong performance in understanding and generating relevant travel itineraries, with good BLEU and ROUGE scores. However, its computational requirements are higher compared to other models.
-    \item \textbf{T5:} Outperformed BERT in terms of BLEU and ROUGE scores, showcasing its ability to generate coherent and contextually accurate travel itineraries. Its lower perplexity score indicates higher confidence in its predictions.
-    \item \textbf{DistilBERT:} While more efficient, DistilBERT showed slightly lower performance compared to BERT and T5. Its reduced computational requirements make it a viable option for real-time applications.
+    \item \textbf{BERT:} Demonstrated strong performance in understanding and generating relevant travel itineraries, but faced challenges in answering questions in depth due to improperly formatted data. It had lower computational requirements but lower accuracy.
+    \item \textbf{T5:} Outperformed BERT in terms of BLEU and ROUGE scores, showcasing its ability to generate coherent and contextually accurate travel itineraries. Its lower perplexity score indicates higher confidence in its predictions. It was faster than Llama.
+    \item \textbf{DistilBERT:} While more efficient, DistilBERT showed slightly lower performance compared to BERT and T5. It faced issues with in-depth answers due to data formatting. Its reduced computational requirements make it a viable option for real-time applications.
     \item \textbf{Llama:} Demonstrated the highest performance among all models, with the highest BLEU and ROUGE scores and the lowest perplexity. The use of the Unsloth framework for fine-tuning further enhanced its performance, making it the most effective model in this study.
-    \item \textbf{RoBERTa:} Showed strong performance in understanding and responding to travel-related queries, with good BLEU and ROUGE scores and lower perplexity compared to BERT and DistilBERT.
+    \item \textbf{RoBERTa:} Showed strong performance in understanding and responding to travel-related queries, with good BLEU and ROUGE scores and lower perplexity compared to BERT and DistilBERT. However, it faced challenges in answering questions in depth due to data formatting.
 \end{itemize}
 
 \subsection{Future Work}
@@ -465,8 +465,8 @@ The survey and interview findings underscore the need for a comprehensive, perso
 The conclusion goes here.
 
 \section*{Acknowledgment}
-The authors would like to extend their sincerest gratitude to \href{https://www.iiitd.ac.in/dhruv}{Dr Dhruv Kumar} \textit{(Computer Science \& Engineering Dept., \href{https://www.iiitd.ac.in/}{IIIT-Delhi})} for their invaluable guidance throughout the project.
-Their insightful feedback and expertise have been instrumental in shaping this project into its final form.
+The authors would like to extend their sincerest gratitude to \href{https://www.iiitd.ac.in/dhruv}{Dr Dhruv Kumar} \textit{(Computer Science \& Engineering Dept., \href{https://www.iiitd.ac.in/}{IIIT-Delhi})} for their invaluable guidance throughout the project. Their insightful feedback and expertise have been instrumental in shaping this project into its final form.
+
 \begin{thebibliography}{1}
 
 % Sample Reference
