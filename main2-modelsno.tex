@@ -282,6 +282,24 @@ Email: dhruv.kumar@iiitd.ac.in}}
         \label{tab:results}
         \end{table}
 
+    Additionally, the training and evaluation loss for DistilBERT and RoBERTa are as follows:
+
+    \begin{itemize}
+        \item \textbf{DistilBERT:}
+        \begin{itemize}
+            \item \textbf{Train Loss:} [2.361349582672119, 1.0397248268127441, 1.1817796230316162]
+            \item \textbf{Eval Loss:} [-1.7760356664657593, -3.611274003982544, -3.9986178874969482]
+        \end{itemize}
+
+        \item \textbf{RoBERTa:}
+        \begin{itemize}
+            \item \textbf{Train Loss:} [1.954904317855835, 2.6523895263671875, 1.2275750637054443]
+            \item \textbf{Eval Loss:} [-2.0042619705200195, -4.5487589836120605, -5.274253845214844]
+        \end{itemize}
+    \end{itemize}
+
+    The negative evaluation loss scores indicate issues with evaluation, suggesting that the models were not able to derive context from the dataset properly.
+
     \subsection{Discussion}
 
         \subsubsection{BERT}
@@ -294,7 +312,7 @@ Email: dhruv.kumar@iiitd.ac.in}}
 
         \subsubsection{DistilBERT}
 
-            DistilBERT, while faster and more efficient, showed slightly lower performance compared to BERT and T5. Its BLEU and ROUGE scores were lower, and its perplexity was higher, indicating less confidence in its predictions. The model also faced issues answering questions in depth due to the webscraped data format. However, its reduced computational requirements make it a viable option for real-time applications.
+            DistilBERT, while faster and more efficient, showed slightly lower performance compared to BERT and T5. Its BLEU and ROUGE scores were lower, and its perplexity was higher, indicating less confidence in its predictions. The model also faced issues answering questions in depth due to the webscraped data format. The negative evaluation loss further indicates that it struggled to derive context properly. However, its reduced computational requirements make it a viable option for real-time applications.
 
         \subsubsection{Llama}
 
@@ -302,7 +320,7 @@ Email: dhruv.kumar@iiitd.ac.in}}
 
         \subsubsection{RoBERTa}
 
-            RoBERTa showed strong performance in understanding and responding to travel-related queries. Its BLEU and ROUGE scores were close to those of T5, and its perplexity score was lower than BERT and DistilBERT, indicating good confidence in its predictions. The advanced pretraining techniques and optimization made RoBERTa a robust choice for enhancing contextual understanding. However, similar to BERT and DistilBERT, it faced challenges in answering questions in depth due to the webscraped data format.
+            RoBERTa showed strong performance in understanding and responding to travel-related queries. Its BLEU and ROUGE scores were close to those of T5, and its perplexity score was lower than BERT and DistilBERT, indicating good confidence in its predictions. The advanced pretraining techniques and optimization made RoBERTa a robust choice for enhancing contextual understanding. However, similar to BERT and DistilBERT, it faced challenges in answering questions in depth due to the webscraped data format. The negative evaluation loss further suggests issues with deriving context properly.
 
     \subsection{Conclusion}
 
