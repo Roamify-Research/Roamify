@@ -208,7 +208,7 @@ Email: dhruv.kumar@iiitd.ac.in}}
                 \item Training epochs: 3
                 \item Learning rate: 2e-5
                 \item Batch size: 16
-                \item LoRA configuration: \texttt{r=16, lora\_alpha=16, lora\_dropout=0}
+                % \item LoRA configuration: \texttt{r=16, lora\_alpha=16, lora\_dropout=0}
                 \item Use gradient checkpointing: \texttt{unsloth}
             \end{itemize}
 
@@ -275,14 +275,21 @@ Email: dhruv.kumar@iiitd.ac.in}}
     \begin{itemize}
         \item \textbf{DistilBERT:}
         \begin{itemize}
-            \item \textbf{Train Loss:} [2.361349582672119, 1.0397248268127441, 1.1817796230316162]
-            \item \textbf{Eval Loss:} [-1.7760356664657593, -3.611274003982544, -3.9986178874969482]
+            \item \textbf{Train Loss:} [1.954904317855835, 2.6523895263671875, 1.2275750637054443]
+            \item \textbf{Eval Loss:} [-2.0042619705200195, -4.5487589836120605, -5.274253845214844]
         \end{itemize}
 
         \item \textbf{RoBERTa:}
         \begin{itemize}
-            \item \textbf{Train Loss:} [1.954904317855835, 2.6523895263671875, 1.2275750637054443]
-            \item \textbf{Eval Loss:} [-2.0042619705200195, -4.5487589836120605, -5.274253845214844]
+            \item \textbf{Train Loss:} [1.6825495958328247, 0.762340247631073, 0.7708142995834351]
+            \item \textbf{Eval Loss:} [-2.673956871032715, -4.201545715332031, -4.454132556915283]
+        \end{itemize}
+
+        \item \textbf{BERT:}
+        \begin{itemize}
+            \item \textbf{Train Loss:} [6.365660667419434, 6.262948036193848, 5.646426200866699],
+
+            \item \textbf{Eval Loss:} [0.20018316805362701, 0.02616404928267002,0.05858725681900978]
         \end{itemize}
     \end{itemize}
 
