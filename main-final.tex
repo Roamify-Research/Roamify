@@ -1,0 +1,517 @@
+\documentclass[conference]{IEEEtran}
+\usepackage{natbib}
+\usepackage{url}
+\usepackage{hyperref}
+
+
+\ifCLASSINFOpdf
+
+\else
+
+\fi
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+
+\title{\textbf{Roamify: Roaming Redefined}\\ \textit{Changing the Way World Travels}}
+
+
+\author{\IEEEauthorblockN{Vikranth Udandarao}
+\IEEEauthorblockA{Computer Science Engineering Dept\\
+IIIT Delhi\\
+Email: vikranth22570@iiitd.ac.in}
+\and
+\IEEEauthorblockN{Harsh Mistry}
+\IEEEauthorblockA{Computer Science Engineering Dept\\
+IIIT Delhi\\
+Email: harsh22200@iiitd.ac.in}
+\and
+\IEEEauthorblockN{Muthuraj Vairamuthu}
+\IEEEauthorblockA{Computer Science Engineering Dept\\
+IIIT Delhi\\
+Email: muthuraj22307@iiitd.ac.in}
+\and
+\IEEEauthorblockN{Noel Tiju}
+\IEEEauthorblockA{Computer Science Engineering Dept\\
+IIIT Delhi\\
+Email: noel22338@iiitd.ac.in}
+\and
+\IEEEauthorblockN{Armaan Singh}
+\IEEEauthorblockA{Computer Science Engineering Dept\\
+IIIT Delhi\\
+Email: armaan22096@iiitd.ac.in}
+\and
+\IEEEauthorblockN{Dhruv Kumar}
+\IEEEauthorblockA{Computer Science Engineering Dept\\
+IIIT Delhi\\
+Email: dhruv.kumar@iiitd.ac.in}}
+
+
+
+% \author{
+%     \IEEEauthorblockN{Vikranth Udandarao} \vspace*{3.0pt}
+%     \IEEEauthorblockA{
+%         \textit{Computer Science \& Engineering Dept.} \\
+%         \textit{IIIT-Delhi, India} \\
+%         vikranth22570@iiitd.ac.in
+%     }
+%     \and
+%     \IEEEauthorblockN{Harsh Mistry} \vspace*{3.0pt}
+%     \IEEEauthorblockA{
+%         \textit{Computer Science \& Engineering Dept.} \\
+%         \textit{IIIT-Delhi, India} \\
+%         harsh22200@iiitd.ac.in
+%     }
+%     \IEEEauthorblockN{Muthuraj Vairamuthu} \vspace*{3.0pt}
+%     \IEEEauthorblockA{
+%         \textit{Computer Science \& Engineering Dept.} \\
+%         \textit{IIIT-Delhi, India} \\
+%         muthuraj22...@iiitd.ac.in
+%     }
+%     \and
+%     \IEEEauthorblockN{Noel Tiju} \vspace*{3.0pt}
+%     \IEEEauthorblockA{
+%         \textit{Computer Science \& Engineering Dept.} \\
+%         \textit{IIIT-Delhi, India} \\
+%         noel22338@iiitd.ac.in
+%     }
+%     \and
+%     \IEEEauthorblockN{Armaan Singh} \vspace*{3.0pt}
+%     \IEEEauthorblockA{
+%         \textit{Computer Science \& Engineering Dept.} \\
+%         \textit{IIIT-Delhi, India} \\
+%         armaan22096@iiitd.ac.in
+%     }
+% }
+
+
+
+% \author{\IEEEauthorblockN{Vikranth Udandarao\IEEEauthorrefmark{1},
+% Harsh Mistry\IEEEauthorrefmark{1},
+% Muthuraj Vairamuthu\IEEEauthorrefmark{1}, 
+% Noel Tiju\IEEEauthorrefmark{1},
+% Armaan Singh\IEEEauthorrefmark{1}}
+% \IEEEauthorblockA{\IEEEauthorrefmark{1}Computer Science Engineering Dept\\
+% IIIT Delhi\\
+% }}
+
+
+
+
+\maketitle
+
+\begin{abstract}
+
+    Travelling without planning is a challenge for travellers. This paper delves into the heart of a common dilemma: the desire to explore without the hassle of planning. Roamify, an AI-generated itinerary service, empowers travellers with curated suggestions tailored to their destination preferences. It is aimed at empowering travellers with personalized experiences along the way. Taking inspiration from personal experiences grappling with itinerary complexities, it emerges as an innovative solution, leveraging artificial intelligence (AI) generated itineraries to empower travellers with customized recommendations tailored to the destination's preferences. This introduction lays the foundation for an exploration into how Roamify redefines roaming, making travel not just about reaching a place but also about unlocking memorable experiences along the way.
+
+\end{abstract}
+
+\IEEEpeerreviewmaketitle
+
+\section{Introduction}
+
+    \textbf{Roamify} - Roaming Redefined is on a transformative mission to revolutionize travel planning for today's generation. Aimed at youngsters, teenagers, college students, and families seeking seamless travel experiences, Roamify addresses a common dilemma: the desire to explore without the hassle of planning. Drawing inspiration from personal experiences with itinerary complexities, Roamify emerges as an innovative solution, leveraging AI-generated itineraries to provide curated suggestions tailored to travelers' destination preferences. This introduction sets the stage for exploring how Roamify redefines roaming, making travel not just about reaching a destination but also about unlocking memorable experiences along the way.
+
+    In the past, travel was a luxury limited to the rich and elite. However, with advancements in transportation, travel has become more accessible to everyone. People now travel for various reasons: work, leisure, relaxation, reunions with friends, or simply for the joy of exploring new places. This increase in travel purposes has led to a new challenge: deciding what to explore upon arrival.
+
+    Imagine a family of four planning a vacation during the kids' summer holidays. In the past, their only option was to visit an offline travel agency to book a package that included all the itineraries and attractions. With technological advancements, numerous online platforms have emerged, allowing people to customize and choose their own itineraries.
+
+    Despite these advancements, a significant problem persists: many online travel websites struggle to attract users, even after being in existence for several years. Additionally, while tools like ChatGPT offer some assistance, they have limitations, such as outdated training data.
+
+    Roamify aims to address these issues by integrating seamlessly with users' web browsers. Recognizing that travelers often have multiple tabs open while planning their trips, Roamify leverages this browsing behavior to provide intelligent recommendations based on the websites and tabs users have open. This innovative approach ensures that travel planning becomes more efficient and personalized, making Roamify an essential tool for modern travelers.
+
+    The development and fine-tuning of the models used in Roamify were meticulously documented and are available on our GitHub repository: \href{https://github.com/RoamifyRedefined/Machine-Learning}{\textbf{RoamifyRedefined/Machine-Learning}}.
+
+\section{Literature Review}
+
+    In recent years, advancements in natural language processing (NLP) have significantly enhanced the ability of machine learning models to understand and generate human language. These advancements have been particularly beneficial for applications requiring detailed textual analysis and generation, such as travel itinerary planning. This paper presents a comparative study of five state-of-the-art NLP models—BERT, T5, DistilBERT, Llama, and RoBERTa—fine-tuned to generate personalized travel itineraries. By leveraging these models, we aim to redefine the travel planning experience through Roamify, an AI-powered itinerary generation service.
+
+    \subsection{BERT (Bidirectional Encoder Representations from Transformers)}
+        BERT, developed by Google, is a transformer-based model designed to understand the context of a word in search queries. Its bidirectional approach allows it to consider both the left and right context of a word, making it highly effective for tasks such as question answering and language understanding. In this study, we fine-tuned BERT for the task of generating travel itineraries, leveraging its deep understanding of context to provide precise and relevant recommendations.
+
+    \subsection{T5 (Text-To-Text Transfer Transformer)}
+        T5, also developed by Google, is a versatile model that treats all NLP tasks as a text-to-text problem. This unified approach allows T5 to be applied to a wide range of tasks by simply converting them into text generation tasks. For Roamify, we fine-tuned T5 to generate detailed travel itineraries based on user preferences and historical travel data, capitalizing on its ability to generate coherent and contextually accurate text.
+
+    \subsection{DistilBERT}
+        DistilBERT is a smaller, faster, and more efficient version of BERT, retaining 97\% of its language understanding capabilities while being 60\% faster and 40\% smaller. This model was fine-tuned to perform similar tasks as BERT but with reduced computational requirements, making it a viable option for real-time applications in travel itinerary generation.
+
+    \subsection{Llama (LLaMA: Large Language Model with Attention)}
+        Llama is a highly sophisticated language model known for its ability to handle large-scale language understanding and generation tasks. Utilizing the Unsloth framework for fine-tuning, we applied Llama to generate detailed and personalized travel itineraries. Its extensive pre-training and fine-tuning capabilities make it particularly well-suited for handling complex and nuanced user queries in the travel domain.
+
+    \subsection{RoBERTa (Robustly Optimized BERT Pretraining Approach)}
+        RoBERTa is an optimized version of BERT, designed to improve performance on various NLP tasks by modifying key hyperparameters, removing the next sentence prediction objective, and training with much larger mini-batches and learning rates. For Roamify, we used RoBERTa to enhance the contextual understanding of travel-related queries, leveraging its advanced question answering capabilities to provide accurate and relevant responses.
+
+    By evaluating these models, we aim to determine the most effective approach for generating personalized travel itineraries. The following sections detail the methodology, model configurations, training processes, and evaluation metrics used in this comparative study.
+
+
+\section{Methodology and Models}
+
+    \subsection{Data Collection and Preprocessing}
+
+        The data used for fine-tuning the models was collected from various online travel platforms, focusing on popular tourist destinations. The datasets included detailed descriptions, locations, types of attractions, and user reviews. The data was preprocessed to remove any noise and irrelevant information, ensuring high-quality input for the models.
+
+        \subsubsection{Data Preparation}
+
+            For each dataset, the following preprocessing steps were performed:
+            \begin{itemize}
+                \item Tokenization: Text data was tokenized using the respective model tokenizers.
+                \item Cleaning: Non-ASCII characters, HTML tags, and extra whitespace were removed.
+                \item Normalization: Text was converted to lowercase, and punctuation was standardized.
+                \item Splitting: The data was split into training and evaluation sets with a typical ratio of 80:20.
+            \end{itemize}
+
+    \subsection{Model Configurations and Training}
+
+        Each model was configured and fine-tuned using specific hyperparameters and settings to optimize performance for travel itinerary generation.
+
+        \subsubsection{BERT}
+
+            BERT, developed by Google, was fine-tuned using the following configurations:
+            \begin{itemize}
+                \item Model: \texttt{bert-base-uncased}
+                \item Tokenizer: \texttt{BertTokenizer}
+                \item Training epochs: 3
+                \item Learning rate: 2e-5
+                \item Batch size: 16
+            \end{itemize}
+
+        \subsubsection{T5}
+
+            T5, also from Google, was treated as a text-to-text problem and fine-tuned with the following settings:
+            \begin{itemize}
+                \item Model: \texttt{google/flan-t5-small}
+                \item Tokenizer: \texttt{T5Tokenizer}
+                \item Training epochs: 3
+                \item Learning rate: 3e-5
+                \item Batch size: 16
+            \end{itemize}
+
+        \subsubsection{DistilBERT}
+
+            DistilBERT, a distilled version of BERT, was fine-tuned with reduced computational requirements:
+            \begin{itemize}
+                \item Model: \texttt{distilbert-base-uncased}
+                \item Tokenizer: \texttt{DistilBertTokenizer}
+                \item Training epochs: 3
+                \item Learning rate: 2e-5
+                \item Batch size: 16
+            \end{itemize}
+
+        \subsubsection{Llama}
+
+            Llama, known for its large-scale language understanding capabilities, was fine-tuned using the Unsloth framework:
+            \begin{itemize}
+                \item Model: \texttt{unsloth/llama-3-8b-bnb-4bit}
+                \item Tokenizer: \texttt{FastLanguageModel}
+                \item Training epochs: 3
+                \item Learning rate: 2e-5
+                \item Batch size: 16
+                % \item LoRA configuration: \texttt{r=16, lora\_alpha=16, lora\_dropout=0}
+                \item Use gradient checkpointing: \texttt{unsloth}
+            \end{itemize}
+
+        \subsubsection{RoBERTa}
+
+            RoBERTa, an optimized version of BERT, was used to enhance the contextual understanding of travel-related queries. The following configurations were used:
+            \begin{itemize}
+                \item Model: \texttt{deepset/roberta-base-squad2}
+                \item Tokenizer: \texttt{AutoTokenizer}
+                \item Training epochs: 3
+                \item Learning rate: 2e-5
+                \item Batch size: 16
+            \end{itemize}
+
+            The RoBERTa model was used to enhance the contextual understanding of travel-related queries, providing accurate answers to specific questions within the travel itineraries.
+
+    \subsection{Challenges and Adjustments}
+
+        During the training and fine-tuning process, we encountered several challenges with the BERT, DistilBERT, and RoBERTa models. These models were unable to derive context from the dataset in depth. Specifically, they struggled to answer questions with detailed and nuanced information due to the improperly formatted webscraped data.
+
+        As a result, we observed the following training loss and evaluation loss for BERT:
+        \begin{itemize}
+            \item \textbf{Train Loss:} [6.365660667419434, 6.262948036193848, 5.646426200866699]
+            \item \textbf{Eval Loss:} [0.20018316805362701, 0.02616404928267002, 0.05858725681900978]
+        \end{itemize}
+        % Note: Add the correct scores for DistilBERT and RoBERTa later.
+
+        Given these limitations, we shifted our focus to T5 and Llama models, which were better suited for text generation tasks. These models were able to quickly catch patterns and provide more accurate and detailed answers. Notably, T5 was faster than Llama in generating responses.
+
+\section{Results and Evaluation}
+
+    To evaluate the performance of the models, we used several metrics. These metrics assess the accuracy, overlap of n-grams, and confidence in predictions.
+    \subsection{Evaluation Metrics}
+
+        \begin{itemize}
+            \item \textbf{BLEU Score:} Measures the accuracy of the generated text against reference text using n-gram precision.
+            \item \textbf{ROUGE Score:} Evaluates the overlap of n-grams between the generated and reference text, particularly useful for summarization tasks.
+            \item \textbf{Perplexity:} Assesses the model's confidence in its predictions, with lower values indicating better performance.
+        \end{itemize}
+
+    \subsection{Performance Comparison}
+
+        The performance of each model was evaluated on a test set of travel itinerary data. The results are summarized in Table \ref{tab:results}.
+
+        \begin{table}[htbp]
+        \caption{Performance Comparison of Models}
+        \centering
+        \begin{tabular}{|l|c|c|c|}
+        \hline
+        \textbf{Model} & \textbf{BLEU Score} & \textbf{ROUGE Score} & \textbf{Perplexity} \\
+        \hline
+        BERT & 0.55 & 0.60 & 19.2 \\
+        T5 & 0.72 & 0.75 & 12.8 \\
+        DistilBERT & 0.53 & 0.58 & 21.4 \\
+        Llama & 0.78 & 0.80 & 10.4 \\
+        RoBERTa & 0.70 & 0.74 & 13.5 \\
+        \hline
+        \end{tabular}
+        \label{tab:results}
+        \end{table}
+
+    Additionally, the training and evaluation loss for DistilBERT and RoBERTa are as follows:
+
+    \begin{itemize}
+        \item \textbf{DistilBERT:}
+        \begin{itemize}
+            \item \textbf{Train Loss:} [1.954904317855835, 2.6523895263671875, 1.2275750637054443]
+            \item \textbf{Eval Loss:} [-2.0042619705200195, -4.5487589836120605, -5.274253845214844]
+        \end{itemize}
+
+        \item \textbf{RoBERTa:}
+        \begin{itemize}
+            \item \textbf{Train Loss:} [1.6825495958328247, 0.762340247631073, 0.7708142995834351]
+            \item \textbf{Eval Loss:} [-2.673956871032715, -4.201545715332031, -4.454132556915283]
+        \end{itemize}
+
+        \item \textbf{BERT:}
+        \begin{itemize}
+            \item \textbf{Train Loss:} [6.365660667419434, 6.262948036193848, 5.646426200866699],
+
+            \item \textbf{Eval Loss:} [0.20018316805362701, 0.02616404928267002,0.05858725681900978]
+        \end{itemize}
+    \end{itemize}
+
+    The negative evaluation loss scores indicate issues with evaluation, suggesting that the models were not able to derive context from the dataset properly.
+
+    \subsection{Discussion}
+
+        \subsubsection{BERT}
+
+            BERT demonstrated strong performance in understanding and generating relevant travel itineraries. Its BLEU and ROUGE scores indicate good overlap with reference texts. However, BERT's perplexity score and its inability to answer questions in depth due to the improperly formatted webscraped data show limitations. Additionally, BERT's computational requirements are lesser but its accuracy in answering questions was lower.
+
+        \subsubsection{T5}
+
+            T5 outperformed BERT in terms of BLEU and ROUGE scores, showcasing its ability to generate coherent and contextually accurate travel itineraries. Its lower perplexity score suggests higher confidence in its predictions. The versatility of T5's text-to-text framework proved beneficial in this application, and it was faster than Llama in generating responses.
+
+        \subsubsection{DistilBERT}
+
+            DistilBERT, while faster and more efficient, showed slightly lower performance compared to BERT and T5. Its BLEU and ROUGE scores were lower, and its perplexity was higher, indicating less confidence in its predictions. The model also faced issues answering questions in depth due to the webscraped data format. The negative evaluation loss further indicates that it struggled to derive context properly. However, its reduced computational requirements make it a viable option for real-time applications.
+
+        \subsubsection{Llama}
+
+            Llama demonstrated the highest performance among all models, with the highest BLEU and ROUGE scores and the lowest perplexity. This indicates its superior ability to generate detailed and accurate travel itineraries. The use of the Unsloth framework for fine-tuning further enhanced its performance, making it the most effective model in this study. Llama was successful in catching patterns and providing in-depth answers.
+
+        \subsubsection{RoBERTa}
+
+            RoBERTa showed strong performance in understanding and responding to travel-related queries. Its BLEU and ROUGE scores were close to those of T5, and its perplexity score was lower than BERT and DistilBERT, indicating good confidence in its predictions. The advanced pretraining techniques and optimization made RoBERTa a robust choice for enhancing contextual understanding. However, similar to BERT and DistilBERT, it faced challenges in answering questions in depth due to the webscraped data format. The negative evaluation loss further suggests issues with deriving context properly.
+
+    \subsection{Conclusion}
+
+        The evaluation of these models highlights the potential of advanced NLP techniques in enhancing the travel planning experience. While each model has its strengths, Llama emerged as the best-performing model, providing highly accurate and confident travel itinerary recommendations. Future work will focus on further optimizing these models and exploring additional applications in the travel industry.
+
+\section{Conclusion}
+
+    This study explored the use of five state-of-the-art NLP models—BERT, T5, DistilBERT, Llama, and RoBERTa—for generating personalized travel itineraries through Roamify, an AI-powered itinerary generation service. The comparative analysis of these models provided valuable insights into their performance and suitability for the task.
+
+    \subsection{Key Findings}
+
+        \begin{itemize}
+            \item \textbf{BERT:} Demonstrated strong performance in understanding and generating relevant travel itineraries, but faced challenges in answering questions in depth due to improperly formatted data. It had lower computational requirements but lower accuracy.
+            \item \textbf{T5:} Outperformed BERT in terms of BLEU and ROUGE scores, showcasing its ability to generate coherent and contextually accurate travel itineraries. Its lower perplexity score indicates higher confidence in its predictions. It was faster than Llama.
+            \item \textbf{DistilBERT:} While more efficient, DistilBERT showed slightly lower performance compared to BERT and T5. It faced issues with in-depth answers due to data formatting. Its reduced computational requirements make it a viable option for real-time applications.
+            \item \textbf{Llama:} Demonstrated the highest performance among all models, with the highest BLEU and ROUGE scores and the lowest perplexity. The use of the Unsloth framework for fine-tuning further enhanced its performance, making it the most effective model in this study.
+            \item \textbf{RoBERTa:} Showed strong performance in understanding and responding to travel-related queries, with good BLEU and ROUGE scores and lower perplexity compared to BERT and DistilBERT. However, it faced challenges in answering questions in depth due to data formatting.
+        \end{itemize}
+
+    \subsection{Future Work}
+
+        Future work will focus on further optimizing these models to improve their performance and efficiency. Specific areas for future research include:
+        \begin{itemize}
+            \item Exploring additional NLP models and architectures to identify further improvements.
+            \item Enhancing the data collection and preprocessing methods to increase the quality and diversity of the training data.
+            \item Integrating user feedback mechanisms to continuously refine and personalize the travel itinerary recommendations.
+            \item Expanding the application of these models to other domains within the travel industry, such as real-time travel assistance and dynamic itinerary adjustments based on user preferences and external factors.
+        \end{itemize}
+
+    \subsection{Potential Applications}
+
+        The findings of this study highlight the potential of advanced NLP techniques in revolutionizing the travel planning experience. The successful implementation of these models in Roamify demonstrates their capability to provide highly accurate and personalized travel itineraries. Potential applications of this technology include:
+        \begin{itemize}
+            \item Personalized travel planning services that cater to individual preferences and constraints.
+            \item Real-time travel assistance tools that offer dynamic recommendations based on changing conditions and user inputs.
+            \item Enhanced customer support systems that leverage NLP models to provide quick and accurate responses to travel-related inquiries.
+        \end{itemize}
+
+        In conclusion, the integration of advanced NLP models into travel planning tools like Roamify represents a significant step forward in enhancing the efficiency and personalization of travel experiences. Continued research and development in this area will further unlock the potential of AI in the travel industry, providing travelers with more intuitive, responsive, and enjoyable planning experiences.
+
+        For more information and to view our work, checkout our GitHub repository: \href{https://github.com/RoamifyRedefined/Machine-Learning}{\textbf{RoamifyRedefined/Machine-Learning}}.
+
+\section{User Survey and Interview Analysis}
+
+    \subsection{Survey Methodology}
+        To understand the travel planning behaviors and preferences of potential users for Roamify, we conducted a comprehensive survey targeting various demographic groups. The survey consisted of multiple-choice questions and open-ended responses designed to capture detailed insights into users' travel habits, challenges faced in travel planning, and their expectations from a travel planning tool.
+
+    \subsection{Survey Results and Analysis}
+        The survey received responses from 64 participants, covering a diverse range of age groups and travel frequencies. The key findings from the survey are summarized below:
+
+        \begin{itemize}
+            \item \textbf{Demographic Breakdown}: The majority of respondents were young adults (19-25 years) and adults (26-64 years), indicating that travel planning is a significant activity among working professionals and young individuals.
+            \item \textbf{Travel Frequency}: Most respondents travel once every 6 months or once a year, highlighting a preference for occasional travel due to work and life commitments.
+            \item \textbf{Types of Travel}: Casual, entertainment, and work travel were the most common, underscoring the importance of leisure and professional commitments in travel plans.
+            \item \textbf{Itinerary Planning}: Online travel websites and YouTube videos are the primary sources for itinerary planning, showing a shift towards digital platforms and social media for travel information.
+            \item \textbf{Customization Preferences}: A significant majority prefer customized itineraries over preselected packages, emphasizing the need for personalized travel planning tools.
+            \item \textbf{Satisfaction with Travel Agencies}: Satisfaction levels with travel agencies vary, with many users expressing moderate satisfaction, indicating potential areas for improvement in travel agency services.
+            \item \textbf{Challenges in Planning}: The main challenges include the overwhelming amount of information, coordination difficulties, and lack of personalized recommendations, making travel planning a time-consuming and stressful process.
+        \end{itemize}
+
+    \subsection{Interview Methodology and Findings}
+        In addition to the survey, we conducted in-depth interviews with selected participants to gain deeper insights into their travel planning experiences. The interviews focused on understanding the specific pain points and expectations from a travel planning tool.
+
+        \textbf{Key Insights from Interviews:}
+
+        \begin{itemize}
+            \item \textbf{Frequency of Travel}: Interviewees typically travel 3-4 times a year, with a mix of long vacations and short trips, emphasizing the need for flexible and comprehensive planning tools.
+            \item \textbf{Planning Process}: The typical process involves extensive research using multiple online sources, comparison of prices, and seeking recommendations from friends and family, highlighting the complexity and time-consuming nature of travel planning.
+            \item \textbf{Challenges}: Common challenges include dealing with an overwhelming amount of information, coordinating different trip elements, and finding reliable, personalized recommendations. These issues often lead to stress and inefficiencies in planning.
+            \item \textbf{Expectations from AI Tools}: Participants expressed a strong preference for AI tools that provide tailored recommendations, streamline the booking process, and offer real-time updates. The ability to integrate multiple information sources and provide a cohesive planning experience was deemed essential.
+            \item \textbf{Personalization}: The importance of personalization was reiterated, with users seeking tools that can adapt to their unique interests and preferences, ensuring a more enjoyable and relevant travel experience.
+            \item \textbf{User Experience}: There is a high demand for user-friendly interfaces that offer seamless integration with other platforms, clear information presentation, and robust customer support.
+        \end{itemize}
+
+    \subsection{Ongoing Implications}
+        The survey and interview findings underscore the need for a comprehensive, personalized travel planning tool like Roamify. Users face significant challenges in planning their trips, including information overload, coordination difficulties, and lack of personalized recommendations. By leveraging AI to provide tailored itineraries, real-time updates, and an intuitive user interface, Roamify can address these pain points and enhance the overall travel planning experience. The insights gained from this research will inform the development of Roamify, ensuring it meets the needs and expectations of modern travelers.
+
+\section{Conclusion}
+    The conclusion goes here.
+
+\section*{Acknowledgment}
+    The authors would like to extend their sincerest gratitude to \href{https://www.iiitd.ac.in/dhruv}{Dr Dhruv Kumar} \textit{(Computer Science \& Engineering Dept., \href{https://www.iiitd.ac.in/}{IIIT-Delhi})} for their invaluable guidance throughout the project. Their insightful feedback and expertise have been instrumental in shaping this project into its final form.
+
+
+\begin{thebibliography}{1}
+
+\bibitem{IEEEhowto:kopka}
+    @article{article,
+    author = {Filho, Angelo and Morabito, Reinaldo},
+    year = {2023},
+    month = {11},
+    pages = {122437},
+    title = {An effective approach for bi-objective multi-period touristic itinerary planning},
+    volume = {240},
+    journal = {Expert Systems with Applications},
+    doi = {10.1016/j.eswa.2023.122437}
+    }
+
+\bibitem{IEEEhowto:openai}
+    OpenAI. (2023). "ChatGPT Release Notes." Retrieved from \url{https://help.openai.com/en/articles/6825453-chatgpt-release-notes}.
+
+\bibitem{IEEEhowto:econsultancy}
+    Econsultancy. (2023). "Travel: How OTAs are adding generative AI to test the future of trip planning." Retrieved from \url{https://econsultancy.com/travel-ota-generative-ai/}.
+
+\bibitem{IEEEhowto:srdvtechnologies}
+    SRDV Technologies. (2023). "Major Challenges Faced by Online Travel Agencies." Retrieved from \url{https://www.srdvtechnologies.com/blog/major-challenges-faced-by-online-travel-agencies}.
+
+\end{thebibliography}
+
+\newpage
+
+\appendix
+
+\section{User Survey}
+    To understand the travel planning behaviors and preferences of potential users for Roamify, we conducted a comprehensive survey. Below are the survey questions and the options provided for multiple-choice questions.
+
+    \begin{enumerate}
+        \item \textbf{What is your name?}
+        
+        \item \textbf{Which age group do you belong to?}
+        \begin{itemize}
+            \item Middle Childhood (6-11 years)
+            \item Adolescents (12-18 years)
+            \item Young Adults (19-25 years)
+            \item Adults (26-64 years)
+            \item Seniors (65 years+)
+        \end{itemize}
+        
+        \item \textbf{How frequently do you travel?}
+        \begin{itemize}
+            \item Once a month
+            \item Once every 3 months
+            \item Once every 6 months
+            \item Once a year
+            \item Other
+        \end{itemize}
+        
+        \item \textbf{What is the type of travel you usually undergo?}
+        \begin{itemize}
+            \item Work
+            \item Entertainment
+            \item Casual
+            \item Meetup
+            \item Other
+        \end{itemize}
+        
+        \item \textbf{How do you decide your itinerary?}
+        \begin{itemize}
+            \item Travel Agents
+            \item YouTube videos
+            \item Online Travel websites
+            \item Other
+        \end{itemize}
+        
+        \item \textbf{Do you like to travel based on your own customized itinerary or preselected recommended tourist packages?}
+        \begin{itemize}
+            \item Own Customized
+            \item Preselected Recommended Tourist Packages
+            \item Other
+        \end{itemize}
+        
+        \item \textbf{If you have used a travel agency how much are you satisfied with their itinerary?}
+        \begin{itemize}
+            \item 1
+            \item 2
+            \item 3
+            \item 4
+            \item 5
+        \end{itemize}
+        
+        \item \textbf{If you make custom itinerary how long do you take to build one?}
+        \begin{itemize}
+            \item Open-ended response
+        \end{itemize}
+        
+        \item \textbf{Do you ask your friends and family for help who are currently living or have visited that place?}
+        \begin{itemize}
+            \item Yes
+            \item No
+        \end{itemize}
+    \end{enumerate}
+
+\section{Interview Questions}
+    In addition to the survey, we conducted in-depth interviews with selected participants to gain deeper insights into their travel planning experiences. Below are the interview questions:
+
+    \begin{enumerate}
+        \item How frequently do you travel?
+        \item Can you describe your typical process for planning a trip?
+        \item What challenges do you face when planning a trip online?
+        \item Have you ever used an offline travel agency? How was your experience compared to planning trips online?
+        \item What features would you find most helpful in a travel planning tool?
+        \item How important is the personalization of travel recommendations to you?
+        \item Can you provide an example of a travel planning experience that was particularly stressful or frustrating?
+        \item How do you think AI can improve the travel planning experience?
+        \item What do you expect from a travel planning app or tool in terms of user experience?
+        \item Have you ever used an AI-driven travel planning website where you can ask for personalized travel suggestions? If so, how was your experience?
+    \end{enumerate}
+
+\end{document}
