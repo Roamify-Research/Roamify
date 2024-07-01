@@ -272,16 +272,15 @@ Email: dhruv.kumar@iiitd.ac.in}}
             \end{itemize}
 
             \begin{verbatim}
-            Training_args = Seq2SeqTrainingArguments(
-            evaluation_strategy="epoch",
-            learning_rate=2e-5,
-            per_device_train_batch_size=10,
-            per_device_eval_batch_size=10,
-            weight_decay=0.01,
-            save_total_limit=3,
-            num_train_epochs=10
-            )
-            )
+Training_args = Seq2SeqTrainingArguments(
+evaluation_strategy="epoch",
+learning_rate=2e-5,
+per_device_train_batch_size=10,
+per_device_eval_batch_size=10,
+weight_decay=0.01,
+save_total_limit=3,
+num_train_epochs=10
+)
             \end{verbatim}
 
         \subsubsection{Llama}
@@ -297,21 +296,21 @@ Email: dhruv.kumar@iiitd.ac.in}}
             \end{itemize}
 
             \begin{verbatim}
-            TrainingArguments(
-                per_device_train_batch_size = 2,
-                gradient_accumulation_steps = 4,
-                warmup_steps = 5,
-                max_steps = 30,
-                learning_rate = 2e-4,
-                fp16 = not torch.cuda.is_bf16_supported(),
-                bf16 = torch.cuda.is_bf16_supported(),
-                logging_steps = 1,
-                optim = "adamw_8bit",
-                weight_decay = 0.01,
-                lr_scheduler_type = "linear",
-                seed = 3407,
-                output_dir = "outputs",
-            )
+TrainingArguments(
+    per_device_train_batch_size = 2,
+    gradient_accumulation_steps = 4,
+    warmup_steps = 5,
+    max_steps = 30,
+    learning_rate = 2e-4,
+    fp16 = not torch.cuda.is_bf16_supported(),
+    bf16 = torch.cuda.is_bf16_supported(),
+    logging_steps = 1,
+    optim = "adamw_8bit",
+    weight_decay = 0.01,
+    lr_scheduler_type = "linear",
+    seed = 3407,
+    output_dir = "outputs",
+)
             \end{verbatim}
 
 \section{Results and Evaluation}
