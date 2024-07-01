@@ -145,12 +145,73 @@ Email: dhruv.kumar@iiitd.ac.in}}
 
     By evaluating these models, we aim to determine the most effective approach for generating personalized travel itineraries. The following sections detail the methodology, model configurations, training processes, and evaluation metrics used in this comparative study.
 
+\section{NLP Processing}
+
+    This algorithm was used to clear junk from the scraped data. It involved four stages:
+
+    \subsection{Using spaCy}
+    We utilized the \texttt{en\_core\_web\_lg} model provided by the \texttt{spaCy} library to preprocess the data obtained through web scraping. The \texttt{en\_core\_web\_lg} model is a comprehensive English language model that incorporates pre-trained word vectors and has the ability to execute a range of natural language processing tasks, including tokenization, part-of-speech tagging, named entity recognition, and dependency parsing. By performing this pre-processing phase, we were able to efficiently cleanse and organize the data.
+
+    \subsection{Extracting Sentences}
+    We obtained sentences from the text that was processed using \texttt{spaCy}. During this step, the continuous text was divided into separate sentences, which facilitated the identification and analysis of distinct pieces of information.
+
+    \subsection{Recognizing Patterns}
+    Next, we segmented the sentences into individual words using the \texttt{word\_tokenize} feature. Throughout this procedure, our objective was to identify a particular pattern: a consecutive series of integers commencing with 1. This pattern was clearly identifiable in the data obtained through web scraping from websites that provide recommendations for attractions.
+
+    \subsection{Data Processing and Structuring}
+    After discovering this pattern, we retrieved the text that appeared between two consecutive integers. This material usually contained elaborate descriptions or information regarding the attractions. The recovered text was refined to eliminate any remaining interference or extraneous details.
+
+    The sanitized data was subsequently stored in a dictionary, where the keys denote the sequence numbers (1, 2, ...) and the values correspond to the purified attraction data. The structured style enabled us to effectively arrange and retrieve the pertinent information.
+
+    \begin{verbatim}
+    # Example dictionary structure
+    {
+        1: "Description of the first attraction",
+        2: "Description of the second attraction",
+        ...
+    }
+    \end{verbatim}
+
+    By adhering to these procedures, we guaranteed that the processed data was free from errors, organized, and prepared for additional analysis and model training.
 
 \section{Methodology and Models}
 
+    \subsection{Initial Approach}
+
+        Initially, we utilized various models to do two distinct tasks: question answering and text-to-text generation. The models employed for each task are enumerated below:
+
+        \subsubsection{Question Answering Models}
+
+        For the question answering task, we employed the following models:
+        \begin{itemize}
+            \item BERT
+            \item RoBERTa
+            \item DistilBERT
+        \end{itemize}
+
+        The models were employed to address inquiries pertaining to the context presented in the dataset. The main goal was to obtain important insights and precise replies from the processed scraped data.
+
+        \subsubsection{Text-to-Text Generation Models}
+
+        For the text-to-text generation task, specifically summarization, we utilized the following models:
+        \begin{itemize}
+            \item T5
+            \item Llama-3
+        \end{itemize}
+
+        The models were optimized to produce precise and succinct summaries of the provided text. The approach entailed compressing the material while preserving its significance and pertinence, which was essential for producing succinct descriptions of tourist destinations from the massive web-scraped data.
+        Our objective was to improve the comprehension and utility of the gathered data by utilizing these models, hence increasing its accessibility and providing users with more interesting insights.
+
     \subsection{Data Collection and Preprocessing}
 
-        The data used for fine-tuning the models was collected from various online travel platforms, focusing on popular tourist destinations. The datasets included detailed descriptions, locations, types of attractions, and user reviews. The data was preprocessed to remove any noise and irrelevant information, ensuring high-quality input for the models.
+        The data used for fine-tuning the models was collected from various online travel platforms, focusing on popular tourist destinations. The datasets included detailed descriptions, locations, types of attractions, and user reviews. The data was pre-processed to remove any noise and irrelevant information, ensuring high-quality input for the models.
+
+        We created two datasets for fine-tuning, each with a different purpose:
+
+        \begin{enumerate}
+            \item \textbf{Summarization Dataset}: The dataset was utilized to refine the Llama-3 and Flan-T5 models. The system was comprised of two components: context and summary. The context pertained to the data obtained by web scraping, while the summary was a concise translation of the text that was both grammatically correct and concise.
+            \item \textbf{Question-Answering Dataset}: The dataset was utilized to refine Question-Answering Models, specifically BERT, DistilBERT, and RoBERTa. The document has six questions as specified in the annexure. The dataset was utilized to get significant insights from the processed scraped data.
+        \end{enumerate}
 
         \subsubsection{Data Preparation}
 
@@ -162,9 +223,7 @@ Email: dhruv.kumar@iiitd.ac.in}}
                 \item Splitting: The data was split into training and evaluation sets with a typical ratio of 80:20.
             \end{itemize}
 
-    \subsection{Model Configurations and Training}
-
-        Each model was configured and fine-tuned using specific hyperparameters and settings to optimize performance for travel itinerary generation.
+    \subsection{Question Answering Models}
 
         \subsubsection{BERT}
 
@@ -173,19 +232,8 @@ Email: dhruv.kumar@iiitd.ac.in}}
                 \item Model: \texttt{bert-base-uncased}
                 \item Tokenizer: \texttt{BertTokenizer}
                 \item Training epochs: 3
-                \item Learning rate: 2e-5
-                \item Batch size: 16
-            \end{itemize}
-
-        \subsubsection{T5}
-
-            T5, also from Google, was treated as a text-to-text problem and fine-tuned with the following settings:
-            \begin{itemize}
-                \item Model: \texttt{google/flan-t5-small}
-                \item Tokenizer: \texttt{T5Tokenizer}
-                \item Training epochs: 3
-                \item Learning rate: 3e-5
-                \item Batch size: 16
+                \item Learning rate: 5e-5
+                \item Batch size: 8
             \end{itemize}
 
         \subsubsection{DistilBERT}
@@ -195,9 +243,35 @@ Email: dhruv.kumar@iiitd.ac.in}}
                 \item Model: \texttt{distilbert-base-uncased}
                 \item Tokenizer: \texttt{DistilBertTokenizer}
                 \item Training epochs: 3
+                \item Learning rate: 5e-5
+                \item Batch size: 8
+            \end{itemize}
+            
+    \subsection{Text2Text Generation Models}
+
+        \subsubsection{T5}
+
+            T5, also from Google, was treated as a text-to-text problem and fine-tuned with the following settings:
+            \begin{itemize}
+                \item Model: \texttt{google/flan-t5-small}
+                \item Tokenizer: \texttt{AutoTokenizer}
+                \item Training epochs: 10
                 \item Learning rate: 2e-5
                 \item Batch size: 16
             \end{itemize}
+
+            \begin{verbatim}
+            Training_args = Seq2SeqTrainingArguments(
+            evaluation_strategy="epoch",
+            learning_rate=2e-5,
+            per_device_train_batch_size=10,
+            per_device_eval_batch_size=10,
+            weight_decay=0.01,
+            save_total_limit=3,
+            num_train_epochs=10
+            )
+            )
+            \end{verbatim}
 
         \subsubsection{Llama}
 
@@ -205,38 +279,29 @@ Email: dhruv.kumar@iiitd.ac.in}}
             \begin{itemize}
                 \item Model: \texttt{unsloth/llama-3-8b-bnb-4bit}
                 \item Tokenizer: \texttt{FastLanguageModel}
-                \item Training epochs: 3
-                \item Learning rate: 2e-5
+                \item Max steps: 30
+                \item Learning rate: 2e-4
                 \item Batch size: 16
-                % \item LoRA configuration: \texttt{r=16, lora\_alpha=16, lora\_dropout=0}
                 \item Use gradient checkpointing: \texttt{unsloth}
             \end{itemize}
 
-        \subsubsection{RoBERTa}
-
-            RoBERTa, an optimized version of BERT, was used to enhance the contextual understanding of travel-related queries. The following configurations were used:
-            \begin{itemize}
-                \item Model: \texttt{deepset/roberta-base-squad2}
-                \item Tokenizer: \texttt{AutoTokenizer}
-                \item Training epochs: 3
-                \item Learning rate: 2e-5
-                \item Batch size: 16
-            \end{itemize}
-
-            The RoBERTa model was used to enhance the contextual understanding of travel-related queries, providing accurate answers to specific questions within the travel itineraries.
-
-    \subsection{Challenges and Adjustments}
-
-        During the training and fine-tuning process, we encountered several challenges with the BERT, DistilBERT, and RoBERTa models. These models were unable to derive context from the dataset in depth. Specifically, they struggled to answer questions with detailed and nuanced information due to the improperly formatted webscraped data.
-
-        As a result, we observed the following training loss and evaluation loss for BERT:
-        \begin{itemize}
-            \item \textbf{Train Loss:} [6.365660667419434, 6.262948036193848, 5.646426200866699]
-            \item \textbf{Eval Loss:} [0.20018316805362701, 0.02616404928267002, 0.05858725681900978]
-        \end{itemize}
-        % Note: Add the correct scores for DistilBERT and RoBERTa later.
-
-        Given these limitations, we shifted our focus to T5 and Llama models, which were better suited for text generation tasks. These models were able to quickly catch patterns and provide more accurate and detailed answers. Notably, T5 was faster than Llama in generating responses.
+            \begin{verbatim}
+            TrainingArguments(
+                per_device_train_batch_size = 2,
+                gradient_accumulation_steps = 4,
+                warmup_steps = 5,
+                max_steps = 30,
+                learning_rate = 2e-4,
+                fp16 = not torch.cuda.is_bf16_supported(),
+                bf16 = torch.cuda.is_bf16_supported(),
+                logging_steps = 1,
+                optim = "adamw_8bit",
+                weight_decay = 0.01,
+                lr_scheduler_type = "linear",
+                seed = 3407,
+                output_dir = "outputs",
+            )
+            \end{verbatim}
 
 \section{Results and Evaluation}
 
@@ -260,11 +325,8 @@ Email: dhruv.kumar@iiitd.ac.in}}
         \hline
         \textbf{Model} & \textbf{BLEU Score} & \textbf{ROUGE Score} & \textbf{Perplexity} \\
         \hline
-        BERT & 0.55 & 0.60 & 19.2 \\
         T5 & 0.72 & 0.75 & 12.8 \\
-        DistilBERT & 0.53 & 0.58 & 21.4 \\
         Llama & 0.78 & 0.80 & 10.4 \\
-        RoBERTa & 0.70 & 0.74 & 13.5 \\
         \hline
         \end{tabular}
         \label{tab:results}
@@ -297,25 +359,42 @@ Email: dhruv.kumar@iiitd.ac.in}}
 
     \subsection{Discussion}
 
-        \subsubsection{BERT}
+        \subsubsection{Question Answering Models}
 
-            BERT demonstrated strong performance in understanding and generating relevant travel itineraries. Its BLEU and ROUGE scores indicate good overlap with reference texts. However, BERT's perplexity score and its inability to answer questions in depth due to the improperly formatted webscraped data show limitations. Additionally, BERT's computational requirements are lesser but its accuracy in answering questions was lower.
+            The models' poor evaluation scores suggest that they were unable to produce precise predictions with a high level of confidence. The scores provided indicate the performance metrics of the models. Lower or negative scores indicate a lower level of prediction accuracy and a lack of reliability in the generated outputs. Despite the thorough preprocessing and meticulous fine-tuning, the models encountered difficulties in comprehending and providing effective responses to the provided environment. This result indicates that the models may have faced challenges due to the intricacy or diversity of the input data, resulting in imprecise responses and summaries. The low evaluation scores emphasize the necessity for additional improvement of the models or investigation of other methods to enhance the accuracy and confidence of predictions.
 
-        \subsubsection{T5}
+        \subsection{Text-to-Text Generation Model Inferences}
 
-            T5 outperformed BERT in terms of BLEU and ROUGE scores, showcasing its ability to generate coherent and contextually accurate travel itineraries. Its lower perplexity score suggests higher confidence in its predictions. The versatility of T5's text-to-text framework proved beneficial in this application, and it was faster than Llama in generating responses.
+        During our evaluation of the text-to-text generation models, T5 and Llama-3, several key observations were made:
 
-        \subsubsection{DistilBERT}
+        \begin{enumerate}
+            \item \textbf{Speed and Loading Time}:
+            T5 had markedly superior speed compared to Llama-3 and necessitated less loading time. The high processing speed of this system is beneficial for applications that require fast generation of summaries or responses.
+            
+            \item \textbf{Handling of Content}:
+            T5 sometimes omitted the name of the attraction in its output summary. On the other hand, Llama-3 constantly initiated its outputs by stating the name of the attraction, so guaranteeing a more distinct and organized delivery of information.
+            
+            \item \textbf{Grammatical Accuracy}:
+        T5 shown improved ability in preserving grammatical precision in its developed conclusions. The results generated by T5 exhibited a higher level of refinement and syntactic accuracy, hence improving the readability and comprehension for end-users.
+        
+        \end{enumerate}
 
-            DistilBERT, while faster and more efficient, showed slightly lower performance compared to BERT and T5. Its BLEU and ROUGE scores were lower, and its perplexity was higher, indicating less confidence in its predictions. The model also faced issues answering questions in depth due to the webscraped data format. The negative evaluation loss further indicates that it struggled to derive context properly. However, its reduced computational requirements make it a viable option for real-time applications.
+        For example, when provided with the context:
+        \begin{quote}
+        ‘Cubbon Park Sarangib for Pixabay Situated over a sprawling 300 acres of land the park was constructed by Richard Sankey This massive green park along with lawns deserves a special mention Offering statues of famous personalities the park is one among the popular places to visit in Bangalore with friends Location Kasturba Road Behind High Court of Karnataka Ambedkar Veedhi Sampangi Rama Nagara BangaloreTimings Open on all daysEntry Fee No entry fee Suggested Read Resorts Near Bangalore’
+        \end{quote}
 
-        \subsubsection{Llama}
+        The output from T5:
+        \begin{quote}
+        ‘Cubbon Park, a sprawling 300 acres of land, is a popular place to visit in Bangalore with friends. Offering statues of famous personalities, it is a popular place to visit with friends.’
+        \end{quote}
 
-            Llama demonstrated the highest performance among all models, with the highest BLEU and ROUGE scores and the lowest perplexity. This indicates its superior ability to generate detailed and accurate travel itineraries. The use of the Unsloth framework for fine-tuning further enhanced its performance, making it the most effective model in this study. Llama was successful in catching patterns and providing in-depth answers.
+        While Llama-3 produced:
+        \begin{quote}
+        ‘The park was constructed by Richard Sankey. This massive green park along with lawns deserves a special mention. Offering statues of famous personalities, the park is one among the popular places to visit in Bangalore with friends. Location: Kasturba Road, Behind High Court of Karnataka.’
+        \end{quote}
 
-        \subsubsection{RoBERTa}
-
-            RoBERTa showed strong performance in understanding and responding to travel-related queries. Its BLEU and ROUGE scores were close to those of T5, and its perplexity score was lower than BERT and DistilBERT, indicating good confidence in its predictions. The advanced pretraining techniques and optimization made RoBERTa a robust choice for enhancing contextual understanding. However, similar to BERT and DistilBERT, it faced challenges in answering questions in depth due to the webscraped data format. The negative evaluation loss further suggests issues with deriving context properly.
+    These findings emphasize the advantages and disadvantages of each model in summarizing written content, indicating factors to consider when using them in real-life situations.
 
     \subsection{Conclusion}
 
