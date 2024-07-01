@@ -236,6 +236,17 @@ Email: dhruv.kumar@iiitd.ac.in}}
                 \item Batch size: 8
             \end{itemize}
 
+        \subsubsection{RoBERTa}
+
+            RoBERTa, an optimized version of BERT, was used to enhance the contextual understanding of travel-related queries. The following configurations were used:
+            \begin{itemize}
+                \item Model: \texttt{deepset/roberta-base-squad2}
+                \item Tokenizer: \texttt{AutoTokenizer}
+                \item Training epochs: 3
+                \item Learning rate: 2e-5
+                \item Batch size: 8
+            \end{itemize}
+
         \subsubsection{DistilBERT}
 
             DistilBERT, a distilled version of BERT, was fine-tuned with reduced computational requirements:
