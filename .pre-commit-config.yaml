@@ -18,9 +18,3 @@ repos:
     rev: v1.5.5
     hooks:
       - id: remove-tabs
-
-  - repo: https://github.com/meliache/pre-commit-chktex
-    rev: v0.2.2
-    hooks:
-      - id: chktex-system
-        args: [-eall, -n22, -n30]
