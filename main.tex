@@ -217,6 +217,11 @@ Email: dhruv.kumar@iiitd.ac.in}}
 
     By adhering to these procedures, we guaranteed that the processed data was free from errors, organized, and prepared for additional analysis and model training.
 
+    \subsection{Handling Large Sections of Text}
+    Initially, we attempted to process larger sections of web pages that contained multiple attractions. However, the models struggled to summarize this comprehensive and detailed content accurately. The generated summaries often resulted in fragmented narratives, incomplete sentences, and missed important details.
+
+    To address this challenge, we divided the web page into smaller chunks, each representing an individual attraction. This chunking method allowed the models to focus on more manageable pieces of text, significantly improving their ability to generate coherent and concise summaries. By processing these smaller chunks, the models could better capture the essential details of each attraction, leading to more informative and readable outputs. This approach greatly enhanced the efficiency and effectiveness of the summarization process.
+
 \section{Methodology and Models}
 
     \subsection{Initial Approach}
