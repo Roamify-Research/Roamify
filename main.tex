@@ -145,6 +145,49 @@ Email: dhruv.kumar@iiitd.ac.in}}
 
     By evaluating these models, we aim to determine the most effective approach for generating personalized travel itineraries. The following sections detail the methodology, model configurations, training processes, and evaluation metrics used in this comparative study.
 
+\section{HTML Content Extraction and Itinerary Generation}
+
+    In this study, we implemented a Chrome extension to enhance our travel itinerary generation process. The extension identifies locations from open browser tabs using airport codes, scrapes relevant web content for these locations, and processes this data for itinerary generation.
+    The extension prototype can be accessed through the following Google Drive link: \href{https://drive.google.com/file/d/1qkj995W8CXmMslBy-55xUxxnHPPIOsoV/view?usp=sharing}{\textbf{Extension Prototype}}.
+
+    \subsection{HTML Content Extraction and Location Identification}
+
+        \subsubsection{Chrome Extension Setup}
+        \begin{itemize}
+            \item We developed a Chrome extension named "Roamify," which runs a service worker script and displays a sidebar.
+            \item The extension requests permissions to access various Chrome features, including tabs, scripting, and activeTab, allowing it to interact with and manipulate the content of open tabs.
+        \end{itemize}
+        
+        \subsubsection{Identifying Locations}
+        \begin{itemize}
+            \item The extension uses JavaScript to extract the HTML content of each tab and identifies locations based on airport codes found in the URL.
+            \item This is done by matching URL patterns against a predefined list of airport codes and their corresponding cities. For example, if a URL contains “BOM” and “DEL” the script will recognise these as Mumbai and Delhi, respectively.
+        \end{itemize}
+
+        \subsubsection{Content Display and Processing}
+        \begin{itemize}
+            \item Once the locations are identified, the extension constructs links to travel-related blogs and fetches the HTML content of these pages.
+            \item The content is cleaned by removing scripts and styles, and key elements such as titles, descriptions, main content, and attractions are extracted.
+            \item This extracted information is then displayed in a user-friendly format in the extension’s sidebar.
+        \end{itemize}
+
+    \subsection{Backend Integration for Itinerary Processing}
+
+        \subsubsection{Backend API Interaction}
+        \begin{itemize}
+            \item The extension integrates with a backend API hosted locally. The API processes the scraped HTML content and returns a structured itinerary.
+            \item The interaction with the API is handled using the Fetch API with POST requests, sending the cleaned and structured data to the backend.
+        \end{itemize}
+
+        \subsubsection{Processing and Displaying Results}
+        \begin{itemize}
+            \item The backend API processes the data, extracting meaningful information and generating travel itineraries based on the content.
+            \item The response from the API is then displayed in the extension’s sidebar, providing users with a detailed and organised travel plan.
+        \end{itemize}
+
+    \subsection{Summary}
+        Combining browser automation, web scraping, and backend processing, the Roamify extension streamlines the process of generating travel itineraries. The extension identifies locations from open browser tabs using airport codes, scrapes relevant content from travel blogs, and processes this information through a backend API to provide users with comprehensive travel plans. This approach enhances the user experience by leveraging AI and NLP technologies to deliver personalised travel recommendations, ensuring users can access detailed and relevant travel information directly within their browser.
+
 \section{NLP Processing}
 
     This algorithm was used to clear junk from the scraped data. It involved four stages:
@@ -450,10 +493,10 @@ TrainingArguments(
 \section{User Survey and Interview Analysis}
 
     \subsection{Survey Methodology}
-        To understand the travel planning behaviors and preferences of potential users for Roamify, we conducted a comprehensive survey targeting various demographic groups. The survey consisted of multiple-choice questions and open-ended responses designed to capture detailed insights into users' travel habits, challenges faced in travel planning, and their expectations from a travel planning tool.
+        To understand the travel planning behaviors and preferences of potential users for Roamify, we conducted a comprehensive survey targeting various demographic groups. The survey consisted of multiple-choice questions and open-ended responses designed to capture detailed insights into users' travel habits, challenges faced in travel planning, and their expectations from a travel planning tool. The survey and interview questions and responses can be accessed through the following Google Drive link: \href{https://drive.google.com/drive/folders/1mKPTXZ7n7ZFmMEK6QBOKU0op3mf8hCta?usp=sharing}{\textbf{Survey Interviews}}.
 
     \subsection{Survey Results and Analysis}
-        The survey received responses from 64 participants, covering a diverse range of age groups and travel frequencies. The key findings from the survey are summarized below:
+        The survey received responses from 71 participants, covering a diverse range of age groups and travel frequencies. The key findings from the survey are summarized below:
 
         \begin{itemize}
             \item \textbf{Demographic Breakdown}: The majority of respondents were young adults (19-25 years) and adults (26-64 years), indicating that travel planning is a significant activity among working professionals and young individuals.
@@ -511,6 +554,15 @@ TrainingArguments(
 
 \bibitem{IEEEhowto:srdvtechnologies}
     SRDV Technologies. (2023). "Major Challenges Faced by Online Travel Agencies." Retrieved from \url{https://www.srdvtechnologies.com/blog/major-challenges-faced-by-online-travel-agencies}.
+
+\bibitem{ip2location}
+    IP2Location, \emph{IP2Location IATA ICAO CSV}, \href{https://github.com/ip2location/ip2location-iata-icao/blob/master/iata-icao.csv}{https://github.com/ip2location/ip2location-iata-icao/blob/master/iata-icao.csv}.
+
+\bibitem{transformers1}
+    Hugging Face, \emph{Transformers Issue 27985 (with tracking parameters)}, \href{https://github.com/huggingface/transformers/issues/27985&sa=U&ved=2ahUKEwi175agp4GHAxXzSGwGHWIaDTEQFnoECBEQAQ&usg=AOvVaw21u1cvH6lRqHqu2CeLBNGD}{https://github.com/huggingface/transformers/issues/27985&sa=U&ved=2ahUKEwi175agp4GHAxXzSGwGHWIaDTEQFnoECBEQAQ&usg=AOvVaw21u1cvH6lRqHqu2CeLBNGD}.
+
+\bibitem{transformers2}
+    Hugging Face, \emph{Transformers Issue 27985}, \href{https://github.com/huggingface/transformers/issues/27985}{https://github.com/huggingface/transformers/issues/27985}.
 
 \end{thebibliography}
 
