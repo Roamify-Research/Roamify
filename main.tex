@@ -453,6 +453,76 @@ TrainingArguments(
 
         The evaluation of these models highlights the potential of advanced NLP techniques in enhancing the travel planning experience. While each model has its strengths, Llama emerged as the best-performing model, providing highly accurate and confident travel itinerary recommendations. Future work will focus on further optimizing these models and exploring additional applications in the travel industry.
 
+\section{Backend Pipelines used}
+
+    \subsection{T5}
+        
+        We utilized our fine-tuned version of Google's FLAN T5 Transformer, which is available in our Hugging Face models repository. By leveraging the T5 Transformer, we achieved significant compression of sentences from the NLP-scraped text. This compressed text effectively captured key points of the attraction details with impressive speed. However, we identified several issues that necessitated the use of a more sophisticated model.
+        
+        \subsubsection{Issues Faced}
+            \begin{itemize}
+                \item \textbf{Short Sentences:} The generated text often consisted of overly short sentences, which sometimes led to a fragmented and disjointed narrative.
+                \item \textbf{Punctuation Problems:} The model frequently failed to punctuate sentences correctly, resulting in unclear and ambiguous descriptions.
+                \item \textbf{Conciseness and Accuracy:} While the T5 Transformer provided quick summaries, it struggled to deliver consistently concise and accurate descriptions, sometimes omitting important details.
+            \end{itemize}
+
+            These issues highlighted the need for a model capable of generating well-structured and punctuated text while maintaining the speed and efficiency of the T5 Transformer.
+            
+    \subsection{Llama}
+        
+        Using our fine-tuned LLaMA model on the web-scraped data, we were able to generate accurate descriptions of the attractions. The model demonstrated a high level of precision in capturing the essential details of each attraction. However, we encountered significant challenges in terms of processing time, as the transformer required substantial computational resources for each attraction.
+        
+        \subsubsection{Issues Faced}
+            Several issues were identified during the implementation:
+            \begin{itemize}
+                \item \textbf{Repetition of Sentences:} The model often repeated sentences within the generated descriptions, which affected the overall coherence and readability.
+                \item \textbf{Punctuation Problems:} The descriptions frequently lacked proper punctuation, leading to fragmented and unclear text.
+                \item \textbf{Abrupt Endings:} Some outputs ended abruptly, resulting in incomplete descriptions that failed to convey the full context.
+            \end{itemize}
+    
+            To address these issues, we experimented with various model parameters, including adjusting the text streamer output size, modifying temperature values, and tuning other hyperparameters. While these adjustments occasionally yielded more accurate outputs, they invariably increased the processing time significantly. The trade-off between accuracy and speed became a critical concern, as achieving a proper output required considerable computational effort, thus limiting the model's practical usability for real-time application.
+        
+    \subsection{Understanding the Advantages and Disadvantages of LLaMA and T5 Models}
+        
+        After assessing the advantages and disadvantages of both the LLaMA and T5 large language models, we developed a new pipeline designed to leverage the strengths of both models. In this pipeline, we used the T5 Transformer to generate concise descriptions from the web scrape for each attraction. These brief summaries were then passed to the LLaMA model for elaboration. This approach aimed to combine the speed of T5 with the detail-oriented capabilities of LLaMA.
+        
+        \subsubsection{Pipeline Implementation}
+            \begin{itemize}
+                \item \textbf{Concise Descriptions with T5:} The T5 Transformer efficiently generated short, informative summaries of the web-scraped text, capturing the key points of each attraction with impressive speed.
+                \item \textbf{Elaboration with LLaMA:} These summaries were subsequently elaborated upon by the LLaMA model to provide detailed and comprehensive descriptions.
+            \end{itemize}
+            
+            Using LLaMA in this manner significantly reduced the time required compared to using it directly on the raw web-scraped text.
+        
+        \subsubsection{Issues Faced}
+            Despite the improvements, we encountered several challenges:
+            \begin{itemize}
+                \item \textbf{Processing Time:} LLaMA still required a significant amount of time and computational overhead for elaborating on each attraction. Each page, containing 10 attractions, took approximately 1.5 to 2 minutes to process.
+                \item \textbf{Resource Intensity:} The detailed elaboration by LLaMA, while more efficient than direct processing, still demanded considerable computational resources, impacting the overall efficiency of the pipeline.
+            \end{itemize}
+            
+            These issues underscored the trade-off between achieving detailed, accurate descriptions and maintaining an efficient processing time, guiding further refinements of our pipeline approach.
+        
+    \subsection{Building a successful pipeline for our use-case}
+        
+        The final objective of our project was to generate a personalized itinerary for users based on the number of days they planned to travel. Initially, we used our trained version of the LLaMA model for this task but quickly realized that it posed significant challenges in terms of efficiency and processing time. Consequently, we decided to utilize the Ollama model for the final itinerary generation.
+        
+        \subsubsection{Pipeline Overview}
+            \begin{itemize}
+                \item \textbf{NLP Processing:} The web page containing attraction details is first subjected to NLP processing to clean and organize the data. This processed data is divided into chunks representing individual attractions.
+                \item \textbf{Summarization with T5:} These chunks are then passed to the T5 Transformer, which performs the summarization task. The T5 model generates concise sentences summarizing each attraction, and these summaries are stored in a dictionary format for easy retrieval.
+                \item \textbf{Itinerary Generation with Ollama:} Using the user-provided input regarding the number of days for their trip, the Ollama model generates a detailed itinerary. Ollama takes the summarized data from T5 and arranges the attractions into a coherent and optimized travel plan.
+            \end{itemize}
+        
+        \subsubsection{Challenges and Observations}
+            \begin{itemize}
+                \item \textbf{Efficiency:} The LLaMA model, while accurate, proved to be inefficient for real-time itinerary generation due to its high processing time. Each page with 10 attractions took approximately 1.5 to 2 minutes, which was not feasible for a user-friendly application.
+                \item \textbf{Improved Workflow with Ollama:} By integrating Ollama into the pipeline, we significantly reduced the processing time and improved the overall efficiency. The T5 model's summarization capabilities combined with Ollama's itinerary planning provided a balanced solution, offering both speed and accuracy.
+            \end{itemize}
+        
+        This pipeline effectively meets the project's objective of generating personalized itineraries, providing users with a practical and efficient tool for travel planning. The use of T5 and Ollama in tandem showcases a robust approach to handling large-scale data and delivering user-centric solutions.
+        
+
 \section{Conclusion}
 
     This study explored the use of five state-of-the-art NLP models—BERT, T5, DistilBERT, Llama, and RoBERTa—for generating personalized travel itineraries through Roamify, an AI-powered itinerary generation service. The comparative analysis of these models provided valuable insights into their performance and suitability for the task.
