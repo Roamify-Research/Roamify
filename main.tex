@@ -222,11 +222,12 @@ Email: dhruv.kumar@iiitd.ac.in}}
     Initially, we attempted to process larger sections of web pages that contained multiple attractions. However, the models struggled to summarize this comprehensive and detailed content accurately. The generated summaries often resulted in fragmented narratives, incomplete sentences, and missed important details.
 
     To address this challenge, we divided the web page into smaller chunks, each representing an individual attraction. This chunking method allowed the models to focus on more manageable pieces of text, significantly improving their ability to generate coherent and concise summaries. By processing these smaller chunks, the models could better capture the essential details of each attraction, leading to more informative and readable outputs. This approach greatly enhanced the efficiency and effectiveness of the summarization process.
+
     \begin{figure}
         \centering
-        \includegraphics[width=1\linewidth]{pipeline.png}
-        \caption{NLP Processing overview}
-        \label{fig:pioverview}
+        \includegraphics[width=1\linewidth]{NLP-Processor.png}
+        \caption{NLP Processor}
+        \label{fig:nlp-processor}
     \end{figure}
 
 \section{Methodology and Models}
@@ -464,9 +465,9 @@ TrainingArguments(
 
             \begin{figure}
                 \centering
-                \includegraphics[width=1\linewidth]{pipeline.png}
-                \caption{Pipeline overview}
-                \label{fig:pipelineoverview}
+                \includegraphics[width=1\linewidth]{Pipeline.png}
+                \caption{Pipeline Overview}
+                \label{fig:pipeline}
             \end{figure}
 
         \subsubsection{\textbf{Pipeline Results}}
