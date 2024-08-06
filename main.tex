@@ -2,8 +2,9 @@
 \usepackage{natbib}
 \usepackage{url}
 \usepackage{hyperref}
-
-
+\usepackage{framed}
+\usepackage{mdframed}
+\usepackage{tcolorbox}
 \ifCLASSINFOpdf
 
 \else
@@ -104,7 +105,8 @@ Email: dhruv.kumar@iiitd.ac.in}}
 
 \begin{abstract}
 
-    Travelling without planning is a challenge for travellers. This paper delves into the heart of a common dilemma: the desire to explore without the hassle of planning. Roamify, an AI-generated itinerary service, empowers travellers with curated suggestions tailored to their destination preferences. It is aimed at empowering travellers with personalized experiences along the way. Taking inspiration from personal experiences grappling with itinerary complexities, it emerges as an innovative solution, leveraging artificial intelligence (AI) generated itineraries to empower travellers with customized recommendations tailored to the destination's preferences. This introduction lays the foundation for an exploration into how Roamify redefines roaming, making travel not just about reaching a place but also about unlocking memorable experiences along the way.
+    Travel planning is often cumbersome. Roamify, an AI-driven itinerary service, aims to simplify this by providing curated suggestions based on user preferences. Leveraging advanced NLP models, Roamify generates personalized travel plans, enhancing the travel experience by transforming it from mere logistics to memorable adventures. This paper details Roamify's innovative approach, methodologies, and its potential to redefine travel planning.
+
 
 \end{abstract}
 
@@ -114,13 +116,13 @@ Email: dhruv.kumar@iiitd.ac.in}}
 
     \textbf{Roamify} - Roaming Redefined is on a transformative mission to revolutionize travel planning for today's generation. Aimed at youngsters, teenagers, college students, and families seeking seamless travel experiences, Roamify addresses a common dilemma: the desire to explore without the hassle of planning. Drawing inspiration from personal experiences with itinerary complexities, Roamify emerges as an innovative solution, leveraging AI-generated itineraries to provide curated suggestions tailored to travelers' destination preferences. This introduction sets the stage for exploring how Roamify redefines roaming, making travel not just about reaching a destination but also about unlocking memorable experiences along the way.
 
-    In the past, travel was a luxury limited to the rich and elite. However, with advancements in transportation, travel has become more accessible to everyone. People now travel for various reasons: work, leisure, relaxation, reunions with friends, or simply for the joy of exploring new places. This increase in travel purposes has led to a new challenge: deciding what to explore upon arrival.
+In the past, travel was a luxury limited to the rich and elite. However, with advancements in transportation, travel has become more accessible to everyone. People now travel for various reasons: work, leisure, relaxation, reunions with friends, or simply for the joy of exploring new places. This increase in travel purposes has led to a new challenge: deciding what to explore upon arrival.
 
-    Imagine a family of four planning a vacation during the kids' summer holidays. In the past, their only option was to visit an offline travel agency to book a package that included all the itineraries and attractions. With technological advancements, numerous online platforms have emerged, allowing people to customize and choose their own itineraries.
+Imagine a family of four planning a vacation during the kids' summer holidays. In the past, their only option was to visit an offline travel agency to book a package that included all the itineraries and attractions. With technological advancements, numerous online platforms have emerged, allowing people to customize and choose their own itineraries.
 
-    Despite these advancements, a significant problem persists: many online travel websites struggle to attract users, even after being in existence for several years. Additionally, while tools like ChatGPT offer some assistance, they have limitations, such as outdated training data.
+Despite these advancements, a significant problem persists: many online travel websites struggle to attract users, even after being in existence for several years. Additionally, while tools like ChatGPT offer some assistance, they have limitations, such as outdated training data.
 
-    Roamify aims to address these issues by integrating seamlessly with users' web browsers. Recognizing that travelers often have multiple tabs open while planning their trips, Roamify leverages this browsing behavior to provide intelligent recommendations based on the websites and tabs users have open. This innovative approach ensures that travel planning becomes more efficient and personalized, making Roamify an essential tool for modern travelers.
+Roamify aims to address these issues by integrating seamlessly with users' web browsers. Recognizing that travelers often have multiple tabs open while planning their trips, Roamify leverages this browsing behavior to provide intelligent recommendations based on the websites and tabs users have open. For instance, if a user has a tab open on a site like MakeMyTrip, Roamify identifies the flight destination and redirects the user to a site relevant to that destination. It then uses NLP processing to decode the webpage into attractions and sends this data to Llama for detailed itinerary generation. This innovative approach ensures that travel planning becomes more efficient and personalized, making Roamify an essential tool for modern travelers.
 
     The development and fine-tuning of the models used in Roamify were meticulously documented and are available on our GitHub and Hugging Face respectively: \href{https://github.com/RoamifyRedefined/Machine-Learning}{\textbf{RoamifyRedefined/Machine-Learning}} \& \href{https://huggingface.co/Roamify}{\textbf{huggingface.co/Roamify}}.
 
@@ -204,16 +206,13 @@ Email: dhruv.kumar@iiitd.ac.in}}
     \subsection{Data Processing and Structuring}
     After discovering this pattern, we retrieved the text that appeared between two consecutive integers. This material usually contained elaborate descriptions or information regarding the attractions. The recovered text was refined to eliminate any remaining interference or extraneous details.
 
-    The sanitized data was subsequently stored in a dictionary, where the keys denote the sequence numbers (1, 2, ...) and the values correspond to the purified attraction data. The structured style enabled us to effectively arrange and retrieve the pertinent information.
+    The sanitized data was subsequently stored in a dictionary, where the keys denote the names of the attraction and the values correspond to the purified attraction data. The structured style enabled us to effectively arrange and retrieve the pertinent information.
 
-    \begin{verbatim}
-# Example dictionary structure
-{
-    1: "Description of the first attraction",
-    2: "Description of the second attraction",
-    ...
-}
-    \end{verbatim}
+\begin{mdframed}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
+"Attraction 1": "Description of the attraction",\\
+"Attraction 2": "Description of the attraction",\\
+...
+\end{mdframed}
 
     By adhering to these procedures, we guaranteed that the processed data was free from errors, organized, and prepared for additional analysis and model training.
 
@@ -238,7 +237,17 @@ Email: dhruv.kumar@iiitd.ac.in}}
             \item DistilBERT
         \end{itemize}
 
-        The models were employed to address inquiries pertaining to the context presented in the dataset. The main goal was to obtain important insights and precise replies from the processed scraped data.
+        The models were employed to address inquiries pertaining to the context presented in the dataset. The main goal was to obtain important insights and precise replies from the processed scraped data. The specific questions asked to the models are:
+
+\begin{mdframed}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
+\begin{enumerate}
+\item What is the name of the attraction?
+\item What is the location of the attraction?
+\item Describe the attraction in detail.
+\item What type of attraction is it? (e.g., historical, natural, amusement, beach)
+\end{enumerate}
+\end{mdframed}
+
 
         \subsubsection{Text-to-Text Generation Models}
 
@@ -251,26 +260,41 @@ Email: dhruv.kumar@iiitd.ac.in}}
         The models were optimized to produce precise and succinct summaries of the provided text. The approach entailed compressing the material while preserving its significance and pertinence, which was essential for producing succinct descriptions of tourist destinations from the massive web-scraped data.
         Our objective was to improve the comprehension and utility of the gathered data by utilizing these models, hence increasing its accessibility and providing users with more interesting insights.
 
-    \subsection{Data Collection and Preprocessing}
+         \subsubsection{Itenary generation Model}
+         For this task, we used Ollama, and the model employed was Llama 3.1. The Ollama model was leveraged to generate detailed and personalized travel itineraries by processing the summarized and cleaned data from the initial NLP processing phase. This model provided high accuracy and coherence in the generated itineraries, ensuring users receive well-structured travel plans that cater to their preferences and needs.
+         
 
-        The data used for fine-tuning the models was collected from various online travel platforms, focusing on popular tourist destinations. The datasets included detailed descriptions, locations, types of attractions, and user reviews. The data was pre-processed to remove any noise and irrelevant information, ensuring high-quality input for the models.
+\subsection{Data Collection and Preprocessing}
 
-        We created two datasets for fine-tuning, each with a different purpose:
+The data used for fine-tuning the models was collected from various online travel platforms, focusing on popular tourist destinations. The datasets included detailed descriptions, locations, types of attractions, and user reviews. The data was pre-processed to remove any noise and irrelevant information, ensuring high-quality input for the models.
 
-        \begin{enumerate}
-            \item \textbf{Summarization Dataset}: The dataset was utilized to refine the Llama-3 and Flan-T5 models. The system was comprised of two components: context and summary. The context pertained to the data obtained by web scraping, while the summary was a concise translation of the text that was both grammatically correct and concise.
-            \item \textbf{Question-Answering Dataset}: The dataset was utilized to refine Question-Answering Models, specifically BERT, DistilBERT, and RoBERTa. The document has six questions as specified in the annexure. The dataset was utilized to get significant insights from the processed scraped data.
-        \end{enumerate}
+We created two datasets for fine-tuning, each with a different purpose:
 
-        \subsubsection{Data Preparation}
+\begin{enumerate}
+    \item \textbf{Summarization Dataset}: The dataset was utilized to refine the Llama-3 and Flan-T5 models. The system was comprised of two components: context and summary. The context pertained to the data obtained by web scraping, while the summary was a concise translation of the text that was both grammatically correct and concise.\\
+    
+    Sample context and summary are shown below:
 
-            For each dataset, the following preprocessing steps were performed:
-            \begin{itemize}
-                \item Tokenization: Text data was tokenized using the respective model tokenizers.
-                \item Cleaning: Non-ASCII characters, HTML tags, and extra whitespace were removed.
-                \item Normalization: Text was converted to lowercase, and punctuation was standardized.
-                \item Splitting: The data was split into training and evaluation sets with a typical ratio of 80:20.
-            \end{itemize}
+    \begin{mdframed}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
+    \textbf{Context:} \\
+    Bangalore Palace Winit Deshpande for Wikimedia Commons Built by Chamaraja Wodeyar in the year 1887, Bangalore Palace is an inspired design by England's Windsor Castle and is one of the best tourist places in Bangalore. The evocative palace comprises fortified arches, towers, architecture, and green lawns along with sophisticated wood carvings in the interior. It is where the royal family still resides at present. This architectural creation is nothing less than an epitome. The palace has earned foundations that have been attributed to the Wodeyars of Mysore. Location: Vasanth Nagar, Bengaluru. Timings: Sunday to Monday from 10:00 AM to 5:00 PM. Entry Fee: INR 230 for Indians, INR 460 for foreigners. Must Read: New Year Party In Bangalore.
+
+    \textbf{Summary:} \\
+    Bangalore Palace, built by Chamaraja Wodeyar in 1887, is inspired by England's Windsor Castle and features fortified arches, towers, green lawns, and intricate wood carvings. Located in Vasanth Nagar, it remains a residence for the royal family and is a prime tourist attraction in Bangalore, open daily with an entry fee.
+    \end{mdframed}
+
+    \item \textbf{Question-Answering Dataset}: The dataset was utilized to refine Question-Answering Models, specifically BERT, DistilBERT, and RoBERTa. The document has six questions as specified in the annexure. The dataset was utilized to get significant insights from the processed scraped data.
+\end{enumerate}
+
+\subsubsection{Data Preparation}
+
+For each dataset, the following preprocessing steps were performed:
+\begin{itemize}
+    \item Tokenization: Text data was tokenized using the respective model tokenizers.
+    \item Cleaning: Non-ASCII characters, HTML tags, and extra whitespace were removed.
+    \item Normalization: Text was converted to lowercase, and punctuation was standardized.
+    \item Splitting: The data was split into training and evaluation sets with a typical ratio of 80:20.
+\end{itemize}
 
     \subsection{Question Answering Models}
 
@@ -320,17 +344,21 @@ Email: dhruv.kumar@iiitd.ac.in}}
                 \item Batch size: 16
             \end{itemize}
 
-            \begin{verbatim}
+\begin{mdframed}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
+\small
+\begin{verbatim}
+
 Training_args = Seq2SeqTrainingArguments(
-evaluation_strategy="epoch",
-learning_rate=2e-5,
-per_device_train_batch_size=10,
-per_device_eval_batch_size=10,
-weight_decay=0.01,
-save_total_limit=3,
-num_train_epochs=10
+    evaluation_strategy="epoch",
+    learning_rate=2e-5,
+    per_device_train_batch_size=10,
+    per_device_eval_batch_size=10,
+    weight_decay=0.01,
+    save_total_limit=3,
+    num_train_epochs=10
 )
-            \end{verbatim}
+\end{verbatim}
+\end{mdframed}
 
         \subsubsection{Llama}
 
@@ -344,7 +372,10 @@ num_train_epochs=10
                 \item Use gradient checkpointing: \texttt{unsloth}
             \end{itemize}
 
-            \begin{verbatim}
+\begin{mdframed}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
+\small
+\begin{verbatim}
+
 TrainingArguments(
     per_device_train_batch_size = 2,
     gradient_accumulation_steps = 4,
@@ -360,7 +391,8 @@ TrainingArguments(
     seed = 3407,
     output_dir = "outputs",
 )
-            \end{verbatim}
+\end{verbatim}
+\end{mdframed}
 
 
 \section{Backend Pipelines used}
@@ -391,27 +423,73 @@ TrainingArguments(
             \end{itemize}
 
             To address these issues, we experimented with various model parameters, including adjusting the text streamer output size, modifying temperature values, and tuning other hyperparameters. While these adjustments occasionally yielded more accurate outputs, they invariably increased the processing time significantly. The trade-off between accuracy and speed became a critical concern, as achieving a proper output required considerable computational effort, thus limiting the model's practical usability for real-time application.
+    \subsection{Comparison of Sample Outputs: T5 vs. Llama}
 
-    \subsection{Understanding the Advantages and Disadvantages of LLaMA and T5 Models}
+    \begin{mdframed}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
+    \textbf{Context:} \\
 
-        After assessing the advantages and disadvantages of both the LLaMA and T5 large language models, we developed a new pipeline designed to leverage the strengths of both models. In this pipeline, we used the T5 Transformer to generate concise descriptions from the web scrape for each attraction. These brief summaries were then passed to the LLaMA model for elaboration. This approach aimed to combine the speed of T5 with the detail-oriented capabilities of LLaMA.
+    Cubbon Park Sarangib for Pixabay Situated over a sprawling 300 acres of land the park was constructed by Richard Sankey This massive green park along with lawns deserves a special mention Offering statues of famous personalities the park is one among the popular places to visit in Bangalore with friends Location Kasturba Road Behind High Court of Karnataka Ambedkar Veedhi Sampangi Rama Nagara BangaloreTimings Open on all daysEntry Fee No entry fee Suggested Read Resorts Near Bangalore
+    \end{mdframed}
 
-        \subsubsection{Pipeline Implementation}
-            \begin{itemize}
-                \item \textbf{Concise Descriptions with T5:} The T5 Transformer efficiently generated short, informative summaries of the web-scraped text, capturing the key points of each attraction with impressive speed.
-                \item \textbf{Elaboration with LLaMA:} These summaries were subsequently elaborated upon by the LLaMA model to provide detailed and comprehensive descriptions.
-            \end{itemize}
 
-            Using LLaMA in this manner significantly reduced the time required compared to using it directly on the raw web-scraped text.
+    \begin{mdframed}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
+    \textbf{T5 Output:} \\
+    
+    Cubbon Park, a sprawling 300 acres of land, is a popular place to visit in Bangalore with friends. Offering statues of famous personalities, it is a popular place to visit with friends.
+    \end{mdframed}
 
-        \subsubsection{Issues Faced}
-            Despite the improvements, we encountered several challenges:
-            \begin{itemize}
-                \item \textbf{Processing Time:} LLaMA still required a significant amount of time and computational overhead for elaborating on each attraction. Each page, containing 10 attractions, took approximately 1.5 to 2 minutes to process.
-                \item \textbf{Resource Intensity:} The detailed elaboration by LLaMA, while more efficient than direct processing, still demanded considerable computational resources, impacting the overall efficiency of the pipeline.
-            \end{itemize}
+    \begin{tcolorbox}[colframe=black,colback=white,arc=0mm,boxrule=0.5mm, left=2mm, right=2mm, top=2mm, bottom=2mm]
+    \textbf{Llama3 Output:} \\
+    
+    The park was constructed by Richard Sankey. This massive green park, along with lawns, deserves a special mention. Offering statues of famous personalities, the park is one among the popular places to visit in Bangalore with friends. Location: Kasturba Road, Behind High Court of Karnataka.
+    \end{tcolorbox}
 
-            These issues underscored the trade-off between achieving detailed, accurate descriptions and maintaining an efficient processing time, guiding further refinements of our pipeline approach.
+ \subsection{Understanding the Advantages and Disadvantages of LLaMA and T5 Models}
+
+After assessing the advantages and disadvantages of both the LLaMA and T5 large language models, we developed a new pipeline designed to leverage the strengths of both models. In this pipeline, we used the T5 Transformer to generate concise descriptions from the web scrape for each attraction. These brief summaries were then passed to the LLaMA model for elaboration. This approach aimed to combine the speed of T5 with the detail-oriented capabilities of LLaMA.\\
+
+\subsubsection{{\textbf{Pipeline Implementation}}}
+\begin{itemize}
+    \item \textbf{Concise Descriptions with T5:} The T5 Transformer efficiently generated short, informative summaries of the web-scraped text, capturing the key points of each attraction with impressive speed.
+    \item \textbf{Elaboration with LLaMA:} These summaries were subsequently elaborated upon by the LLaMA model to provide detailed and comprehensive descriptions.
+\end{itemize}
+
+
+Using LLaMA in this manner significantly reduced the time required compared to using it directly on the raw web-scraped text.
+
+\subsubsection{Pipeline Results}
+
+To illustrate the effectiveness of our pipeline, we present a sample context along with the outputs generated by T5 and LLaMA models.
+
+\begin{mdframed}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
+\textbf{Context:} \\
+\small
+Sahastradhara If you are looking for the best place in Dehradun to visit in June you can't miss the magnificent waterfalls of Sahastradhara. The waterfall is the perfect emblem of its name as Sahastradhara means spring. Not only the waterfalls but you can also visit the steppe farming land and caves at this place which creates a perfect panoramic view for entertaining the tourists. Along with enjoying the natural beauty of this place you can also take a fun ride in the air through ropeways. Once you travel by ropeway the stunning view of the mountains and valleys will enthrall you completely. The water of Sahastradhara falls is and that’s why it has lots of medicinal benefits. Though you can visit this place throughout the year, monsoon is the best time to visit Sahastradhara at its best. Where 11km from Dehradun near Robber's CaveTimings 8 am to 7 pm Entry Fee Free Suggested Read 20 Cafes In Dehradun That Are Too Awesome To Resist
+\end{mdframed}
+
+The T5 transformer model subsequently processes the context. The T5 model is specifically engineered to produce concise overviews from the provided text input, extracting the most important details. The following is the output that concisely captures the main points of the provided context:
+
+\begin{mdframed}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
+\textbf{T5 output:} \\
+\small
+Sahastradhara is known for its magnificent waterfalls, steppe farming land, and caves. The waterfall is a perfect emblem of its name. It offers a panoramic view of the mountains and valleys. The water of Sahastradhara falls is renowned for its medicinal benefits. Visit Monsoon from Dehradun from 8 am to 7 pm. Entry fee is free. Read 20 Cafes In Dehradun That Are Too Awesome To Resist. The waterfall is a great place to visit in June.. Sahradhara's beautiful, and
+\end{mdframed}
+
+Following that, the LLaMA-3 model is provided with the concise summary produced by the T5 transformer for further elaboration and appropriate punctuation. The summary is further elaborated upon by the LLaMA-3 model, which guarantees that the text is well-organized and comprehensible.
+
+\begin{mdframed}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
+\textbf{Llama output:} \\
+\small
+It is one of Uttarakhand's most popular tourist attractions. Located at a distance of 16 km from the city, it is surrounded by lush greenery and has a waterfall that falls from a height of more than 200 feet. There is also a cave in the area that is believed to have medicinal properties. You can visit this place with your family and friends and enjoy the beauty of nature. 
+\end{mdframed}
+
+\subsubsection{Issues Faced}
+Despite the improvements, we encountered several challenges:
+\begin{itemize}
+    \item \textbf{Processing Time:} LLaMA still required a significant amount of time and computational overhead for elaborating on each attraction. Each page, containing 10 attractions, took approximately 1.5 to 2 minutes to process.
+    \item \textbf{Resource Intensity:} The detailed elaboration by LLaMA, while more efficient than direct processing, still demanded considerable computational resources, impacting the overall efficiency of the pipeline.
+\end{itemize}
+
 
     \subsection{Building a successful pipeline for our use-case}
 
@@ -421,7 +499,7 @@ TrainingArguments(
             \begin{itemize}
                 \item \textbf{NLP Processing:} The web page containing attraction details is first subjected to NLP processing to clean and organize the data. This processed data is divided into chunks representing individual attractions.
                 \item \textbf{Summarization with T5:} These chunks are then passed to the T5 Transformer, which performs the summarization task. The T5 model generates concise sentences summarizing each attraction, and these summaries are stored in a dictionary format for easy retrieval.
-                \item \textbf{Itinerary Generation with Ollama:} Using the user-provided input regarding the number of days for their trip, the Ollama model generates a detailed itinerary. Ollama takes the summarized data from T5 and arranges the attractions into a coherent and optimized travel plan.
+                \item \textbf{Itinerary Generation with Ollama:} Using the user-provided input regarding the number of days for their trip, the Ollama model generates a detailed itinerary using the summarized attractions produced by T5 transformer
             \end{itemize}
 
         \subsubsection{Challenges and Observations}
@@ -436,65 +514,54 @@ TrainingArguments(
 
 \section{Results and Evaluation}
 
-    To evaluate the performance of the models, we used several metrics. These metrics assess the accuracy, overlap of n-grams, and confidence in predictions.
-    \subsection{Evaluation Metrics}
+The training and evaluation loss for DistilBERT, RoBERTa, and BERT are summarized in Tables \ref{tab:losses-epoch1}, \ref{tab:losses-epoch2}, and \ref{tab:losses-epoch3}.
 
-        \begin{itemize}
-            \item \textbf{BLEU Score:} Measures the accuracy of the generated text against reference text using n-gram precision.
-            \item \textbf{ROUGE Score:} Evaluates the overlap of n-grams between the generated and reference text, particularly useful for summarization tasks.
-            \item \textbf{Perplexity:} Assesses the model's confidence in its predictions, with lower values indicating better performance.
-        \end{itemize}
-
-    \subsection{Performance Comparison}
-
-        The performance of each model was evaluated on a test set of travel itinerary data. The results are summarized in Table \ref{tab:results}.
-
-        \begin{table}[htbp]
-        \caption{Performance Comparison of Models}
-        \centering
-        \begin{tabular}{|l|c|c|c|}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|l|c|c|c|}
         \hline
-        \textbf{Model} & \textbf{BLEU Score} & \textbf{ROUGE Score} & \textbf{Perplexity} \\
+        \textbf{Epoch 1} & \textbf{DistilBERT} & \textbf{RoBERTa} & \textbf{BERT} \\ \hline
+        \textbf{Train Loss} & 1.9549 & 1.6825 & 6.3657 \\ \hline
+        \textbf{Eval Loss} & -2.0043 & -2.6740 & 0.2002 \\ \hline
+    \end{tabular}
+    \caption{Training and Evaluation Loss for Epoch 1}
+    \label{tab:losses-epoch1}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|l|c|c|c|}
         \hline
-        T5 & 0.72 & 0.75 & 12.8 \\
-        Llama & 0.78 & 0.80 & 10.4 \\
+        \textbf{Epoch 2} & \textbf{DistilBERT} & \textbf{RoBERTa} & \textbf{BERT} \\ \hline
+        \textbf{Train Loss} & 2.6524 & 0.7623 & 6.2629 \\ \hline
+        \textbf{Eval Loss} & -4.5488 & -4.2015 & 0.0262 \\ \hline
+    \end{tabular}
+    \caption{Training and Evaluation Loss for Epoch 2}
+    \label{tab:losses-epoch2}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|l|c|c|c|}
         \hline
-        \end{tabular}
-        \label{tab:results}
-        \end{table}
+        \textbf{Epoch 3} & \textbf{DistilBERT} & \textbf{RoBERTa} & \textbf{BERT} \\ \hline
+        \textbf{Train Loss} & 1.2276 & 0.7708 & 5.6464 \\ \hline
+        \textbf{Eval Loss} & -5.2743 & -4.4541 & 0.0586 \\ \hline
+    \end{tabular}
+    \caption{Training and Evaluation Loss for Epoch 3}
+    \label{tab:losses-epoch3}
+\end{table}
 
-    Additionally, the training and evaluation loss for DistilBERT and RoBERTa are as follows:
+The negative evaluation loss scores indicate issues with evaluation, suggesting that the models were not able to derive context from the dataset properly.
 
-    \begin{itemize}
-        \item \textbf{DistilBERT:}
-        \begin{itemize}
-            \item \textbf{Train Loss:} [1.954904317855835, 2.6523895263671875, 1.2275750637054443]
-            \item \textbf{Eval Loss:} [-2.0042619705200195, -4.5487589836120605, -5.274253845214844]
-        \end{itemize}
 
-        \item \textbf{RoBERTa:}
-        \begin{itemize}
-            \item \textbf{Train Loss:} [1.6825495958328247, 0.762340247631073, 0.7708142995834351]
-            \item \textbf{Eval Loss:} [-2.673956871032715, -4.201545715332031, -4.454132556915283]
-        \end{itemize}
+\section{Discussion}
 
-        \item \textbf{BERT:}
-        \begin{itemize}
-            \item \textbf{Train Loss:} [6.365660667419434, 6.262948036193848, 5.646426200866699],
+\subsection{Question Answering Models}
 
-            \item \textbf{Eval Loss:} [0.20018316805362701, 0.02616404928267002,0.05858725681900978]
-        \end{itemize}
-    \end{itemize}
+    The models' poor evaluation scores indicate they struggled to make accurate predictions. Lower or negative scores reflect low prediction accuracy and unreliable outputs. Despite thorough preprocessing and fine-tuning, the models had difficulty understanding the input data, leading to imprecise responses. This suggests that the complexity or diversity of the data posed challenges. These low scores highlight the need for further model improvement or exploring alternative methods to enhance prediction accuracy.
 
-    The negative evaluation loss scores indicate issues with evaluation, suggesting that the models were not able to derive context from the dataset properly.
-
-    \subsection{Discussion}
-
-        \subsubsection{Question Answering Models}
-
-            The models' poor evaluation scores suggest that they were unable to produce precise predictions with a high level of confidence. The scores provided indicate the performance metrics of the models. Lower or negative scores indicate a lower level of prediction accuracy and a lack of reliability in the generated outputs. Despite the thorough preprocessing and meticulous fine-tuning, the models encountered difficulties in comprehending and providing effective responses to the provided environment. This result indicates that the models may have faced challenges due to the intricacy or diversity of the input data, resulting in imprecise responses and summaries. The low evaluation scores emphasize the necessity for additional improvement of the models or investigation of other methods to enhance the accuracy and confidence of predictions.
-
-        \subsection{Text-to-Text Generation Model Inferences}
+\subsection{Text-to-Text Generation Model Inferences}
 
         During our evaluation of the text-to-text generation models, T5 and Llama-3, several key observations were made:
 
@@ -509,27 +576,8 @@ TrainingArguments(
             T5 shown improved ability in preserving grammatical precision in its developed conclusions. The results generated by T5 exhibited a higher level of refinement and syntactic accuracy, hence improving the readability and comprehension for end-users.
 
         \end{enumerate}
-
-        For example, when provided with the context:
-        \begin{quote}
-        ‘Cubbon Park Sarangib for Pixabay Situated over a sprawling 300 acres of land the park was constructed by Richard Sankey This massive green park along with lawns deserves a special mention Offering statues of famous personalities the park is one among the popular places to visit in Bangalore with friends Location Kasturba Road Behind High Court of Karnataka Ambedkar Veedhi Sampangi Rama Nagara BangaloreTimings Open on all daysEntry Fee No entry fee Suggested Read Resorts Near Bangalore’
-        \end{quote}
-
-        The output from T5:
-        \begin{quote}
-        ‘Cubbon Park, a sprawling 300 acres of land, is a popular place to visit in Bangalore with friends. Offering statues of famous personalities, it is a popular place to visit with friends.’
-        \end{quote}
-
-        While Llama-3 produced:
-        \begin{quote}
-        ‘The park was constructed by Richard Sankey. This massive green park along with lawns deserves a special mention. Offering statues of famous personalities, the park is one among the popular places to visit in Bangalore with friends. Location: Kasturba Road, Behind High Court of Karnataka.’
-        \end{quote}
-
+        
     These findings emphasize the advantages and disadvantages of each model in summarizing written content, indicating factors to consider when using them in real-life situations.
-
-    \subsection{Conclusion}
-
-        The evaluation of these models highlights the potential of advanced NLP techniques in enhancing the travel planning experience. While each model has its strengths, Llama emerged as the best-performing model, providing highly accurate and confident travel itinerary recommendations. Future work will focus on further optimizing these models and exploring additional applications in the travel industry.
 
 
 \section{Conclusion}
