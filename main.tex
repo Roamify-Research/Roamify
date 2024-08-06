@@ -3,7 +3,6 @@
 \usepackage{url}
 \usepackage{hyperref}
 \usepackage{framed}
-\usepackage{mdframed}
 \usepackage{tcolorbox}
 \ifCLASSINFOpdf
 
@@ -210,11 +209,11 @@ Email: dhruv.kumar@iiitd.ac.in}}
 
     The sanitized data was subsequently stored in a dictionary, where the keys denote the names of the attraction and the values correspond to the purified attraction data. The structured style enabled us to effectively arrange and retrieve the pertinent information.
 
-    \begin{mdframed}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
+    \begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
     "Attraction 1": "Description of the attraction",\\
     "Attraction 2": "Description of the attraction",\\
     ...
-    \end{mdframed}
+    \end{tcolorbox}
 
     By adhering to these procedures, we guaranteed that the processed data was free from errors, organized, and prepared for additional analysis and model training.
 
@@ -246,14 +245,14 @@ Email: dhruv.kumar@iiitd.ac.in}}
 
             The models were employed to address inquiries pertaining to the context presented in the dataset. The main goal was to obtain important insights and precise replies from the processed scraped data. The specific questions asked to the models are:
 
-            \begin{mdframed}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
+            \begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
                 \begin{enumerate}
                     \item What is the name of the attraction?
                     \item What is the location of the attraction?
                     \item Describe the attraction in detail.
                     \item What type of attraction is it? (e.g., historical, natural, amusement, beach)
                 \end{enumerate}
-            \end{mdframed}
+            \end{tcolorbox}
 
         \subsubsection{Text-to-Text Generation Models}
             For the text-to-text generation task, specifically summarization, we utilized the following models:
@@ -279,14 +278,15 @@ Email: dhruv.kumar@iiitd.ac.in}}
 
             Sample context and summary are shown below:
 
-            \begin{mdframed}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
+            \begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
                 \textbf{Context:} \\
 
-                Bangalore Palace Winit Deshpande for Wikimedia Commons Built by Chamaraja Wodeyar in the year 1887, Bangalore Palace is an inspired design by England's Windsor Castle and is one of the best tourist places in Bangalore. The evocative palace comprises fortified arches, towers, architecture, and green lawns along with sophisticated wood carvings in the interior. It is where the royal family still resides at present. This architectural creation is nothing less than an epitome. The palace has earned foundations that have been attributed to the Wodeyars of Mysore. Location: Vasanth Nagar, Bengaluru. Timings: Sunday to Monday from 10:00 AM to 5:00 PM. Entry Fee: INR 230 for Indians, INR 460 for foreigners. Must Read: New Year Party In Bangalore.
+                Bangalore Palace, built by Chamaraja Wodeyar in 1887, is inspired by England's Windsor Castle and features fortified arches, towers, green lawns, and intricate wood carvings. Located in Vasanth Nagar, it remains a residence for the royal family and is a prime tourist attraction in Bangalore. Timings are from Sunday to Monday, 10:00 AM to 5:00 PM. Entry Fee: INR 230 for Indians, INR 460 for foreigners.
+                {\\\\}
 
                 \textbf{Summary:} \\
                 Bangalore Palace, built by Chamaraja Wodeyar in 1887, is inspired by England's Windsor Castle and features fortified arches, towers, green lawns, and intricate wood carvings. Located in Vasanth Nagar, it remains a residence for the royal family and is a prime tourist attraction in Bangalore, open daily with an entry fee.
-            \end{mdframed}
+            \end{tcolorbox}
 
             \item \textbf{Question-Answering Dataset}: The dataset was utilized to refine Question-Answering Models, specifically BERT, DistilBERT, and RoBERTa. The document has six questions as specified in the annexure. The dataset was utilized to get significant insights from the processed scraped data.
         \end{enumerate}
@@ -349,10 +349,10 @@ Email: dhruv.kumar@iiitd.ac.in}}
                 \item Batch size: 16
             \end{itemize}
 
-\begin{mdframed}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
+\begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
+\begin{lstlisting}
 \small
 \begin{verbatim}
-
 Training_args = Seq2SeqTrainingArguments(
     evaluation_strategy="epoch",
     learning_rate=2e-5,
@@ -363,7 +363,8 @@ Training_args = Seq2SeqTrainingArguments(
     num_train_epochs=10
 )
 \end{verbatim}
-\end{mdframed}
+\end{lstlisting}
+\end{tcolorbox}
 
         \subsubsection{Llama}
 
@@ -377,7 +378,7 @@ Training_args = Seq2SeqTrainingArguments(
                 \item Use gradient checkpointing: \texttt{unsloth}
             \end{itemize}
 
-\begin{mdframed}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
+\begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
 \small
 \begin{verbatim}
 
@@ -397,7 +398,7 @@ TrainingArguments(
     output_dir = "outputs",
 )
 \end{verbatim}
-\end{mdframed}
+\end{tcolorbox}
 
 
 \section{Backend Pipelines used}
@@ -431,20 +432,20 @@ TrainingArguments(
 
     \subsection{Comparison of Sample Outputs: T5 vs. Llama}
 
-    \begin{mdframed}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
+    \begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
         \textbf{Context:} \\
 
         Cubbon Park Sarangib for Pixabay Situated over a sprawling 300 acres of land the park was constructed by Richard Sankey This massive green park along with lawns deserves a special mention Offering statues of famous personalities the park is one among the popular places to visit in Bangalore with friends Location Kasturba Road Behind High Court of Karnataka Ambedkar Veedhi Sampangi Rama Nagara BangaloreTimings Open on all daysEntry Fee No entry fee Suggested Read Resorts Near Bangalore
-    \end{mdframed}
+    \end{tcolorbox}
 
 
-    \begin{mdframed}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
+    \begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
         \textbf{T5 Output:} \\
 
         Cubbon Park, a sprawling 300 acres of land, is a popular place to visit in Bangalore with friends. Offering statues of famous personalities, it is a popular place to visit with friends.
-    \end{mdframed}
+    \end{tcolorbox}
 
-    \begin{tcolorbox}[colframe=black,colback=white,arc=0mm,boxrule=0.5mm, left=2mm, right=2mm, top=2mm, bottom=2mm]
+    \begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
         \textbf{Llama3 Output:} \\
 
         The park was constructed by Richard Sankey. This massive green park, along with lawns, deserves a special mention. Offering statues of famous personalities, the park is one among the popular places to visit in Bangalore with friends. Location: Kasturba Road, Behind High Court of Karnataka.
@@ -474,7 +475,7 @@ TrainingArguments(
 
             To illustrate the effectiveness of our pipeline, we present a sample context along with the outputs generated by T5 and LLaMA models.
 
-            \begin{tcolorbox}[colframe=black, colback=white, boxrule=1pt, left=15pt, right=15pt, top=15pt, bottom=15pt, sharp corners]
+             \begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
                 \textbf{Context:} \\
 
                 \small
@@ -484,21 +485,21 @@ TrainingArguments(
 
             The T5 transformer model subsequently processes the context. The T5 model is specifically engineered to produce concise overviews from the provided text input, extracting the most important details. The following is the output that concisely captures the main points of the provided context:
 
-            \begin{mdframed}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
+            \begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
                 \textbf{T5 Output:} \\
 
                 \small
                 Sahastradhara is known for its magnificent waterfalls, steppe farming land, and caves. The waterfall is a perfect emblem of its name. It offers a panoramic view of the mountains and valleys. The water of Sahastradhara falls is renowned for its medicinal benefits. Visit Monsoon from Dehradun from 8 am to 7 pm. Entry fee is free. Read 20 Cafes In Dehradun That Are Too Awesome To Resist. The waterfall is a great place to visit in June.. Sahradhara's beautiful, and
-            \end{mdframed}
+            \end{tcolorbox}
 
             Following that, the LLaMA-3 model is provided with the concise summary produced by the T5 transformer for further elaboration and appropriate punctuation. The summary is further elaborated upon by the LLaMA-3 model, which guarantees that the text is well-organized and comprehensible.
 
-            \begin{mdframed}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
+            \begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
             \textbf{Llama Output:} \\
 
             \small
             It is one of Uttarakhand's most popular tourist attractions. Located at a distance of 16 km from the city, it is surrounded by lush greenery and has a waterfall that falls from a height of more than 200 feet. There is also a cave in the area that is believed to have medicinal properties. You can visit this place with your family and friends and enjoy the beauty of nature.
-            \end{mdframed}
+            \end{tcolorbox}
 
         \subsubsection{\textbf{Issues Faced}}
             Despite the improvements, we encountered several challenges:
