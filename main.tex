@@ -494,7 +494,7 @@ TrainingArguments(
             \end{figure}
 
     \subsection{Using Ollama for itinerary generation}
-                    
+
         Ollama is a platform that is capable of building and deploying machine learning models and can support a wide variety of architectures, such as transformers, CNNs, RNNs, ensemble models, and GNNs. It enhances the efficacy and effectiveness of a diverse array of machine learning tasks by simplifying workflows from preprocessing to deployment. Llama 3.1, Gemma 2, and other models are among the models it supports.
 
         We are utilizing Ollama to generate itineraries and are currently operating the Llama 3.1 model. The NLP processor's list of attractions is incorporated into the prompt for Ollama to assist in the generation of the itinerary, using the processed text that has been obtained after conducting NLP on the scraped text (as previously detailed). More than 4 minutes are required to generate the itinerary wholly without providing data using Ollama in the absence of the attractions list. The itinerary is generated in approximately 2 to 2.5 minutes after the data has been incorporated.
@@ -550,7 +550,8 @@ TrainingArguments(
 
             The first itinerary was designed to prioritize user preferences, and the trip was planned accordingly. In contrast, the second itinerary was more concerned with encompassing the attractions enumerated in the prompt. This is evident in the samples mentioned above.  It is important to note that the first itinerary was intended to be a longer journey than the second, which explains the variation in their schedules.{\\\\}
             As will be discussed later in the paper, we asked the participants which output they favored during the interviews. To be more precise, we asked whether they would prioritize a slightly faster itinerary generation time that does not consider user preferences, or if they would consider user preferences to be more important, even if it resulted in a prolonged processing time.
-    
+
+
 \section{Results and Evaluation}
 
     The training and evaluation loss for DistilBERT, RoBERTa, and BERT are summarized in Tables \ref{tab:losses-epoch1}, \ref{tab:losses-epoch2}, and \ref{tab:losses-epoch3}.
