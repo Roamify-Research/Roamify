@@ -23,20 +23,20 @@
 IIIT Delhi\\
 Email: vikranth22570@iiitd.ac.in}
 \and
-\IEEEauthorblockN{Harsh Mistry}
+\IEEEauthorblockN{Noel Abraham Tiju}
 \IEEEauthorblockA{Computer Science Engineering Dept\\
 IIIT Delhi\\
-Email: harsh22200@iiitd.ac.in}
+Email: noel22338@iiitd.ac.in}
 \and
 \IEEEauthorblockN{Muthuraj Vairamuthu}
 \IEEEauthorblockA{Computer Science Engineering Dept\\
 IIIT Delhi\\
 Email: muthuraj22307@iiitd.ac.in}
 \and
-\IEEEauthorblockN{Noel Tiju}
+\IEEEauthorblockN{Harsh Mistry}
 \IEEEauthorblockA{Computer Science Engineering Dept\\
 IIIT Delhi\\
-Email: noel22338@iiitd.ac.in}
+Email: harsh22200@iiitd.ac.in}
 \and
 \IEEEauthorblockN{Armaan Singh}
 \IEEEauthorblockA{Computer Science Engineering Dept\\
@@ -47,6 +47,7 @@ Email: armaan22096@iiitd.ac.in}
 \IEEEauthorblockA{Computer Science Engineering Dept\\
 IIIT Delhi\\
 Email: dhruv.kumar@iiitd.ac.in}}
+
 
 
 
@@ -66,7 +67,7 @@ Email: dhruv.kumar@iiitd.ac.in}}
 
 \begin{abstract}
 
-    Travel planning can often be a daunting and time-consuming task. Roamify, an AI-driven itinerary extension, aims to simplify this by providing curated suggestions based on user preferences. Leveraging advanced NLP models, Roamify generates personalized travel plans, enhancing the travel experience by transforming it from mere logistics to memorable adventures. This paper details Roamify's approach, methodologies, and its potential to fundamentally redefine travel planning.
+    Travel planning is difficult and time-consuming. AI-driven itinerary plugin Roamify simplifies this by making curated suggestions based on user interests. Roamify uses powerful NLP to parse text from web scraping. LLMs create individualized travel itineraries from processed data. Roamify's methods could convert vacation planning from logistical obstacles to exciting adventures, according to this paper. This paper describes Roamify's methods and promise to revolutionize travel planning.
 
 \end{abstract}
 
@@ -241,10 +242,10 @@ Email: dhruv.kumar@iiitd.ac.in}}
             Sample context and summary are shown below:
 
             \begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
-                \textbf{Context:} \\
+                \textbf{Context:}
 
                 Bangalore Palace, built by Chamaraja Wodeyar in 1887, is inspired by England's Windsor Castle and features fortified arches, towers, green lawns, and intricate wood carvings. Located in Vasanth Nagar, it remains a residence for the royal family and is a prime tourist attraction in Bangalore. Timings are from Sunday to Monday, 10:00 AM to 5:00 PM. Entry Fee: INR 230 for Indians, INR 460 for foreigners.
-                {\\\\}
+                {\\}
 
                 \textbf{Summary:} \\
                 Bangalore Palace, built by Chamaraja Wodeyar in 1887, is inspired by England's Windsor Castle and features fortified arches, towers, green lawns, and intricate wood carvings. Located in Vasanth Nagar, it remains a residence for the royal family and is a prime tourist attraction in Bangalore, open daily with an entry fee.
@@ -485,9 +486,71 @@ TrainingArguments(
                 \item \textbf{Improved Workflow with Ollama:} By integrating Ollama into the pipeline, we significantly reduced the processing time and improved the overall efficiency. The T5 model's summarization capabilities combined with Ollama's itinerary planning provided a balanced solution, offering both speed and accuracy.
             \end{itemize}
 
+            \begin{figure}
+                \centering
+                \includegraphics[width=1\linewidth]{Final-Pipeline.png}
+                \caption{Final Pipeline Implentation}
+                \label{fig:final-pipeline}
+            \end{figure}
+
+    \subsection{Using Ollama for itinerary generation}
+                    
+        Ollama is a platform that is capable of building and deploying machine learning models and can support a wide variety of architectures, such as transformers, CNNs, RNNs, ensemble models, and GNNs. It enhances the efficacy and effectiveness of a diverse array of machine learning tasks by simplifying workflows from preprocessing to deployment. Llama 3.1, Gemma 2, and other models are among the models it supports.
+
+        We are utilizing Ollama to generate itineraries and are currently operating the Llama 3.1 model. The NLP processor's list of attractions is incorporated into the prompt for Ollama to assist in the generation of the itinerary, using the processed text that has been obtained after conducting NLP on the scraped text (as previously detailed). More than 4 minutes are required to generate the itinerary wholly without providing data using Ollama in the absence of the attractions list. The itinerary is generated in approximately 2 to 2.5 minutes after the data has been incorporated.
+
+        \begin{tcolorbox}[colframe=black!75!white, colback=white!90!black, title=Ollama Prompt to generate itinerary]
+        Generate a detailed itinerary for me for a \{days\} day trip and here are the suggested places I would like to cover:
+
+        1: Attraction 1 \\
+        Attraction Description\\
+
+        2: Attraction 2 \\
+        Attraction Description\\
+
+        3: Attraction 3 \\
+        Attraction Description\\
+
+        % Repeat for each attraction
+
+        and so on.
+        \end{tcolorbox}
+
+
+    \subsection{Incorporating User Preferences}
+
+        The investigation of user preferences in the planning of itineraries is one of the primary objectives of our research. We concentrated on three primary characteristics: historical, amusement, and natural attractions. Prior to the planning process, users were requested to render their assessments of these attributes.{\\}
+
+        We incorporated these user evaluations into the prompt that is provided to Ollama, the system that is used to generate itineraries. The resulting itineraries underwent a substantial transformation as a result of the inclusion of these user preferences. The prompt's incorporation of user preferences led to more satisfactory and personalized travel plans.{\\}
+
         This pipeline effectively meets the project's objective of generating personalized itineraries, providing users with a practical and efficient tool for travel planning. The use of T5 and Ollama in tandem showcases a robust approach to handling large-scale data and delivering user-centric solutions.
 
+        \begin{tcolorbox}[colframe=black!75!white, colback=white!90!black, title=Sample One-Day Itinerary with user preferences]
+        Day 1: Historical Exploration
+            \begin{itemize}
+                \item \textbf{Morning:} Visit India Gate (9:00 am - 10:30 am)
+                \begin{itemize}
+                    \item \textit{Description:} Start your day by paying respects at the iconic India Gate monument.
+                \end{itemize}
+                \item \textbf{Afternoon:} Visit Lotus Temple (11:00 am - 12:30 pm)
+                \begin{itemize}
+                    \item \textit{Description:} Explore the beautiful and serene Lotus Temple, a perfect place for history buffs.
+                \end{itemize}
+            \end{itemize}
+        \end{tcolorbox}
 
+        \begin{tcolorbox}[colframe=black!75!white, colback=white!90!black, title=Sample One-Day Itinerary without user preferences]
+        Day 1: India Gate, Lotus Temple, and Akshardham Temple
+            \begin{itemize}
+                \item \textbf{Morning:} Start your day by visiting India Gate, a monument that commemorates the Indian soldiers who lost their lives during World War I. Take some time to admire the stunning architecture and snap photos.
+                \item \textbf{Next:} Head over to the Lotus Temple, also known as Bahai Temple. This beautiful temple is a must-visit for history buffs and those interested in spiritual experiences. The tranquil atmosphere and stunning architecture will leave you mesmerized.
+                \item \textbf{Afternoon:} After lunch, visit Akshardham Temple, which is dedicated to worshipping Lord Swaminarayan. Be sure to catch the beautiful evening lighting, which will leave you spellbound.
+            \end{itemize}
+        \end{tcolorbox}
+
+            The first itinerary was designed to prioritize user preferences, and the trip was planned accordingly. In contrast, the second itinerary was more concerned with encompassing the attractions enumerated in the prompt. This is evident in the samples mentioned above.  It is important to note that the first itinerary was intended to be a longer journey than the second, which explains the variation in their schedules.{\\\\}
+            As will be discussed later in the paper, we asked the participants which output they favored during the interviews. To be more precise, we asked whether they would prioritize a slightly faster itinerary generation time that does not consider user preferences, or if they would consider user preferences to be more important, even if it resulted in a prolonged processing time.
+    
 \section{Results and Evaluation}
 
     The training and evaluation loss for DistilBERT, RoBERTa, and BERT are summarized in Tables \ref{tab:losses-epoch1}, \ref{tab:losses-epoch2}, and \ref{tab:losses-epoch3}.
@@ -565,9 +628,12 @@ TrainingArguments(
 
     The objective of this research was to find the most suitable combination of LLMs for generating and fine-tuning itineraries. We prepared two datasets for fine-tuning: a question-answering dataset and a summarization dataset. Initially, we trained question-answering models to extract relevant details from attraction descriptions, but these models did not perform satisfactorily. Consequently, we shifted our focus to text-to-text generation models, specifically LLaMA-3 and T5, to address the summarization task.
     {\\\\}
-    Our experiments revealed that while T5 performs summarization tasks faster than LLaMA-3, it is sometimes less elaborate. Given our use case's priority on speed, we selected T5 for the summarization task. The T5-LLaMA combination proved to be the most effective. Ollama, built on LLaMA 3.1, was employed for efficient itinerary generation.
+    Our experiments revealed that while T5 performs summarization tasks faster than LLaMA-3, it is sometimes less elaborate. Given our use case’s priority on speed, we selected T5 for the summarization task. The T5-LLaMA combination proved to be the most effective. Ollama, built on LLaMA 3.1, was employed for efficient itinerary generation.
     {\\\\}
-    In conclusion, the combination of T5 and LLaMA provided a balanced approach to summarization, leveraging T5's speed and LLaMA's detail-oriented capabilities. This approach, coupled with the use of Ollama for itinerary generation, ensured that our solution was both efficient and comprehensive.
+    A primary objective of our research was to investigate user preferences in itinerary planning, focusing on historical, amusement, and natural attractions. User evaluations were integrated into the prompt for Ollama, resulting in more satisfactory and personalized travel plans. This emphasis on user preferences ensured that the generated itineraries were tailored to individual needs, providing a practical and efficient tool for travel planning.
+    {\\\\}
+    In conclusion, the combination of T5 and LLaMA provided a balanced approach to summarization, leveraging T5’s speed and LLaMA’s detail-oriented capabilities. Coupled with the use of Ollama for itinerary generation, this approach ensured that our solution was both efficient and comprehensive. The incorporation of user preferences significantly enhanced the personalization of itineraries, meeting the project’s objective of delivering user-centric travel plans.
+
 
     \subsection{Future Work}
 
