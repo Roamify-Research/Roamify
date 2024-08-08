@@ -85,7 +85,7 @@ Email: dhruv.kumar@iiitd.ac.in}}
 
     Roamify aims to address these issues by integrating seamlessly with users' web browsers. Recognizing that travelers often have multiple tabs open while planning their trips, Roamify leverages this browsing behavior to provide intelligent recommendations based on the websites and tabs users have open. For instance, if a user has a tab open on a site like MakeMyTrip, Roamify identifies the flight destination and redirects the user to a site relevant to that destination. It then uses NLP processing to decode the webpage into attractions and sends this data to Llama for detailed itinerary generation. This innovative approach ensures that travel planning becomes more efficient and personalized, making Roamify an essential tool for modern travelers.
 
-    The development and fine-tuning of the models used in Roamify were meticulously documented and are available on our GitHub and Hugging Face respectively: \href{https://github.com/RoamifyRedefined/Machine-Learning}{\textbf{RoamifyRedefined/Machine-Learning}} \& \href{https://huggingface.co/Roamify}{\textbf{huggingface.co/Roamify}}.
+    The development and fine-tuning of the models used in Roamify were meticulously documented and are available on our GitHub and Hugging Face respectively: \href{https://github.com/Roamify-Research/Machine-Learning}{\textbf{Roamify-Research/Machine-Learning}} \& \href{https://huggingface.co/Roamify}{\textbf{huggingface.co/Roamify}}.
 
 
 \section{Literature Review}
@@ -113,7 +113,7 @@ Email: dhruv.kumar@iiitd.ac.in}}
 \section{HTML Content Extraction and Itinerary Generation}
 
     In this study, we implemented a Chrome extension to enhance our travel itinerary generation process. The extension identifies locations from open browser tabs using airport codes, scrapes relevant web content for these locations, and processes this data for itinerary generation.
-    The extension prototype can be accessed through this Google Drive link: \href{https://drive.google.com/file/d/1qkj995W8CXmMslBy-55xUxxnHPPIOsoV/view?usp=sharing}{\textbf{Extension Prototype}}.
+    The prototype and the codebase of the extension is available for review on our Google Drive and GitHub repository respectively: \href{https://drive.google.com/drive/folders/1LXkF0hXtUz9cSrduAqgJe9TYU8Me2wMg?usp=sharing}{\textbf{Prototype}} \& \href{hhttps://github.com/Roamify-Research/Extension}{\textbf{Roamify-Research/Extension}}.
 
     \subsection{HTML Content Extraction and Location Identification}
 
@@ -627,13 +627,14 @@ TrainingArguments(
 
 \section{Conclusion}
 
-    The objective of this research was to find the most suitable combination of LLMs for generating and fine-tuning itineraries. We prepared two datasets for fine-tuning: a question-answering dataset and a summarization dataset. Initially, we trained question-answering models to extract relevant details from attraction descriptions, but these models did not perform satisfactorily. Consequently, we shifted our focus to text-to-text generation models, specifically LLaMA-3 and T5, to address the summarization task.
-    {\\\\}
-    Our experiments revealed that while T5 performs summarization tasks faster than LLaMA-3, it is sometimes less elaborate. Given our use case’s priority on speed, we selected T5 for the summarization task. The T5-LLaMA combination proved to be the most effective. Ollama, built on LLaMA 3.1, was employed for efficient itinerary generation.
-    {\\\\}
-    A primary objective of our research was to investigate user preferences in itinerary planning, focusing on historical, amusement, and natural attractions. User evaluations were integrated into the prompt for Ollama, resulting in more satisfactory and personalized travel plans. This emphasis on user preferences ensured that the generated itineraries were tailored to individual needs, providing a practical and efficient tool for travel planning.
-    {\\\\}
-    In conclusion, the combination of T5 and LLaMA provided a balanced approach to summarization, leveraging T5’s speed and LLaMA’s detail-oriented capabilities. Coupled with the use of Ollama for itinerary generation, this approach ensured that our solution was both efficient and comprehensive. The incorporation of user preferences significantly enhanced the personalization of itineraries, meeting the project’s objective of delivering user-centric travel plans.
+The objective of this research was to find the most suitable combination of LLMs for generating and fine-tuning itineraries. We initially trained question-answering models to extract relevant details from attraction descriptions, but they did not perform satisfactorily. Consequently, we shifted our focus to text-to-text generation models, specifically LLaMA-3 and T5, for summarization tasks.
+{\\\\}
+Our experiments revealed that while T5 performs summarization tasks faster than LLaMA-3, it is sometimes less elaborate. Given our use case’s priority on speed, we selected T5 for summarization. The combination of T5 and LLaMA proved effective, with T5's speed and LLaMA's detail-oriented capabilities. Ollama, built on LLaMA 3.1, was employed for efficient itinerary generation.
+{\\\\}
+A key objective was to investigate user preferences in itinerary planning, focusing on historical, amusement, and natural attractions. Integrating user evaluations into Ollama's prompt resulted in more satisfactory and personalized travel plans.
+{\\\\}
+In conclusion, the combination of T5 and LLaMA provided a balanced approach to summarization and itinerary generation, ensuring efficiency and comprehensiveness. Incorporating user preferences significantly enhanced itinerary personalization, meeting the project’s objective of delivering user-centric travel plans.
+
 
 
     \subsection{Future Work}
