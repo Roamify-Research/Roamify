@@ -114,15 +114,15 @@ Email: dhruv.kumar@iiitd.ac.in}}
 
     \subsubsection{Chrome Extension Setup}
         \begin{itemize}
-            \item We have developed a sophisticated Chrome extension named "Roamify," designed to streamline the travel itinerary generation process by leveraging advanced browser automation and content manipulation techniques.
+            \item We have developed a sophisticated Chrome extension named \textbf{Roamify}, designed to streamline the travel itinerary generation process by leveraging advanced browser automation and content manipulation techniques.
             \item The extension operates a service worker script and displays an intuitive sidebar interface within the browser, providing users with seamless access to the extracted and processed information.
-            \item To perform its tasks, the extension utilizes itinerary.js along with permissions to access various essential Chrome features, enabling it to interact with and manipulate the content of open tabs. This allows the extension to dynamically extract and process relevant information from the web pages the user visits.
+            \item To perform its tasks, the extension utilizes \href{https://github.com/Roamify-Research/Extension/blob/main/src/scripts/itinerary.js}{\textbf{itinerary.js}} along with permissions to access various essential Chrome features, enabling it to interact with and manipulate the content of open tabs. This allows the extension to dynamically extract and process relevant information from the web pages the user visits.
         \end{itemize}
 
     \subsubsection{Identifying Locations}
         \begin{itemize}
             \item The core functionality of the extension involves the extraction of HTML content from each open tab using JavaScript. The extracted content is analyzed to identify locations based on specific patterns, particularly airport codes embedded within URLs.
-            \item The identification process relies on matching URL patterns against a comprehensive and predefined list of airport codes and their corresponding city names. For example, if a URL contains codes such as “BOM” and “DEL,” the extension will automatically recognize these as representing Mumbai and Delhi, respectively. This feature allows the extension to accurately determine the user’s potential travel destinations.
+            \item The identification process relies on matching URL patterns against a comprehensive and predefined list of airport codes and their corresponding city names. For example, if a URL contains codes such as \textbf{BOM} and \textbf{DEL}, the extension will automatically recognize these as representing \textbf{Mumbai} and \textbf{Delhi}, respectively. This feature allows the extension to accurately determine the user’s potential travel destinations.
             \item An advanced feature of the extension further enhances the user experience by detecting URLs associated with popular travel websites and flight booking platforms. When such a URL is detected, the extension automatically extracts the destination details from the page. This information is then utilized to generate itinerary values with a single click, eliminating the need for manual input from the user.
             \item This capability allows the extension to instantly determine whether the user is on a travel-related or booking page and proactively provides them with relevant travel information at that very instance. This real-time identification and processing significantly enhance the efficiency and convenience of the user experience, making travel planning more intuitive and less time-consuming.
         \end{itemize}
@@ -149,7 +149,7 @@ Email: dhruv.kumar@iiitd.ac.in}}
         \begin{itemize}
             \item Once the backend has processed the data, it generates detailed travel itineraries tailored to the user’s needs. These itineraries are structured to include essential travel information such as suggested activities, must-see attractions, recommended accommodations, and travel routes.
             \item The response from the backend is then relayed back to the extension, where it is displayed within the sidebar. The results are presented in a clear and organized format, allowing users to easily review and utilize the itinerary information.
-            \item This seamless integration between the frontend Chrome extension and the backend ensures that users receive accurate and well-organized travel plans without having to leave their current browsing session. The overall user experience is enhanced by the swift and efficient processing of information, making travel planning a more enjoyable and stress-free task.
+            \item This seamless integration between the \href{https://github.com/Roamify-Research/Extension/tree/main/src}{\textbf{frontend}} Chrome extension and the \href{https://github.com/Roamify-Research/Extension/tree/main/backend}{\textbf{backend}} ensures that users receive accurate and well-organized travel plans without having to leave their current browsing session. The overall user experience is enhanced by the swift and efficient processing of information, making travel planning a more enjoyable and stress-free task.
         \end{itemize}
 
 \subsection{Summary}
