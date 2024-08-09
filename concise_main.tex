@@ -93,23 +93,21 @@ dhruv.kumar@iiitd.ac.in}}
     Large language models (LLMs) have improved machine learning models' ability to understand and generate human language in recent years. These advances benefit applications that require detailed textual analysis and generation, like travel itinerary planning. This paper examines five state-of-the art LLMs—BERT, T5, DistilBERT, Llama, and RoBERTa—that generate personalized travel itineraries. We use these models to rethink travel planning with Roamify, an AI-powered itinerary planner.
 
     \subsection{BERT (Bidirectional Encoder Representations from Transformers)}
-BERT, developed by Google, is a transformer-based model designed for deep contextual understanding. Its bidirectional approach allows it to consider both left and right contexts, making it effective for tasks like question answering.
+        BERT, developed by Google, is a transformer-based model designed for deep contextual understanding. Its bidirectional approach allows it to consider both left and right contexts, making it effective for tasks like question answering.
 
-\subsection{T5 (Text-To-Text Transfer Transformer)}
-T5, developed by Google, treats all tasks as text-to-text problems, offering versatility across various applications. We utilized Google Flan T5 Small, a fine-tuned variant of the T5 model specifically designed for instruction-following tasks. Flan T5 Small is a more compact version of the original T5 model, optimized to perform well on a wide range of tasks while being computationally efficient.
+    \subsection{T5 (Text-To-Text Transfer Transformer)}
+        T5, developed by Google, treats all tasks as text-to-text problems, offering versatility across various applications. We utilized Google Flan T5 Small, a fine-tuned variant of the T5 model specifically designed for instruction-following tasks. Flan T5 Small is a more compact version of the original T5 model, optimized to perform well on a wide range of tasks while being computationally efficient.
 
-\subsection{DistilBERT}
-DistilBERT is a smaller, faster version of BERT, retaining most of BERT's capabilities while significantly reducing computational demands. It achieves this efficiency by distilling the knowledge from BERT into a more compact model, making it ideal for scenarios where computational resources are limited. Despite being 40\% smaller and 60\% faster, DistilBERT maintains 97\% of BERT's language understanding performance.
+    \subsection{DistilBERT}
+        DistilBERT is a smaller, faster version of BERT, retaining most of BERT's capabilities while significantly reducing computational demands. It achieves this efficiency by distilling the knowledge from BERT into a more compact model, making it ideal for scenarios where computational resources are limited. Despite being 40\% smaller and 60\% faster, DistilBERT maintains 97\% of BERT's language understanding performance.
 
-\subsection{Llama (LLaMA: Large Language Model with Attention)}
-Llama is a large-scale language model known for handling complex language tasks. Fine-tuned using the Unsloth framework, we applied Llama to generate personalized travel itineraries, benefiting from its extensive pre-training for nuanced user queries.
-The Unsloth framework is a fine-tuning method designed to optimize large language models for specific tasks by reducing unnecessary computational overhead while maintaining accuracy. It streamlines the fine-tuning process, making models like Llama more efficient and effective in generating personalized outputs.
-
-
-\subsection{RoBERTa (Robustly Optimized BERT Pretraining Approach)}
-RoBERTa is an optimized version of BERT, improving performance by adjusting key hyperparameters and training methods. It enhances BERT's pre-training process by removing the next sentence prediction objective, increasing the training data size, and using larger mini-batches with higher learning rates. These modifications allow RoBERTa to achieve better performance across a wide range of natural language processing tasks, making it a powerful tool for understanding and generating contextual information in applications like Roamify.
+    \subsection{Llama (LLaMA: Large Language Model with Attention)}
+        Llama is a large-scale language model known for handling complex language tasks. Fine-tuned using the Unsloth framework, we applied Llama to generate personalized travel itineraries, benefiting from its extensive pre-training for nuanced user queries.
+        The Unsloth framework is a fine-tuning method designed to optimize large language models for specific tasks by reducing unnecessary computational overhead while maintaining accuracy. It streamlines the fine-tuning process, making models like Llama more efficient and effective in generating personalized outputs.
 
 
+    \subsection{RoBERTa (Robustly Optimized BERT Pretraining Approach)}
+        RoBERTa is an optimized version of BERT, improving performance by adjusting key hyperparameters and training methods. It enhances BERT's pre-training process by removing the next sentence prediction objective, increasing the training data size, and using larger mini-batches with higher learning rates. These modifications allow RoBERTa to achieve better performance across a wide range of natural language processing tasks, making it a powerful tool for understanding and generating contextual information in applications like Roamify.
 
     By evaluating these models, we aim to determine the most effective approach for generating personalized travel itineraries. The following sections detail the methodology, model configurations, training processes, and evaluation metrics used in this comparative study.
 
@@ -117,7 +115,6 @@ RoBERTa is an optimized version of BERT, improving performance by adjusting key 
 \section{HTML Content Extraction and Location Identification}
 
     \textbf{Roamify} is a Chrome extension designed to streamline travel itinerary generation using advanced browser automation and content manipulation. It features a service worker script and an intuitive sidebar interface for easy access to processed information. The extension utilizes \href{https://github.com/Roamify-Research/Extension/blob/main/src/scripts/itinerary.js}{\textbf{itinerary.js}} with essential Chrome permissions to interact with open tabs, enabling dynamic extraction and processing of relevant web page content.
-
 
     \subsection{Identifying Locations}
         \begin{itemize}
@@ -152,7 +149,6 @@ RoBERTa is an optimized version of BERT, improving performance by adjusting key 
 
     \subsection{Data Processing and Structuring}
         After identifying the pattern, we extracted the text between consecutive integers, which typically contained detailed descriptions of the attractions. This text was further refined to remove any extraneous details. The sanitized data was then stored in a dictionary, with attraction names as keys and their purified data as values, enabling effective organization and retrieval, as shown in Figure \ref{fig:nlp-processor}. These steps ensured that the processed data was error-free, well-organized, and ready for further analysis and model training.
-
 
 
     \begin{figure}
@@ -212,7 +208,7 @@ RoBERTa is an optimized version of BERT, improving performance by adjusting key 
             \item \textbf{Normalization:} Text was converted to lowercase, and punctuation was standardized.
             \item \textbf{Splitting:} The data was divided into training and evaluation sets with an 80:20 ratio.
         \end{itemize}
-        
+
         This comprehensive preprocessing ensured that the models received noise-free and relevant data, enhancing the accuracy and relevance of the generated travel itineraries.
 
 
@@ -324,89 +320,87 @@ TrainingArguments(
 
 \section{Results and Evaluation}
 
-The training and evaluation losses for DistilBERT, RoBERTa, and BERT models were analyzed to assess their performance on the QA tasks. These losses are depicted in Figures \ref{fig:training-loss-qa} and \ref{fig:evalutation-loss-qa}, respectively.
-{\\}
+    The training and evaluation losses for DistilBERT, RoBERTa, and BERT models were analyzed to assess their performance on the QA tasks. These losses are depicted in Figures \ref{fig:training-loss-qa} and \ref{fig:evalutation-loss-qa}, respectively.
+    {\\}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=1\linewidth]{Training-Loss.png}
-    \caption{Training Loss For QA Models}
-    \label{fig:training-loss-qa}
-\end{figure}
+    \begin{figure}
+        \centering
+        \includegraphics[width=1\linewidth]{Training-Loss.png}
+        \caption{Training Loss For QA Models}
+        \label{fig:training-loss-qa}
+    \end{figure}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=1\linewidth]{Evaluation-Loss.png}
-    \caption{Evaluation Loss For QA Models}
-    \label{fig:evalutation-loss-qa}
-\end{figure}
+    \begin{figure}
+        \centering
+        \includegraphics[width=1\linewidth]{Evaluation-Loss.png}
+        \caption{Evaluation Loss For QA Models}
+        \label{fig:evalutation-loss-qa}
+    \end{figure}
 
-In Figure \ref{fig:training-loss-qa}, the training losses show a consistent decline across all models, indicating that the models are learning effectively during training. However, Figure \ref{fig:evalutation-loss-qa} reveals negative evaluation loss scores, pointing to potential issues in the evaluation phase. These negative scores suggest that the models may have struggled to capture context from the dataset, possibly due to limitations in the dataset itself or misalignment in the fine-tuning process.
-{\\}
+    In Figure \ref{fig:training-loss-qa}, the training losses show a consistent decline across all models, indicating that the models are learning effectively during training. However, Figure \ref{fig:evalutation-loss-qa} reveals negative evaluation loss scores, pointing to potential issues in the evaluation phase. These negative scores suggest that the models may have struggled to capture context from the dataset, possibly due to limitations in the dataset itself or misalignment in the fine-tuning process.
+    {\\}
 
-Additionally, the training process for Llama 3 - 8B was evaluated, as shown in Figure \ref{fig:llama-training-loss}. The training loss decreased over steps, demonstrating the model's ability to learn. Despite fluctuations, the overall trend suggests a learning curve that could benefit from further refinement or additional epochs to achieve better stability and convergence.
+    Additionally, the training process for Llama 3 - 8B was evaluated, as shown in Figure \ref{fig:llama-training-loss}. The training loss decreased over steps, demonstrating the model's ability to learn. Despite fluctuations, the overall trend suggests a learning curve that could benefit from further refinement or additional epochs to achieve better stability and convergence.
 
-\begin{figure}
-    \centering
-    \includegraphics[width=1\linewidth]{Llama-Training-Loss.png}
-    \caption{Llama Training Loss Over Steps}
-    \label{fig:llama-training-loss}
-\end{figure}
+    \begin{figure}
+        \centering
+        \includegraphics[width=1\linewidth]{Llama-Training-Loss.png}
+        \caption{Llama Training Loss Over Steps}
+        \label{fig:llama-training-loss}
+    \end{figure}
 
-These results highlight the models' learning capabilities and the challenges faced during evaluation, offering insights for future improvements in model fine-tuning and dataset selection.
+    These results highlight the models' learning capabilities and the challenges faced during evaluation, offering insights for future improvements in model fine-tuning and dataset selection.
 
-   
 
-    
 \section{Transformer Models and Pipeline Integration}
 
     \subsection{T5}
 
-We fine-tuned Google's FLAN T5 Transformer, available in our Hugging Face models repository, to compress sentences from NLP-scraped text. This approach effectively captured key points with impressive speed. However, we encountered several issues:
+    We fine-tuned Google's FLAN T5 Transformer, available in our Hugging Face models repository, to compress sentences from NLP-scraped text. This approach effectively captured key points with impressive speed. However, we encountered several issues:
 
-\subsubsection{Issues Faced}
-\begin{itemize}
-    \item \textbf{Short Sentences:} Generated text was often overly brief, leading to a fragmented narrative.
-    \item \textbf{Punctuation Problems:} Inconsistent punctuation resulted in unclear descriptions.
-    \item \textbf{Conciseness and Accuracy:} While quick, the summaries sometimes omitted important details and lacked precision.
-\end{itemize}
+    \subsubsection{Issues Faced}
+    \begin{itemize}
+        \item \textbf{Short Sentences:} Generated text was often overly brief, leading to a fragmented narrative.
+        \item \textbf{Punctuation Problems:} Inconsistent punctuation resulted in unclear descriptions.
+        \item \textbf{Conciseness and Accuracy:} While quick, the summaries sometimes omitted important details and lacked precision.
+    \end{itemize}
 
-These challenges indicated the need for a model that could produce well-structured, punctuated text while maintaining T5's speed and efficiency.
+    These challenges indicated the need for a model that could produce well-structured, punctuated text while maintaining T5's speed and efficiency.
 
-\subsection{Llama}
+    \subsection{Llama}
 
-Our fine-tuned LLaMA model generated accurate descriptions with high precision. However, it posed significant challenges in processing time and computational resource demands.
+    Our fine-tuned LLaMA model generated accurate descriptions with high precision. However, it posed significant challenges in processing time and computational resource demands.
 
-\subsubsection{Issues Faced}
-\begin{itemize}
-    \item \textbf{Repetition of Sentences:} The model often repeated sentences, affecting coherence.
-    \item \textbf{Punctuation Problems:} Descriptions frequently lacked proper punctuation, leading to unclear text.
-    \item \textbf{Abrupt Endings:} Some outputs ended abruptly, resulting in incomplete descriptions.
-\end{itemize}
+    \subsubsection{Issues Faced}
+    \begin{itemize}
+        \item \textbf{Repetition of Sentences:} The model often repeated sentences, affecting coherence.
+        \item \textbf{Punctuation Problems:} Descriptions frequently lacked proper punctuation, leading to unclear text.
+        \item \textbf{Abrupt Endings:} Some outputs ended abruptly, resulting in incomplete descriptions.
+    \end{itemize}
 
-We experimented with model parameters like text streamer output size, temperature values, and other hyperparameters to improve accuracy. However, these adjustments increased processing time significantly, creating a trade-off between accuracy and speed that limited the model's practicality for real-time applications.
+    We experimented with model parameters like text streamer output size, temperature values, and other hyperparameters to improve accuracy. However, these adjustments increased processing time significantly, creating a trade-off between accuracy and speed that limited the model's practicality for real-time applications.
 
 
     \subsection{Comparison of Sample Outputs: T5 vs. Llama}
 
-    \begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
-        \textbf{Context:} \\
+        \begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
+            \textbf{Context:} \\
 
-        Cubbon Park Sarangib for Pixabay Situated over a sprawling 300 acres of land the park was constructed by Richard Sankey This massive green park along with lawns deserves a special mention Offering statues of famous personalities the park is one among the popular places to visit in Bangalore with friends Location Kasturba Road Behind High Court of Karnataka Ambedkar Veedhi Sampangi Rama Nagara BangaloreTimings Open on all daysEntry Fee No entry fee Suggested Read Resorts Near Bangalore
-    \end{tcolorbox}
+            Cubbon Park Sarangib for Pixabay Situated over a sprawling 300 acres of land the park was constructed by Richard Sankey This massive green park along with lawns deserves a special mention Offering statues of famous personalities the park is one among the popular places to visit in Bangalore with friends Location Kasturba Road Behind High Court of Karnataka Ambedkar Veedhi Sampangi Rama Nagara BangaloreTimings Open on all daysEntry Fee No entry fee Suggested Read Resorts Near Bangalore
+        \end{tcolorbox}
 
 
-    \begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
-        \textbf{T5 Output:} \\
+        \begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
+            \textbf{T5 Output:} \\
 
-        Cubbon Park, a sprawling 300 acres of land, is a popular place to visit in Bangalore with friends. Offering statues of famous personalities, it is a popular place to visit with friends.
-    \end{tcolorbox}
+            Cubbon Park, a sprawling 300 acres of land, is a popular place to visit in Bangalore with friends. Offering statues of famous personalities, it is a popular place to visit with friends.
+        \end{tcolorbox}
 
-    \begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
-        \textbf{Llama3 Output:} \\
+        \begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
+            \textbf{Llama3 Output:} \\
 
-        The park was constructed by Richard Sankey. This massive green park, along with lawns, deserves a special mention. Offering statues of famous personalities, the park is one among the popular places to visit in Bangalore with friends. Location: Kasturba Road, Behind High Court of Karnataka.
-    \end{tcolorbox}
+            The park was constructed by Richard Sankey. This massive green park, along with lawns, deserves a special mention. Offering statues of famous personalities, the park is one among the popular places to visit in Bangalore with friends. Location: Kasturba Road, Behind High Court of Karnataka.
+        \end{tcolorbox}
 
     \subsection{Understanding the Advantages and Disadvantages of LLaMA and T5 Models}
 
@@ -432,7 +426,7 @@ We experimented with model parameters like text streamer output size, temperatur
 
             To illustrate the effectiveness of our pipeline, we present a sample context along with the outputs generated by T5 and LLaMA models.
 
-             \begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
+            \begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
                 \textbf{Context:} \\
 
                 \small
@@ -452,10 +446,10 @@ We experimented with model parameters like text streamer output size, temperatur
             Following that, the LLaMA-3 model is provided with the concise summary produced by the T5 transformer for further elaboration and appropriate punctuation. The summary is further elaborated upon by the LLaMA-3 model, which guarantees that the text is well-organized and comprehensible.
 
             \begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
-            \textbf{Llama Output:} \\
+                \textbf{Llama Output:} \\
 
-            \small
-            It is one of Uttarakhand's most popular tourist attractions. Located at a distance of 16 km from the city, it is surrounded by lush greenery and has a waterfall that falls from a height of more than 200 feet. There is also a cave in the area that is believed to have medicinal properties. You can visit this place with your family and friends and enjoy the beauty of nature.
+                \small
+                It is one of Uttarakhand's most popular tourist attractions. Located at a distance of 16 km from the city, it is surrounded by lush greenery and has a waterfall that falls from a height of more than 200 feet. There is also a cave in the area that is believed to have medicinal properties. You can visit this place with your family and friends and enjoy the beauty of nature.
             \end{tcolorbox}
 
         \subsubsection{\textbf{Issues Faced}}
@@ -517,7 +511,7 @@ We experimented with model parameters like text streamer output size, temperatur
 
         The investigation of user preferences in itinerary planning is a primary objective of our research, focusing on historical, amusement, and natural attractions. Before planning, users provided assessments of these attributes, which were incorporated into the prompt used by Ollama to generate itineraries. This integration led to more personalized and satisfactory travel plans.
 
-This pipeline successfully meets the project's goal of generating customized itineraries, showcasing the effective combination of T5 and Ollama in handling large-scale data and delivering user-centric solutions.
+        This pipeline successfully meets the project's goal of generating customized itineraries, showcasing the effective combination of T5 and Ollama in handling large-scale data and delivering user-centric solutions.
 
 \begin{tcolorbox}[colframe=black!75!white, colback=white!90!black, title=Sample One-Day Itinerary with User Preferences]
 Day 1: Historical Exploration
@@ -545,68 +539,64 @@ Day 1: India Gate, Lotus Temple, and Akshardham Temple
 The first itinerary prioritizes user preferences, while the second focuses on covering attractions listed in the prompt. The samples illustrate how user input shapes the itinerary, with the first being a longer journey. In later interviews, participants were asked whether they preferred faster itinerary generation without user preferences or valued personalized itineraries despite longer processing times.
 
 
-
-
 \section{Discussion}
 
     \subsection{Question Answering Models}
 
         The models' poor evaluation scores reveal significant challenges in accurately predicting relevant details from attraction descriptions. Despite extensive preprocessing and fine-tuning, the models struggled with understanding the input data, leading to imprecise responses. The complexity and diversity of the data likely contributed to low or negative scores, emphasizing the need for further model refinement or alternative approaches to enhance prediction accuracy.
 
-\subsection{Text-to-Text Generation Model Inferences}
+    \subsection{Text-to-Text Generation Model Inferences}
 
-During our evaluation of text-to-text generation models, T5 and LLaMA-3, several key observations were made:
+    During our evaluation of text-to-text generation models, T5 and LLaMA-3, several key observations were made:
 
-\begin{enumerate}
-    \item \textbf{Speed and Loading Time:} T5 exhibited faster processing and shorter loading times compared to LLaMA-3, making it suitable for real-time applications.
+    \begin{enumerate}
+        \item \textbf{Speed and Loading Time:} T5 exhibited faster processing and shorter loading times compared to LLaMA-3, making it suitable for real-time applications.
 
-    \item \textbf{Handling of Content:} T5 sometimes omitted the attraction's name in summaries, while LLaMA-3 consistently included it, providing a clearer and more organized output.
+        \item \textbf{Handling of Content:} T5 sometimes omitted the attraction's name in summaries, while LLaMA-3 consistently included it, providing a clearer and more organized output.
 
-    \item \textbf{Grammatical Accuracy:} T5 maintained better grammatical accuracy, resulting in more refined and readable summaries.
+        \item \textbf{Grammatical Accuracy:} T5 maintained better grammatical accuracy, resulting in more refined and readable summaries.
 
-    \item \textbf{Combinations and Results:} We tested various combinations, such as T5-LLaMA in series and LLaMA-LLaMA in series, along with individual use of T5 and LLaMA with BERT for extracting details. The T5-LLaMA combination was the most effective, balancing speed and detail.
+        \item \textbf{Combinations and Results:} We tested various combinations, such as T5-LLaMA in series and LLaMA-LLaMA in series, along with individual use of T5 and LLaMA with BERT for extracting details. The T5-LLaMA combination was the most effective, balancing speed and detail.
 
-    \item \textbf{Itinerary Generation:} Although LLaMA's long processing time posed challenges, we employed Ollama, based on LLaMA 3.1, to meet itinerary generation requirements effectively.
-\end{enumerate}
+        \item \textbf{Itinerary Generation:} Although LLaMA's long processing time posed challenges, we employed Ollama, based on LLaMA 3.1, to meet itinerary generation requirements effectively.
+    \end{enumerate}
 
-These findings highlight the strengths and weaknesses of T5 and LLaMA-3 in content summarization. T5's speed and grammatical accuracy make it ideal for rapid tasks, while LLaMA-3 excels in structured content delivery. Balancing these factors is crucial when selecting models for real-world applications.
-
+    These findings highlight the strengths and weaknesses of T5 and LLaMA-3 in content summarization. T5's speed and grammatical accuracy make it ideal for rapid tasks, while LLaMA-3 excels in structured content delivery. Balancing these factors is crucial when selecting models for real-world applications.
 
 
 \section{Conclusion}
 
-The goal of this research was to identify the best combination of LLMs for generating and fine-tuning itineraries. Initially, we trained question-answering models to extract details from attraction descriptions, but they underperformed. We then focused on text-to-text generation models, specifically LLaMA-3 and T5, for summarization.
+    The goal of this research was to identify the best combination of LLMs for generating and fine-tuning itineraries. Initially, we trained question-answering models to extract details from attraction descriptions, but they underperformed. We then focused on text-to-text generation models, specifically LLaMA-3 and T5, for summarization.
 
-Our experiments showed that while T5 is faster at summarization, it is sometimes less detailed than LLaMA-3. Given our priority on speed, we selected T5 for summarization, pairing it with LLaMA for its detailed output. Ollama, based on LLaMA 3.1, was used for efficient itinerary generation.
+    Our experiments showed that while T5 is faster at summarization, it is sometimes less detailed than LLaMA-3. Given our priority on speed, we selected T5 for summarization, pairing it with LLaMA for its detailed output. Ollama, based on LLaMA 3.1, was used for efficient itinerary generation.
 
-We also investigated user preferences in itinerary planning, integrating them into Ollama's prompt for more personalized and satisfactory travel plans.
+    We also investigated user preferences in itinerary planning, integrating them into Ollama's prompt for more personalized and satisfactory travel plans.
 
-In conclusion, the combination of T5 and LLaMA provided a balanced approach, ensuring both efficiency and comprehensiveness, while incorporating user preferences significantly enhanced personalization in travel itineraries.
+    In conclusion, the combination of T5 and LLaMA provided a balanced approach, ensuring both efficiency and comprehensiveness, while incorporating user preferences significantly enhanced personalization in travel itineraries.
 
 
     \subsection{Future Work}
 
-Future work will aim to optimize model performance and efficiency, focusing on:
-\begin{itemize}
-    \item Exploring additional NLP models and architectures for further improvements.
-    \item Enhancing data collection and preprocessing to improve training data quality and diversity.
-    \item Integrating user feedback to refine and personalize itinerary recommendations.
-    \item Expanding the models' application to other travel industry domains, such as real-time assistance and dynamic itinerary adjustments.
-\end{itemize}
+        Future work will aim to optimize model performance and efficiency, focusing on:
+        \begin{itemize}
+            \item Exploring additional NLP models and architectures for further improvements.
+            \item Enhancing data collection and preprocessing to improve training data quality and diversity.
+            \item Integrating user feedback to refine and personalize itinerary recommendations.
+            \item Expanding the models' application to other travel industry domains, such as real-time assistance and dynamic itinerary adjustments.
+        \end{itemize}
 
 
     \subsection{Potential Applications}
 
-This study demonstrates the potential of advanced NLP techniques in transforming travel planning. The successful implementation in Roamify shows these models can generate accurate and personalized itineraries. Potential applications include:
+        This study demonstrates the potential of advanced NLP techniques in transforming travel planning. The successful implementation in Roamify shows these models can generate accurate and personalized itineraries. Potential applications include:
 
-\begin{itemize}
-    \item Personalized travel planning services tailored to individual preferences.
-    \item Real-time travel assistance tools offering dynamic recommendations.
-    \item Enhanced customer support systems providing quick, accurate responses.
-\end{itemize}
+        \begin{itemize}
+            \item Personalized travel planning services tailored to individual preferences.
+            \item Real-time travel assistance tools offering dynamic recommendations.
+            \item Enhanced customer support systems providing quick, accurate responses.
+        \end{itemize}
 
-In conclusion, integrating NLP models into tools like Roamify boosts the efficiency and personalization of travel experiences. Continued research will further enhance AI's role in delivering more intuitive and responsive travel planning solutions.
-
+        In conclusion, integrating NLP models into tools like Roamify boosts the efficiency and personalization of travel experiences. Continued research will further enhance AI's role in delivering more intuitive and responsive travel planning solutions.
 
 
 \section{User Survey and Interview Analysis}
@@ -682,25 +672,24 @@ In conclusion, integrating NLP models into tools like Roamify boosts the efficie
     \subsection{Interview Methodology and Findings}
         In addition to the survey, in-depth interviews were conducted to gain deeper insights into travel planning experiences, focusing on pain points and expectations from a travel planning tool.
 
-\textbf{Key Insights from Interviews:}
-\begin{itemize}
-    \item \textbf{Frequency of Travel:} Interviewees typically travel 3-4 times a year, requiring flexible and comprehensive planning tools.
-    \item \textbf{Planning Process:} Extensive research, price comparisons, and seeking recommendations from friends and family highlight the complexity and time-consuming nature of travel planning.
-    \item \textbf{Challenges:} Common challenges include information overload, coordination issues, and the need for reliable, personalized recommendations.
-    \item \textbf{Expectations from AI Tools:} Participants prefer AI tools that offer tailored recommendations, streamline booking, and provide real-time updates, integrating multiple information sources.
-    \item \textbf{Personalization:} 60\% of interviewees emphasized the need for tools that adapt to their unique interests and preferences.
-    \item \textbf{User Experience:} Demand is high for user-friendly interfaces with seamless platform integration, clear information, and robust customer support.
-    \item \textbf{Age Group Preferences:} Generation X prefers offline travel agencies, while Millennials and Generation Z favor online agencies and AI-generated itineraries, considering factors like weather, budget, and intercity travel.
-    \item \textbf{Waiting Time Concerns:} 80\% of interviewees stressed the importance of reducing waiting times for adopting AI tools in travel planning.
-\end{itemize}
+        \textbf{Key Insights from Interviews:}
+        \begin{itemize}
+            \item \textbf{Frequency of Travel:} Interviewees typically travel 3-4 times a year, requiring flexible and comprehensive planning tools.
+            \item \textbf{Planning Process:} Extensive research, price comparisons, and seeking recommendations from friends and family highlight the complexity and time-consuming nature of travel planning.
+            \item \textbf{Challenges:} Common challenges include information overload, coordination issues, and the need for reliable, personalized recommendations.
+            \item \textbf{Expectations from AI Tools:} Participants prefer AI tools that offer tailored recommendations, streamline booking, and provide real-time updates, integrating multiple information sources.
+            \item \textbf{Personalization:} 60\% of interviewees emphasized the need for tools that adapt to their unique interests and preferences.
+            \item \textbf{User Experience:} Demand is high for user-friendly interfaces with seamless platform integration, clear information, and robust customer support.
+            \item \textbf{Age Group Preferences:} Generation X prefers offline travel agencies, while Millennials and Generation Z favor online agencies and AI-generated itineraries, considering factors like weather, budget, and intercity travel.
+            \item \textbf{Waiting Time Concerns:} 80\% of interviewees stressed the importance of reducing waiting times for adopting AI tools in travel planning.
+        \end{itemize}
 
 
     \subsection{Ongoing Implications}
         Survey and interview results show the need for Roamify, a comprehensive, individualized trip planning tool. Information overload, coordination challenges, and unpersonalised recommendations trouble users. Roamify can solve these problems and improve travel planning by using AI to provide customized itineraries, real-time updates, and an easy-to-use UI. Roamify will adapt to modern travelers' demands using these findings.
 
 
-
-% \newpage
+\newpage
 
 \begin{thebibliography}{1}
 
@@ -800,7 +789,7 @@ In conclusion, integrating NLP models into tools like Roamify boosts the efficie
 
 \end{thebibliography}
 
-% \newpage
+\newpage
 
 \appendix
 
