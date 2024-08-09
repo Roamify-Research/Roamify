@@ -110,48 +110,52 @@ Email: dhruv.kumar@iiitd.ac.in}}
     By evaluating these models, we aim to determine the most effective approach for generating personalized travel itineraries. The following sections detail the methodology, model configurations, training processes, and evaluation metrics used in this comparative study.
 
 
-\section{HTML Content Extraction and Itinerary Generation}
+\section{HTML Content Extraction and Location Identification}
 
-    In this study, we implemented a Chrome extension to enhance our travel itinerary generation process. The extension identifies locations from open browser tabs using airport codes, scrapes relevant web content for these locations, and processes this data for itinerary generation.
-    The prototype and the codebase of the extension is available for review on our Google Drive and GitHub repository respectively: \href{https://drive.google.com/drive/folders/1LXkF0hXtUz9cSrduAqgJe9TYU8Me2wMg?usp=sharing}{\textbf{Prototype}} \& \href{hhttps://github.com/Roamify-Research/Extension}{\textbf{Roamify-Research/Extension}}.
+    \subsubsection{Chrome Extension Setup}
+        \begin{itemize}
+            \item We have developed a sophisticated Chrome extension named "Roamify," designed to streamline the travel itinerary generation process by leveraging advanced browser automation and content manipulation techniques.
+            \item The extension operates a service worker script and displays an intuitive sidebar interface within the browser, providing users with seamless access to the extracted and processed information.
+            \item To perform its tasks, the extension utilizes itinerary.js along with permissions to access various essential Chrome features, enabling it to interact with and manipulate the content of open tabs. This allows the extension to dynamically extract and process relevant information from the web pages the user visits.
+        \end{itemize}
 
-    \subsection{HTML Content Extraction and Location Identification}
+    \subsubsection{Identifying Locations}
+        \begin{itemize}
+            \item The core functionality of the extension involves the extraction of HTML content from each open tab using JavaScript. The extracted content is analyzed to identify locations based on specific patterns, particularly airport codes embedded within URLs.
+            \item The identification process relies on matching URL patterns against a comprehensive and predefined list of airport codes and their corresponding city names. For example, if a URL contains codes such as “BOM” and “DEL,” the extension will automatically recognize these as representing Mumbai and Delhi, respectively. This feature allows the extension to accurately determine the user’s potential travel destinations.
+            \item An advanced feature of the extension further enhances the user experience by detecting URLs associated with popular travel websites and flight booking platforms. When such a URL is detected, the extension automatically extracts the destination details from the page. This information is then utilized to generate itinerary values with a single click, eliminating the need for manual input from the user.
+            \item This capability allows the extension to instantly determine whether the user is on a travel-related or booking page and proactively provides them with relevant travel information at that very instance. This real-time identification and processing significantly enhance the efficiency and convenience of the user experience, making travel planning more intuitive and less time-consuming.
+        \end{itemize}
 
-        \subsubsection{Chrome Extension Setup}
-            \begin{itemize}
-                \item We developed a Chrome extension named "Roamify," which runs a service worker script and displays a sidebar.
-                \item The extension requests permissions to access various Chrome features, including tabs, scripting, and activeTab, allowing it to interact with and manipulate the content of open tabs.
-            \end{itemize}
+    \subsubsection{Content Display and Processing}
+        \begin{itemize}
+            \item Once the relevant locations have been identified, the extension processes the HTML content by scraping data and passing it on to NLP algorithms for enhanced itinerary generation. This ensures that the most valuable and relevant information is extracted and utilized for generating travel plans.
+            \item The extraction process involves a comprehensive cleaning phase, during which unnecessary elements such as scripts, styles, and advertisements are removed. The focus is on isolating and preserving key elements, including titles, descriptions, main content, and details about tourist attractions.
+            \item The Roamify extension employs an intelligent scraping mechanism that goes beyond basic content extraction. It smartly detects and filters out irrelevant or extraneous information, such as advertisements and random jQuery or CSS queries, that may inadvertently be included during the scraping process. This ensures that the extracted content is of the highest quality and relevance.
+            \item Notably, the entire process of HTML scraping, content parsing, and information processing occurs in the backend. This backend-only approach ensures that none of these operations interfere with the user's browsing experience on the main screen. The extension is designed to operate seamlessly in the background, providing a smooth and uninterrupted user experience.
+            \item The final cleaned and structured content is then displayed in an organized and user-friendly format within the extension’s sidebar. Users can easily navigate through the extracted information, which is presented in a manner that facilitates quick decision-making and travel planning.
+        \end{itemize}
 
-        \subsubsection{Identifying Locations}
-            \begin{itemize}
-                \item The extension uses JavaScript to extract the HTML content of each tab and identifies locations based on airport codes found in the URL.
-                \item This is done by matching URL patterns against a predefined list of airport codes and their corresponding cities. For example, if a URL contains “BOM” and “DEL” the script will recognise these as Mumbai and Delhi, respectively.
-            \end{itemize}
+\subsection{Backend Integration for Itinerary Processing}
 
-        \subsubsection{Content Display and Processing}
-            \begin{itemize}
-                \item Once the locations are identified, the extension constructs links to travel-related blogs and fetches the HTML content of these pages.
-                \item The content is cleaned by removing scripts and styles, and key elements such as titles, descriptions, main content, and attractions are extracted.
-                \item This extracted information is then displayed in a user-friendly format in the extension’s sidebar.
-            \end{itemize}
+    \subsubsection{Backend Interaction}
+        \begin{itemize}
+            \item The Roamify extension is integrated with a robust backend, which plays a critical role in processing the scraped HTML content. This backend is responsible for transforming the raw content into a structured format that can be easily interpreted and utilized for generating travel itineraries.
+            \item The interaction between the extension and the backend is facilitated through the use of the Fetch API, utilizing POST requests to transmit the cleaned and structured data. The Fetch API is chosen for its efficiency and reliability in handling HTTP requests, ensuring smooth communication between the extension and the backend server.
+            \item The backend processes the received data by extracting meaningful information from it. This includes identifying important elements such as travel destinations, suggested itineraries, and relevant travel tips, all derived from the original content scraped from the web.
+        \end{itemize}
 
-    \subsection{Backend Integration for Itinerary Processing}
+    \subsubsection{Processing and Displaying Results}
+        \begin{itemize}
+            \item Once the backend has processed the data, it generates detailed travel itineraries tailored to the user’s needs. These itineraries are structured to include essential travel information such as suggested activities, must-see attractions, recommended accommodations, and travel routes.
+            \item The response from the backend is then relayed back to the extension, where it is displayed within the sidebar. The results are presented in a clear and organized format, allowing users to easily review and utilize the itinerary information.
+            \item This seamless integration between the frontend Chrome extension and the backend ensures that users receive accurate and well-organized travel plans without having to leave their current browsing session. The overall user experience is enhanced by the swift and efficient processing of information, making travel planning a more enjoyable and stress-free task.
+        \end{itemize}
 
-        \subsubsection{Backend API Interaction}
-            \begin{itemize}
-                \item The extension integrates with a backend API hosted locally. The API processes the scraped HTML content and returns a structured itinerary.
-                \item The interaction with the API is handled using the Fetch API with POST requests, sending the cleaned and structured data to the backend.
-            \end{itemize}
+\subsection{Summary}
+    The Roamify extension represents a cutting-edge solution for travel itinerary generation, combining the power of browser automation, sophisticated web scraping techniques, and backend processing to deliver a superior user experience. By identifying locations from open browser tabs through airport codes and detecting travel-related and booking site URLs, the extension automatically generates itinerary values and relevant travel information with minimal user input. This is made possible through an innovative backend that processes and structures the scraped content, ensuring that users receive detailed and organized travel plans tailored to their needs. Furthermore, the extension’s ability to operate all scraping and processing tasks in the backend guarantees a smooth and uninterrupted browsing experience. With comprehensive mapping of global airport locations and their corresponding destinations, Roamify is equipped to generate accurate itineraries for virtually any location worldwide, using only airport codes. This extensive feature set, combined with an emphasis on seamless and intuitive user interaction, positions Roamify as a leading tool in the domain of travel planning and itinerary management.
 
-        \subsubsection{Processing and Displaying Results}
-            \begin{itemize}
-                \item The backend API processes the data, extracting meaningful information and generating travel itineraries based on the content.
-                \item The response from the API is then displayed in the extension’s sidebar, providing users with a detailed and organised travel plan.
-            \end{itemize}
 
-    \subsection{Summary}
-        Combining browser automation, web scraping, and backend processing, the Roamify extension streamlines the process of generating travel itineraries. The extension identifies locations from open browser tabs using airport codes, scrapes relevant content from travel blogs, and processes this information through a backend API to provide users with comprehensive travel plans. This approach enhances the user experience by leveraging AI and NLP technologies to deliver personalised travel recommendations, ensuring users can access detailed and relevant travel information directly within their browser.
 
 
 \section{NLP Processing}
@@ -747,10 +751,6 @@ In conclusion, the combination of T5 and LLaMA provided a balanced approach to s
 
     \subsection{Ongoing Implications}
         The survey and interview findings underscore the need for a comprehensive, personalized travel planning tool like Roamify. Users face significant challenges in planning their trips, including information overload, coordination difficulties, and lack of personalized recommendations. By leveraging AI to provide tailored itineraries, real-time updates, and an intuitive user interface, Roamify can address these pain points and enhance the overall travel planning experience. The insights gained from this research will inform the development of Roamify, ensuring it meets the needs and expectations of modern travelers.
-
-
-\section*{Acknowledgment}
-    The authors would like to extend their sincerest gratitude to \href{https://www.iiitd.ac.in/dhruv}{Dr Dhruv Kumar} \textit{(Computer Science \& Engineering Dept., \href{https://www.iiitd.ac.in/}{IIIT-Delhi})} for their invaluable guidance throughout the project. Their insightful feedback and expertise have been instrumental in shaping this project into its final form.
 
 
 \newpage
