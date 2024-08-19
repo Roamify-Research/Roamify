@@ -240,18 +240,23 @@ To effectively understand the implications of AI-powered tools in the tourism in
 By addressing these research questions, this paper aims to elucidate the methodology behind developing the Roamify application, explore its implications within the tourism industry, and consider future design considerations and potential impacts. Through this exploration, we intend to provide a comprehensive understanding of how AI-driven tools like Roamify can transform travel planning, highlighting such technology's current and future roles in enhancing user experiences.
 
 \section{Related Work}
-As noted in the introduction, the ``\verb|acmart|'' document class can
-be used to prepare many different kinds of documentation --- a
-double-anonymous initial submission of a full-length technical paper, a
-two-page SIGGRAPH Emerging Technologies abstract, a ``camera-ready''
-journal article, a SIGCHI Extended Abstract, and more --- all by
-selecting the appropriate {\itshape template style} and {\itshape
-  template parameters}.
 
-This document will explain the major features of the document
-class. For further information, the {\itshape \LaTeX\ User's Guide} is
-available from
-\url{https://www.acm.org/publications/proceedings-template}.
+The application of Artificial Intelligence in the tourism industry has seen significant advancements, particularly with the advent of Large Language Models such as GPT-3 and GPT-4. These models have been utilized to enhance user experiences by providing personalized recommendations, itinerary planning, and real-time travel assistance. Several works have explored the potential and challenges of AI in this domain, focusing on the integration of user preferences, the reliability of AI-generated content, and the ethical implications of using AI in travel planning.
+
+\subsection{AI-Powered Travel Assistants}
+Research into AI-powered travel assistants has highlighted their potential to streamline travel planning by offering personalized recommendations and real-time assistance. For instance, Xu et al. (2020) developed an AI-based system for generating personalized travel itineraries using natural language processing techniques to analyze user preferences and destination data \cite{xu2020personalized}. Similarly, Yang et al. (2021) explored the application of LLMs in providing real-time travel information, emphasizing the importance of up-to-date data and user context in improving the accuracy of recommendations \cite{yang2021real}.
+
+\subsection{Challenges of Outdated Data in LLMs}
+Despite their potential, LLMs like GPT-3 and GPT-4 face significant challenges due to their reliance on pre-trained data, which may become outdated over time. Bender et al. (2021) and Bommasani et al. (2021) have pointed out that outdated data can lead to inaccurate or irrelevant recommendations, undermining the effectiveness of AI-driven travel assistants \cite{bender2021stochastic, bommasani2021opportunities}. These limitations have prompted researchers to explore methods for continuously updating LLMs with the latest information, as well as integrating external data sources such as web scraping to enhance the relevance and timeliness of AI-generated content.
+
+\subsection{Web Scraping and Dynamic Content Integration}
+Web scraping has emerged as a promising approach to addressing the limitations of static LLMs by dynamically integrating the latest information from various online sources. In the context of travel planning, this technique allows AI systems to provide users with the most current and relevant data, including recent blog posts, news articles, and user reviews. Li et al. (2022) demonstrated the effectiveness of web scraping in enhancing the accuracy of AI-generated travel recommendations by incorporating up-to-date content from a wide range of sources \cite{li2022enhancing}. Roamify builds on this approach by using web scraping to gather real-time data on destinations and attractions, ensuring that users receive the most relevant and personalized itinerary suggestions.
+
+\subsection{Privacy Considerations in AI-Driven Travel Planning}
+As AI continues to play an increasingly prominent role in travel planning, concerns around privacy and data security have become more pressing. Several studies have examined the risks associated with the use of LLMs, particularly regarding the potential for sensitive user information to be inadvertently exposed or misused. Brown et al. (2020) and Bommasani et al. (2021) emphasize the need for privacy-conscious AI solutions that prioritize data protection and minimize the retention of personally identifiable information \cite{brown2020language, bommasani2021opportunities}. Roamify addresses these concerns by adopting a generalization approach that ensures user data is anonymized and securely handled throughout the itinerary planning process.
+
+\subsection{User-Centric Design in AI Travel Tools}
+The importance of user-centric design in developing effective AI-powered travel tools has been widely recognized. Studies by Nguyen et al. (2019) and Kim et al. (2020) highlight the need to align AI-generated recommendations with user preferences and expectations to enhance the overall user experience \cite{nguyen2019user, kim2020design}. Roamify follows this principle by incorporating user preferences into the itinerary planning process, ensuring that the generated travel plans are not only accurate but also tailored to the individual needs and interests of each user.
 
 \subsection{LLMs in Tourism Industry}
 
