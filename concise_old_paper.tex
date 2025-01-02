@@ -1,696 +1,449 @@
-\documentclass[conference]{IEEEtran}
+%%
+%% This is file `sample-sigconf-authordraft.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% samples.dtx  (with options: `all,proceedings,bibtex,authordraft')
+%%
+%% IMPORTANT NOTICE:
+%%
+%% For the copyright see the source file.
+%%
+%% Any modified versions of this file must be renamed
+%% with new filenames distinct from sample-sigconf-authordraft.tex.
+%%
+%% For distribution of the original source see the terms
+%% for copying and modification in the file samples.dtx.
+%%
+%% This generated file may be distributed as long as the
+%% original source files, as listed above, are part of the
+%% same distribution. (The sources need not necessarily be
+%% in the same archive or directory.)
+%%
+%%
+%% Commands for TeXCount
+%TC:macro \cite [option:text,text]
+%TC:macro \citep [option:text,text]
+%TC:macro \citet [option:text,text]
+%TC:envir table 0 1
+%TC:envir table* 0 1
+%TC:envir tabular [ignore] word
+%TC:envir displaymath 0 word
+%TC:envir math 0 word
+%TC:envir comment 0 0
+%%
+%%
+%% The first command in your LaTeX source must be the \documentclass
+%% command.
+%%
+%% For submission and review of your manuscript please change the
+%% command to \documentclass[manuscript, screen, review]{acmart}.
+%%
+%% When submitting camera ready or to TAPS, please change the command
+%% to \documentclass[sigconf]{acmart} or whichever template is required
+%% for your publication.
+%%
+%%
+\documentclass[sigconf,authordraft]{acmart}
 \usepackage{natbib}
 \usepackage{url}
 \usepackage{hyperref}
 \usepackage{framed}
 \usepackage{tcolorbox}
-\ifCLASSINFOpdf
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{enumitem}
 
-\else
+%% Rights management information.  This information is sent to you
+%% when you complete the rights form.  These commands have SAMPLE
+%% values in them; it is your responsibility as an author to replace
+%% the commands and values with those provided to you when you
+%% complete the rights form.
+\setcopyright{acmlicensed}
+\copyrightyear{2024}
+\acmYear{2024}
+\acmDOI{XXXXXXX.XXXXXXX}
 
-\fi
+%% These commands are for a PROCEEDINGS abstract or paper.
+\acmConference[Conference acronym 'XX']{Make sure to enter the correct conference title from your rights confirmation email}{June 03--05, 2018}{Woodstock, NY}
+%%
+%%  Uncomment \acmBooktitle if the title of the proceedings is different
+%%  from ``Proceedings of ...''!
+%%
+%%\acmBooktitle{Woodstock '18: ACM Symposium on Neural Gaze Detection,
+%%  June 03--05, 2018, Woodstock, NY}
+\acmISBN{978-1-4503-XXXX-X/18/06}
 
-\hyphenation{op-tical net-works semi-conduc-tor}
 
+%%
+%% Submission ID.
+%% Use this when submitting an article to a sponsored event. You'll
+%% receive a unique submission ID from the organizers
+%% of the event, and this ID should be used as the parameter to this command.
+%%\acmSubmissionID{123-A56-BU3}
+
+%%
+%% For managing citations, it is recommended to use bibliography
+%% files in BibTeX format.
+%%
+%% You can then either use BibTeX with the ACM-Reference-Format style,
+%% or BibLaTeX with the acmnumeric or acmauthoryear sytles, that include
+%% support for advanced citation of software artefact from the
+%% biblatex-software package, also separately available on CTAN.
+%%
+%% Look at the sample-*-biblatex.tex files for templates showcasing
+%% the biblatex styles.
+%%
+
+%%
+%% The majority of ACM publications use numbered citations and
+%% references.  The command \citestyle{authoryear} switches to the
+%% "author year" style.
+%%
+%% If you are preparing content for an event
+%% sponsored by ACM SIGGRAPH, you must use the "author year" style of
+%% citations and references.
+%% Uncommenting
+%% the next command will enable that style.
+%%\citestyle{acmauthoryear}
+
+
+%%
+%%
+%% The "title" command has an optional parameter,
+%% allowing the author to define a "short title" to be used in page headers.
+\title{Roamify: Evaluating a Google Chrome Extension for Enhancing User Experience in Itinerary Planning}
+
+%%
+%% The "author" command and its associated commands are used to define
+%% the authors and their affiliations.
+%% Of note is the shared affiliation of the first two authors, and the
+%% "authornote" and "authornotemark" commands
+%% used to denote shared contribution to the research.
+\author{Vikranth Udandarao}
+\affiliation{%
+  \institution{IIIT Delhi}
+  \department{Computer Science Engineering Dept}
+  \city{New Delhi}
+  \country{India}}
+\email{vikranth22570@iiitd.ac.in}
+
+\author{Noel Abraham Tiju}
+\affiliation{%
+  \institution{IIIT Delhi}
+  \department{Computer Science Engineering Dept}
+  \city{New Delhi}
+  \country{India}}
+\email{noel22338@iiitd.ac.in}
+
+\author{Muthuraj Vairamuthu}
+\affiliation{%
+  \institution{IIIT Delhi}
+  \department{Computer Science Engineering Dept}
+  \city{New Delhi}
+  \country{India}}
+\email{muthuraj22307@iiitd.ac.in}
+
+\author{Harsh Mistry}
+\affiliation{%
+  \institution{IIIT Delhi}
+  \department{Computer Science Engineering Dept}
+  \city{New Delhi}
+  \country{India}}
+\email{harsh22200@iiitd.ac.in}
+
+
+%%
+%% By default, the full list of authors will be used in the page
+%% headers. Often, this list is too long, and will overlap
+%% other information printed in the page headers. This command allows
+%% the author to define a more concise list
+%% of authors' names for this purpose.
+\renewcommand{\shortauthors}{Trovato et al.}
 
 \begin{document}
 
-\title{\textbf{Roamify: Roaming Redefined}\\ \textit{Changing the Way World Travels}}
-
-
-\author{\IEEEauthorblockN{Vikranth Udandarao}
-\IEEEauthorblockA{Computer Science Engineering Dept\\
-IIIT Delhi\\
-vikranth22570@iiitd.ac.in}
-\and
-\IEEEauthorblockN{Noel Abraham Tiju}
-\IEEEauthorblockA{Computer Science Engineering Dept\\
-IIIT Delhi\\
-noel22338@iiitd.ac.in}
-\and
-\IEEEauthorblockN{Muthuraj Vairamuthu}
-\IEEEauthorblockA{Computer Science Engineering Dept\\
-IIIT Delhi\\
-muthuraj22307@iiitd.ac.in}
-\and
-\IEEEauthorblockN{Harsh Mistry}
-\IEEEauthorblockA{Computer Science Engineering Dept\\
-IIIT Delhi\\
-harsh22200@iiitd.ac.in}
-\and
-\IEEEauthorblockN{Armaan Singh}
-\IEEEauthorblockA{Computer Science Engineering Dept\\
-IIIT Delhi\\
-armaan22096@iiitd.ac.in}
-\and
-\IEEEauthorblockN{Dhruv Kumar}
-\IEEEauthorblockA{Computer Science Engineering Dept\\
-IIIT Delhi\\
-dhruv.kumar@iiitd.ac.in}}
-
-
-
-
-% \author{\IEEEauthorblockN{Vikranth Udandarao\IEEEauthorrefmark{1},
-% Harsh Mistry\IEEEauthorrefmark{1},
-% Muthuraj Vairamuthu\IEEEauthorrefmark{1},
-% Noel Tiju\IEEEauthorrefmark{1},
-% Armaan Singh\IEEEauthorrefmark{1}}
-% \IEEEauthorblockA{\IEEEauthorrefmark{1}Computer Science Engineering Dept\\
-% IIIT Delhi\\
-% }}
-
-
-
-
-\maketitle
-
+%%
+%% The abstract is a short summary of the work to be presented in the
+%% article.
 \begin{abstract}
-
-    Travel planning is difficult and time-consuming. AI-driven itinerary plugin Roamify simplifies this by making curated suggestions based on user interests. Roamify uses powerful NLP to parse text from web scraping. LLMs create individualized travel itineraries from processed data. Roamify's methods could convert vacation planning from logistical obstacles to exciting adventures, according to this paper. This paper describes Roamify's methods and promise to revolutionize travel planning.
-
+This research delves into Roamify, an AI-powered travel assistance that makes travel preparations easy. It embarks on the usage of Large Language Models like Llama and T5 to generate personalised itineraries in accordance with user preferences. Results from user surveys highlight the preference for AI-powered mediums over existing methods to help in travel planning across all user age groups. These results firmly ideate the potential of Roamify. The following study highlights the three primary design considerations for travel assistance: \textbf{D1)} incorporating a web scrapping method to gather up-to-date news articles about various destinations and include them in our itineraries, \textbf{D2)} collecting various attractions and reviews from various blog sources, which significantly improves our itinerary suggestions, and \textbf{D3)} utilizing user preferences to create customized travel experiences along with a recommendation system which changes the itinerary according to the user needs. Our research indicates that Roamify has the immense potential to transform how users plan their trips once and forever.
 \end{abstract}
 
-\IEEEpeerreviewmaketitle
+\ccsdesc[500]{Human-centered computing~Ubiquitous and mobile computing systems and tools}
+\ccsdesc[500]{Applied computing~Cartography}
+
+  %%
+  %% Keywords. The author(s) should pick words that accurately describe
+  %% the work being presented. Separate the keywords with commas.
+  \keywords{large language models, AI assistants, travel planning assistants, generative AI}
+  %%
+  %% This command processes the author and affiliation and title
+  %% information and builds the first part of the formatted document.
+  \maketitle
 
 \section{Introduction}
-
-    \textbf{Roamify} - Roaming Redefined aims to revolutionize travel planning for today's generation, targeting youngsters, teenagers, college students, and families. Roamify addresses the common challenge of wanting to explore without the hassle of planning by offering AI-generated itineraries with curated suggestions tailored to travelers' preferences. This introduction highlights how Roamify redefines travel, making it about unlocking memorable experiences, not just reaching a destination.
-
-    In the past, travel was a luxury limited to the rich and elite. However, with advancements in transportation, travel has become more accessible to everyone. People now travel for various reasons: work, leisure, relaxation, reunions with friends, or simply for the joy of exploring new places. This increase in travel purposes has led to a new challenge: deciding what to explore upon arrival.
-
-    Imagine a four-person family planning a summer vacation. They used to have to book a package with all itineraries and attractions at an offline travel agency. Technology has created many online platforms that let people customize their itineraries.
-
-    Many online travel websites struggle to attract users after years of existence, despite these advances. Although ChatGPT can help, it has limitations like outdated training data.
-
-    Roamify integrates with web browsers to solve these issues. Roamify uses users' open websites and tabs to make intelligent recommendations. If a user has a tab open on MakeMyTrip, Roamify identifies the flight destination and redirects them to a relevant site. It then decodes the webpage into attractions using NLP and sends this data to Llama for detailed itinerary generation. This innovative approach makes travel planning more efficient and personalized, making Roamify essential for modern travelers.
-
-    The development and fine-tuning of the models used in Roamify were meticulously documented and are available on our GitHub and Hugging Face respectively: \href{https://github.com/Roamify-Research/Machine-Learning}{\textbf{Roamify-Research/Machine-Learning}} \& \href{https://huggingface.co/Roamify}{\textbf{huggingface.co/Roamify}}.
-
-
-\section{Literature Review}
-
-    Large language models (LLMs) have improved machine learning models' ability to understand and generate human language in recent years. These advances benefit applications that require detailed textual analysis and generation, like travel itinerary planning. This paper examines five state-of-the art LLMs—BERT, T5, DistilBERT, Llama, and RoBERTa—that generate personalized travel itineraries. We use these models to rethink travel planning with Roamify, an AI-powered itinerary planner.
-
-    \subsection{BERT (Bidirectional Encoder Representations from Transformers)}
-        BERT, developed by Google, is a transformer-based model designed for deep contextual understanding. Its bidirectional approach allows it to consider both left and right contexts, making it effective for tasks like question answering.
-
-    \subsection{T5 (Text-To-Text Transfer Transformer)}
-        T5, developed by Google, treats all tasks as text-to-text problems, offering versatility across various applications. We utilized Google Flan T5 Small, a fine-tuned variant of the T5 model specifically designed for instruction-following tasks. Flan T5 Small is a more compact version of the original T5 model, optimized to perform well on a wide range of tasks while being computationally efficient.
-
-    \subsection{DistilBERT}
-        DistilBERT is a smaller, faster version of BERT, retaining most of BERT's capabilities while significantly reducing computational demands. It achieves this efficiency by distilling the knowledge from BERT into a more compact model, making it ideal for scenarios where computational resources are limited. Despite being 40\% smaller and 60\% faster, DistilBERT maintains 97\% of BERT's language understanding performance.
-
-    \subsection{Llama (LLaMA: Large Language Model with Attention)}
-        Llama is a large-scale language model known for handling complex language tasks. Fine-tuned using the Unsloth framework, we applied Llama to generate personalized travel itineraries, benefiting from its extensive pre-training for nuanced user queries.
-        The Unsloth framework is a fine-tuning method designed to optimize large language models for specific tasks by reducing unnecessary computational overhead while maintaining accuracy. It streamlines the fine-tuning process, making models like Llama more efficient and effective in generating personalized outputs.
-
-
-    \subsection{RoBERTa (Robustly Optimized BERT Pretraining Approach)}
-        RoBERTa is an optimized version of BERT, improving performance by adjusting key hyperparameters and training methods. It enhances BERT's pre-training process by removing the next sentence prediction objective, increasing the training data size, and using larger mini-batches with higher learning rates. These modifications allow RoBERTa to achieve better performance across a wide range of natural language processing tasks, making it a powerful tool for understanding and generating contextual information in applications like Roamify.
-
-    By evaluating these models, we aim to determine the most effective approach for generating personalized travel itineraries. The following sections detail the methodology, model configurations, training processes, and evaluation metrics used in this comparative study.
-
-
-\section{HTML Content Extraction and Location Identification}
-
-    \textbf{Roamify} is a Chrome extension designed to streamline travel itinerary generation using advanced browser automation and content manipulation. It features a service worker script and an intuitive sidebar interface for easy access to processed information. The extension utilizes \href{https://github.com/Roamify-Research/Extension/blob/main/src/scripts/itinerary.js}{\textbf{itinerary.js}} with essential Chrome permissions to interact with open tabs, enabling dynamic extraction and processing of relevant web page content.
-
-    \subsection{Identifying Locations}
-        \begin{itemize}
-            \item The extension extracts HTML content from open tabs using JavaScript, analyzing it to identify locations by matching URL patterns against a predefined list of airport codes and corresponding city names. For example, if a URL contains codes like \textbf{BOM} and \textbf{DEL}, the extension recognizes these as \textbf{Mumbai} and \textbf{Delhi}, accurately determining potential travel destinations.
-
-            \item The extension enhances user experience by detecting URLs from popular travel and booking websites, automatically extracting destination details. By identifying travel-related pages in real-time, the extension significantly improves the efficiency and convenience of travel planning.
-
-        \end{itemize}
-
-    \subsection{Content Processing}
-        \begin{itemize}
-            \item After identifying relevant locations, the extension scrapes and processes HTML content, passing it to NLP algorithms for enhanced itinerary generation which is described in \textbf{NLP Processing}. The extraction process includes a comprehensive cleaning phase that removes unnecessary elements like scripts, styles, and advertisements, focusing on key information such as titles, descriptions, and tourist attraction details. The Roamify extension's intelligent scraping mechanism ensures high-quality, relevant content by filtering out extraneous information.
-
-            \item The HTML scraping, content parsing, and information processing occur entirely in the backend, ensuring a seamless and uninterrupted browsing experience for the user, as the extension operates smoothly in the background. This seamless integration between the \href{https://github.com/Roamify-Research/Extension/tree/main/src}{\textbf{frontend}} Chrome extension and the \href{https://github.com/Roamify-Research/Extension/tree/main/backend}{\textbf{backend}} ensures that users receive accurate and well-organized travel plans without having to leave their current browsing session.
-
-        \end{itemize}
-
-
-\section{NLP Processing}
-
-    This algorithm was used to clear junk from the scraped data. It involved four stages:
-
-    \subsection{Using spaCy}
-        We used the \texttt{en\_core\_web\_lg} model from the \texttt{spaCy} library to preprocess web-scraped data. This comprehensive English language model includes pre-trained word vectors and performs tasks like tokenization, part-of-speech tagging, named entity recognition, and dependency parsing, enabling efficient data cleansing and organization.
-
-
-    \subsection{Extracting Sentences}
-        We obtained sentences from the text that was processed using \texttt{spaCy}. During this step, the continuous text was divided into separate sentences, which facilitated the identification and analysis of distinct pieces of information.
-
-    \subsection{Recognizing Patterns}
-        Next, we segmented the sentences into individual words using the \texttt{word\_tokenize} feature. Throughout this procedure, our objective was to identify a particular pattern: a consecutive series of integers commencing with 1. This pattern was clearly identifiable in the data obtained through web scraping from websites that provide recommendations for attractions.
-
-    \subsection{Data Processing and Structuring}
-        After identifying the pattern, we extracted the text between consecutive integers, which typically contained detailed descriptions of the attractions. This text was further refined to remove any extraneous details. The sanitized data was then stored in a dictionary, with attraction names as keys and their purified data as values, enabling effective organization and retrieval, as shown in Figure \ref{fig:nlp-processor}. These steps ensured that the processed data was error-free, well-organized, and ready for further analysis and model training.
-
-
-    \begin{figure}
-        \centering
-        \includegraphics[width=1\linewidth]{NLP-Processor.png}
-        \caption{NLP Processor}
-        \label{fig:nlp-processor}
-    \end{figure}
-
-
-\section{Methodology and Models}
-
-    \subsection{Initial Approach}
-
-        Initially, we utilized various models to do two distinct tasks: question answering and text-to-text generation. The models employed for each task are enumerated below:
-
-        \subsubsection{Question Answering Models}
-            For the question answering task, we employed the following models:
-            \begin{itemize}
-                \item BERT
-                \item RoBERTa
-                \item DistilBERT
-            \end{itemize}
-
-            The models were employed to address inquiries pertaining to the context presented in the dataset. The main goal was to obtain important insights and precise replies from the processed scraped data. The specific questions asked to the models are:
-
-            \begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
-                \begin{enumerate}
-                    \item What is the name of the attraction?
-                    \item What is the location of the attraction?
-                    \item Describe the attraction in detail.
-                    \item What type of attraction is it? (e.g., historical, natural, amusement, beach)
-                \end{enumerate}
-            \end{tcolorbox}
-
-        \subsubsection{Text-to-Text Generation Models}
-            For the text-to-text generation task, specifically summarization, we utilized the following models:
-            \begin{itemize}
-                \item T5
-                \item Llama-3
-            \end{itemize}
-
-            The models were optimized to generate precise and concise summaries, compressing the text while preserving its significance and relevance. This approach was crucial for producing succinct descriptions of tourist destinations from extensive web-scraped data.
-
-            Our objective was to improve the comprehension and utility of the gathered data by utilizing these models, hence increasing its accessibility and providing users with more interesting insights.
-        {\\}
-         \subsubsection{Itenary generation Model}
-            For this task, we utilized Ollama, specifically employing the Llama 3.1 model. The Ollama model was instrumental in generating detailed and personalized travel itineraries by processing the cleaned text, which had previously undergone NLP processing and summarization through T5 and Llama.
-{\\}
-    \subsection{Data Collection and Preprocessing}
-
-        The data for fine-tuning the models was sourced from various online travel platforms, focusing on popular tourist destinations, including detailed descriptions, locations, types of attractions, and user reviews. To ensure high-quality input, the data was pre-processed by performing several steps:
-
-        \begin{itemize}
-            \item \textbf{Tokenization:} Text data was tokenized using the respective model tokenizers.
-            \item \textbf{Cleaning:} Non-ASCII characters, HTML tags, and extra whitespace were removed.
-            \item \textbf{Normalization:} Text was converted to lowercase, and punctuation was standardized.
-            \item \textbf{Splitting:} The data was divided into training and evaluation sets with an 80:20 ratio.
-        \end{itemize}
-
-        This comprehensive preprocessing ensured that the models received noise-free and relevant data, enhancing the accuracy and relevance of the generated travel itineraries.
-
-
-        We created two datasets for fine-tuning, each with a different purpose:
-
-        \begin{enumerate}
-            \item \textbf{Summarization Dataset}: The dataset was utilized to refine the Llama-3 and Flan-T5 models. The system was comprised of two components: context and summary. The context pertained to the data obtained by web scraping, while the summary was a concise translation of the text that was both grammatically correct and concise.\\
-
-
-            \item \textbf{Question-Answering Dataset}: The dataset was utilized to refine Question-Answering Models, specifically BERT, DistilBERT, and RoBERTa. The document has six questions as specified in the annexure. The dataset was utilized to get significant insights from the processed scraped data.
-        \end{enumerate}
-
-    \subsection{Question Answering Model Configurations}
-
-        \subsubsection{BERT}
-
-            BERT, developed by Google, was fine-tuned using the following configurations:
-            \begin{itemize}
-                \item Model: \texttt{bert-base-uncased}
-                \item Tokenizer: \texttt{BertTokenizer}
-                \item Training epochs: 3
-                \item Learning rate: 5e-5
-                \item Batch size: 8
-            \end{itemize}
-
-        \subsubsection{RoBERTa}
-
-            RoBERTa, an optimized version of BERT, was used to enhance the contextual understanding of travel-related queries. The following configurations were used:
-            \begin{itemize}
-                \item Model: \texttt{deepset/roberta-base-squad2}
-                \item Tokenizer: \texttt{AutoTokenizer}
-                \item Training epochs: 3
-                \item Learning rate: 2e-5
-                \item Batch size: 8
-            \end{itemize}
-
-        \subsubsection{DistilBERT}
-
-            DistilBERT, a distilled version of BERT, was fine-tuned with reduced computational requirements:
-            \begin{itemize}
-                \item Model: \texttt{distilbert-base-uncased}
-                \item Tokenizer: \texttt{DistilBertTokenizer}
-                \item Training epochs: 3
-                \item Learning rate: 5e-5
-                \item Batch size: 8
-            \end{itemize}
-
-    \subsection{Text2Text Generation Model Configurations}
-
-        \subsubsection{T5}
-
-            T5, also from Google, was treated as a text-to-text problem and fine-tuned with the following settings:
-            \begin{itemize}
-                \item Model: \texttt{google/flan-t5-small}
-                \item Tokenizer: \texttt{AutoTokenizer}
-                \item Training epochs: 10
-                \item Learning rate: 2e-5
-                \item Batch size: 16
-            \end{itemize}
-
-\begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
-\begin{lstlisting}
-\small
-\begin{verbatim}
-Training_args = Seq2SeqTrainingArguments(
-    evaluation_strategy="epoch",
-    learning_rate=2e-5,
-    per_device_train_batch_size=10,
-    per_device_eval_batch_size=10,
-    weight_decay=0.01,
-    save_total_limit=3,
-    num_train_epochs=10
-)
-\end{verbatim}
-\end{lstlisting}
-\end{tcolorbox}
-
-        \subsubsection{Llama}
-
-            Llama, known for its large-scale language understanding capabilities, was fine-tuned using the Unsloth framework:
-            \begin{itemize}
-                \item Model: \texttt{unsloth/llama-3-8b-bnb-4bit}
-                \item Tokenizer: \texttt{FastLanguageModel}
-                \item Max steps: 30
-                \item Learning rate: 2e-4
-                \item Batch size: 16
-                \item Use gradient checkpointing: \texttt{unsloth}
-            \end{itemize}
-
-\begin{tcolorbox}[linewidth=0.5pt, innerleftmargin=10pt, innerrightmargin=10pt, innertopmargin=10pt, innerbottommargin=10pt, fontupper=\footnotesize]
-\begin{verbatim}
-TrainingArguments(
-    per_device_train_batch_size = 2,
-    gradient_accumulation_steps = 4,
-    warmup_steps = 5,
-    max_steps = 30,
-    learning_rate = 2e-4,
-    fp16 = not torch.cuda.is_bf16_supported(),
-    bf16 = torch.cuda.is_bf16_supported(),
-    logging_steps = 1,
-    optim = "adamw_8bit",
-    weight_decay = 0.01,
-    lr_scheduler_type = "linear",
-    seed = 3407,
-    output_dir = "outputs",
-)
-\end{verbatim}
-\end{tcolorbox}
-
-\section{Results and Evaluation}
-
-    The training and evaluation losses for DistilBERT, RoBERTa, and BERT models were analyzed to assess their performance on the QA tasks. These losses are depicted in Figures \ref{fig:training-loss-qa} and \ref{fig:evalutation-loss-qa}, respectively.
-    {\\}
-
-    \begin{figure}
-        \centering
-        \includegraphics[width=1\linewidth]{Training-Loss.png}
-        \caption{Training Loss For QA Models}
-        \label{fig:training-loss-qa}
-    \end{figure}
-
-    \begin{figure}
-        \centering
-        \includegraphics[width=1\linewidth]{Evaluation-Loss.png}
-        \caption{Evaluation Loss For QA Models}
-        \label{fig:evalutation-loss-qa}
-    \end{figure}
-
-    In Figure \ref{fig:training-loss-qa}, the training losses show a consistent decline across all models, indicating that the models are learning effectively during training. However, Figure \ref{fig:evalutation-loss-qa} reveals negative evaluation loss scores, pointing to potential issues in the evaluation phase. These negative scores suggest that the models may have struggled to capture context from the dataset, possibly due to limitations in the dataset itself or misalignment in the fine-tuning process.
-    {\\}
-
-    Additionally, the training process for Llama 3 - 8B was evaluated, as shown in Figure \ref{fig:llama-training-loss}. The training loss decreased over steps, demonstrating the model's ability to learn. Despite fluctuations, the overall trend suggests a learning curve that could benefit from further refinement or additional epochs to achieve better stability and convergence.
-
-    \begin{figure}
-        \centering
-        \includegraphics[width=1\linewidth]{Llama-Training-Loss.png}
-        \caption{Llama Training Loss Over Steps}
-        \label{fig:llama-training-loss}
-    \end{figure}
-
-    These results highlight the models' learning capabilities and the challenges faced during evaluation, offering insights for future improvements in model fine-tuning and dataset selection.
-
-
-\section{Transformer Models and Pipeline Integration}
-
-    \subsection{T5}
-
-    We fine-tuned Google's FLAN T5 Transformer, available in our Hugging Face models repository, to compress sentences from NLP-scraped text. This approach effectively captured key points with impressive speed. However, we encountered several issues:
-
-    \subsubsection{Issues Faced}
+    Traveling is truly a delightful experience for the human soul. Traditional planning methods
+    required much information collection and were often restricted to people only in specific
+    resource brackets. The general ways of planning for a trip or holiday consist of hours and hours of endless web surfing, reaching out to travel agencies and buying one of their travel packages. While these methods produced results, they weren’t quick or effective enough. All these planning methods have been proven to be tiring and cumbersome. At this dawn of rapid
+    technological advancement, we can utilise technological mediums to aid us in our travel journey
+    
+    With the advancements in Large Language Models and Artificial intelligence, bygone are the
+    days when we need to surf the internet continuously to ideate our dream journey.LLM’s have
+    proven their mettle effortlessly trying to understand and replicate human interests through text and other visual representations. Over the years, they have shown varied success in different fields, including their ability to provide customised travel-related information. Consequently, claims regarding privacy concerns of LLMs have been arising, which calls the need for more generalization-focused solutions which aim for LLMs to operate effectively without disclosing private information. This context perfectly puts forth the need for Roamify and its travel-related services.
+    
+    Roamify utilizes LLMs to effectively categorise and provide perfectly personalized itinerary
+    generation plans in a single click without the need for users to spend their valuable time
+    gathering information. Furthermore, It also ensures that these services are compatible with
+    different age groups, ensuring the product is universally accessible, thereby adhering to the
+    Accessibility standards of HCI. Moreover,it maintains and ensures user privacy throughout their journey while utilising the platform which crafts their dream journey seamlessly.
+    
+    Moving towards the HCI aspect of Roamify, exhaustive user surveys and interviews stated the
+    fact that majority of the age groups were affirmative towards using technological aids like
+    Roamify to help in their travel planning. Millennials and Generation Z presented positive
+    feedback and were excited to utilise platforms like Roamify, which would aid in their travel
+    journey. Surprisingly, Generation X, although accustomed to the traditional methods of planning, were willing to look forward to what this new era of AI has to offer them in terms of travel planning. Their responses firmly underlined the great deal of potential Roamify has to offer.
+    
+    To further understand the effectiveness of our research work, we have outlined the following
+    practical questions to help guide our research:
+    
     \begin{itemize}
-        \item \textbf{Short Sentences:} Generated text was often overly brief, leading to a fragmented narrative.
-        \item \textbf{Punctuation Problems:} Inconsistent punctuation resulted in unclear descriptions.
-        \item \textbf{Conciseness and Accuracy:} While quick, the summaries sometimes omitted important details and lacked precision.
+        \item \textbf{RQ1 - User Preferences and Personalization:} Would users like to have personalizations in their travel itineraries pertaining to their interests, history, adventures, calm sceneries, etc.?
+        \item \textbf{RQ2 - Generated Responses:} Are the generated itinerary responses effective and can help their travel journey?
+        \item \textbf{RQ3 - Current practices:} How do the users currently plan their travels and how do they feel about Roamify creating their travel plans employing AI mediums?
     \end{itemize}
-
-    These challenges indicated the need for a model that could produce well-structured, punctuated text while maintaining T5's speed and efficiency.
-
-    \subsection{Llama}
-
-    Our fine-tuned LLaMA model generated accurate descriptions with high precision. However, it posed significant challenges in processing time and computational resource demands.
-
-    \subsubsection{Issues Faced}
-    \begin{itemize}
-        \item \textbf{Repetition of Sentences:} The model often repeated sentences, affecting coherence.
-        \item \textbf{Punctuation Problems:} Descriptions frequently lacked proper punctuation, leading to unclear text.
-        \item \textbf{Abrupt Endings:} Some outputs ended abruptly, resulting in incomplete descriptions.
-    \end{itemize}
-
-    We experimented with model parameters like text streamer output size, temperature values, and other hyperparameters to improve accuracy. However, these adjustments increased processing time significantly, creating a trade-off between accuracy and speed that limited the model's practicality for real-time applications.
-
-
-    \subsection{Comparison of Sample Outputs: T5 vs. Llama}
-
-        \begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
-            \textbf{Context:} \\
-
-            Cubbon Park Sarangib for Pixabay Situated over a sprawling 300 acres of land the park was constructed by Richard Sankey This massive green park along with lawns deserves a special mention Offering statues of famous personalities the park is one among the popular places to visit in Bangalore with friends Location Kasturba Road Behind High Court of Karnataka Ambedkar Veedhi Sampangi Rama Nagara BangaloreTimings Open on all daysEntry Fee No entry fee Suggested Read Resorts Near Bangalore
-        \end{tcolorbox}
-
-
-        \begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
-            \textbf{T5 Output:} \\
-
-            Cubbon Park, a sprawling 300 acres of land, is a popular place to visit in Bangalore with friends. Offering statues of famous personalities, it is a popular place to visit with friends.
-        \end{tcolorbox}
-
-        \begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
-            \textbf{Llama3 Output:} \\
-
-            The park was constructed by Richard Sankey. This massive green park, along with lawns, deserves a special mention. Offering statues of famous personalities, the park is one among the popular places to visit in Bangalore with friends. Location: Kasturba Road, Behind High Court of Karnataka.
-        \end{tcolorbox}
-
-    \subsection{Understanding the Advantages and Disadvantages of LLaMA and T5 Models}
-
-        After assessing the advantages and disadvantages of both the LLaMA and T5 large language models, we developed a new pipeline designed to leverage the strengths of both models. In this pipeline, we used the T5 Transformer to generate concise descriptions from the web scrape for each attraction. These brief summaries were then passed to the LLaMA model for elaboration. This approach aimed to combine the speed of T5 with the detail-oriented capabilities of LLaMA.\\
-
-        \subsubsection{{\textbf{Pipeline Implementation}}}
-            \begin{itemize}
-                \item \textbf{Concise Descriptions with T5:} The T5 Transformer efficiently generated short, informative summaries of the web-scraped text, capturing the key points of each attraction with impressive speed.
-                \item \textbf{Elaboration with LLaMA:} These summaries were subsequently elaborated upon by the LLaMA model to provide detailed and comprehensive descriptions.
-            \end{itemize}
-
-
-            Using LLaMA in this manner significantly reduced the time required compared to using it directly on the raw web-scraped text.
-
-            \begin{figure}
-                \centering
-                \includegraphics[width=1\linewidth]{Pipeline.png}
-                \caption{Pipeline Overview}
-                \label{fig:pipeline}
-            \end{figure}
-
-        \subsubsection{\textbf{Pipeline Results}}
-
-            To illustrate the effectiveness of our pipeline, we present a sample context along with the outputs generated by T5 and LLaMA models.
-
-            \begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
-                \textbf{Context:} \\
-
-                \small
-                Sahastradhara If you are looking for the best place in Dehradun to visit in June you can't miss the magnificent waterfalls of Sahastradhara. The waterfall is the perfect emblem of its name as Sahastradhara means spring. Not only the waterfalls but you can also visit the steppe farming land and caves at this place which creates a perfect panoramic view for entertaining the tourists. Along with enjoying the natural beauty of this place you can also take a fun ride in the air through ropeways. Once you travel by ropeway the stunning view of the mountains and valleys will enthrall you completely. The water of Sahastradhara falls is and that’s why it has lots of medicinal benefits. Though you can visit this place throughout the year, monsoon is the best time to visit Sahastradhara at its best. Where 11km from Dehradun near Robber's CaveTimings 8 am to 7 pm Entry Fee Free Suggested Read 20 Cafes In Dehradun That Are Too Awesome To Resist
-            \end{tcolorbox}
-
-
-            The T5 transformer model subsequently processes the context. The T5 model is specifically engineered to produce concise overviews from the provided text input, extracting the most important details. The following is the output that concisely captures the main points of the provided context:
-
-            \begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
-                \textbf{T5 Output:} \\
-
-                \small
-                Sahastradhara is known for its magnificent waterfalls, steppe farming land, and caves. The waterfall is a perfect emblem of its name. It offers a panoramic view of the mountains and valleys. The water of Sahastradhara falls is renowned for its medicinal benefits. Visit Monsoon from Dehradun from 8 am to 7 pm. Entry fee is free. Read 20 Cafes In Dehradun That Are Too Awesome To Resist. The waterfall is a great place to visit in June.. Sahradhara's beautiful, and
-            \end{tcolorbox}
-
-            Following that, the LLaMA-3 model is provided with the concise summary produced by the T5 transformer for further elaboration and appropriate punctuation. The summary is further elaborated upon by the LLaMA-3 model, which guarantees that the text is well-organized and comprehensible.
-
-            \begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
-                \textbf{Llama Output:} \\
-
-                \small
-                It is one of Uttarakhand's most popular tourist attractions. Located at a distance of 16 km from the city, it is surrounded by lush greenery and has a waterfall that falls from a height of more than 200 feet. There is also a cave in the area that is believed to have medicinal properties. You can visit this place with your family and friends and enjoy the beauty of nature.
-            \end{tcolorbox}
-
-        \subsubsection{\textbf{Issues Faced}}
-            Despite the improvements, we encountered several challenges:
-            \begin{itemize}
-                \item \textbf{Processing Time:} LLaMA still required a significant amount of time and computational overhead for elaborating on each attraction. Each page, containing 10 attractions, took approximately 1.5 to 2 minutes to process.
-                \item \textbf{Resource Intensity:} The detailed elaboration by LLaMA, while more efficient than direct processing, still demanded considerable computational resources, impacting the overall efficiency of the pipeline.
-            \end{itemize}
-
-    \subsection{Building a successful pipeline for our use-case}
-
-        The final objective of our project was to generate a personalized itinerary for users based on the number of days they planned to travel. Initially, we used our trained version of the LLaMA model for this task but quickly realized that it posed significant challenges in terms of efficiency and processing time. Consequently, we decided to utilize the Ollama model for the final itinerary generation.
-
-        \subsubsection{Pipeline Overview}
-            \begin{itemize}
-                \item \textbf{NLP Processing:} The web page containing attraction details is first subjected to NLP processing to clean and organize the data. This processed data is divided into chunks representing individual attractions.
-                \item \textbf{Summarization with T5:} These chunks are then passed to the T5 Transformer, which performs the summarization task. The T5 model generates concise sentences summarizing each attraction, and these summaries are stored in a dictionary format for easy retrieval.
-                \item \textbf{Itinerary Generation with Ollama:} Using the user-provided input regarding the number of days for their trip, the Ollama model generates a detailed itinerary using the summarized attractions produced by T5 transformer
-            \end{itemize}
-
-        \subsubsection{Challenges and Observations}
-            \begin{itemize}
-                \item \textbf{Efficiency:} The LLaMA model, while accurate, proved to be inefficient for real-time itinerary generation due to its high processing time. Each page with 10 attractions took approximately 1.5 to 2 minutes, which was not feasible for a user-friendly application.
-                \item \textbf{Improved Workflow with Ollama:} By integrating Ollama into the pipeline, we significantly reduced the processing time and improved the overall efficiency. The T5 model's summarization capabilities combined with Ollama's itinerary planning provided a balanced solution, offering both speed and accuracy.
-            \end{itemize}
-
-            \begin{figure}
-                \centering
-                \includegraphics[width=1\linewidth]{Final-Pipeline.png}
-                \caption{Final Pipeline Implentation}
-                \label{fig:final-pipeline}
-            \end{figure}
-
-    \subsection{Using Ollama for itinerary generation}
-
-        Ollama is a platform that is capable of building and deploying machine learning models and can support a wide variety of architectures, such as transformers, CNNs, RNNs, ensemble models, and GNNs. It enhances the efficacy and effectiveness of a diverse array of machine learning tasks by simplifying workflows from preprocessing to deployment. Llama 3.1, Gemma 2, and other models are among the models it supports.
-
-        We are utilizing Ollama to generate itineraries and are currently operating the Llama 3.1 model. The NLP processor's list of attractions is incorporated into the prompt for Ollama to assist in the generation of the itinerary, using the processed text that has been obtained after conducting NLP on the scraped text (as previously detailed). More than 4 minutes are required to generate the itinerary wholly without providing data using Ollama in the absence of the attractions list. The itinerary is generated in approximately 2 to 2.5 minutes after the data has been incorporated.
-
-        \begin{tcolorbox}[colframe=black!75!white, colback=white!90!black, title=Ollama Prompt to generate itinerary]
-        Generate a detailed itinerary for me for a \{days\} day trip and here are the suggested places I would like to cover:
-
-        1: Attraction 1 \\
-        Attraction Description\\
-
-        2: Attraction 2 \\
-        Attraction Description\\
-
-        3: Attraction 3 \\
-        Attraction Description\\
-
-        % Repeat for each attraction
-
-        and so on.
-        \end{tcolorbox}
-
-
-    \subsection{Incorporating User Preferences}
-
-        The investigation of user preferences in itinerary planning is a primary objective of our research, focusing on historical, amusement, and natural attractions. Before planning, users provided assessments of these attributes, which were incorporated into the prompt used by Ollama to generate itineraries. This integration led to more personalized and satisfactory travel plans.
-
-        This pipeline successfully meets the project's goal of generating customized itineraries, showcasing the effective combination of T5 and Ollama in handling large-scale data and delivering user-centric solutions.
-
-\begin{tcolorbox}[colframe=black!75!white, colback=white!90!black, title=Sample One-Day Itinerary with User Preferences]
-Day 1: Historical Exploration
-\begin{itemize}
-    \item \textbf{Morning:} Visit India Gate (9:00 am - 10:30 am)
-    \begin{itemize}
-        \item \textit{Description:} Start your day by paying respects at the iconic India Gate monument.
-    \end{itemize}
-    \item \textbf{Afternoon:} Visit Lotus Temple (11:00 am - 12:30 pm)
-    \begin{itemize}
-        \item \textit{Description:} Explore the beautiful and serene Lotus Temple, a perfect place for history buffs.
-    \end{itemize}
-\end{itemize}
-\end{tcolorbox}
-
-\begin{tcolorbox}[colframe=black!75!white, colback=white!90!black, title=Sample One-Day Itinerary without User Preferences]
-Day 1: India Gate, Lotus Temple, and Akshardham Temple
-\begin{itemize}
-    \item \textbf{Morning:} Start your day by visiting India Gate, a monument commemorating Indian soldiers from World War I.
-    \item \textbf{Next:} Head to Lotus Temple, a must-visit for history buffs and spiritual seekers.
-    \item \textbf{Afternoon:} After lunch, visit Akshardham Temple, catching the stunning evening lighting.
-\end{itemize}
-\end{tcolorbox}
-
-The first itinerary prioritizes user preferences, while the second focuses on covering attractions listed in the prompt. The samples illustrate how user input shapes the itinerary, with the first being a longer journey. In later interviews, participants were asked whether they preferred faster itinerary generation without user preferences or valued personalized itineraries despite longer processing times.
-
-
-\section{Discussion}
-
-    \subsection{Question Answering Models}
-
-        The models' poor evaluation scores reveal significant challenges in accurately predicting relevant details from attraction descriptions. Despite extensive preprocessing and fine-tuning, the models struggled with understanding the input data, leading to imprecise responses. The complexity and diversity of the data likely contributed to low or negative scores, emphasizing the need for further model refinement or alternative approaches to enhance prediction accuracy.
-
-    \subsection{Text-to-Text Generation Model Inferences}
-
-    During our evaluation of text-to-text generation models, T5 and LLaMA-3, several key observations were made:
-
-    \begin{enumerate}
-        \item \textbf{Speed and Loading Time:} T5 exhibited faster processing and shorter loading times compared to LLaMA-3, making it suitable for real-time applications.
-
-        \item \textbf{Handling of Content:} T5 sometimes omitted the attraction's name in summaries, while LLaMA-3 consistently included it, providing a clearer and more organized output.
-
-        \item \textbf{Grammatical Accuracy:} T5 maintained better grammatical accuracy, resulting in more refined and readable summaries.
-
-        \item \textbf{Combinations and Results:} We tested various combinations, such as T5-LLaMA in series and LLaMA-LLaMA in series, along with individual use of T5 and LLaMA with BERT for extracting details. The T5-LLaMA combination was the most effective, balancing speed and detail.
-
-        \item \textbf{Itinerary Generation:} Although LLaMA's long processing time posed challenges, we employed Ollama, based on LLaMA 3.1, to meet itinerary generation requirements effectively.
-    \end{enumerate}
-
-    These findings highlight the strengths and weaknesses of T5 and LLaMA-3 in content summarization. T5's speed and grammatical accuracy make it ideal for rapid tasks, while LLaMA-3 excels in structured content delivery. Balancing these factors is crucial when selecting models for real-world applications.
-
-
-\section{Conclusion}
-
-    The goal of this research was to identify the best combination of LLMs for generating and fine-tuning itineraries. Initially, we trained question-answering models to extract details from attraction descriptions, but they underperformed. We then focused on text-to-text generation models, specifically LLaMA-3 and T5, for summarization.
-
-    Our experiments showed that while T5 is faster at summarization, it is sometimes less detailed than LLaMA-3. Given our priority on speed, we selected T5 for summarization, pairing it with LLaMA for its detailed output. Ollama, based on LLaMA 3.1, was used for efficient itinerary generation.
-
-    We also investigated user preferences in itinerary planning, integrating them into Ollama's prompt for more personalized and satisfactory travel plans.
-
-    In conclusion, the combination of T5 and LLaMA provided a balanced approach, ensuring both efficiency and comprehensiveness, while incorporating user preferences significantly enhanced personalization in travel itineraries.
-
-
-    \subsection{Future Work}
-
-        Future work will aim to optimize model performance and efficiency, focusing on:
-        \begin{itemize}
-            \item Exploring additional NLP models and architectures for further improvements.
-            \item Enhancing data collection and preprocessing to improve training data quality and diversity.
-            \item Integrating user feedback to refine and personalize itinerary recommendations.
-            \item Expanding the models' application to other travel industry domains, such as real-time assistance and dynamic itinerary adjustments.
-        \end{itemize}
-
-
-    \subsection{Potential Applications}
-
-        This study demonstrates the potential of advanced NLP techniques in transforming travel planning. The successful implementation in Roamify shows these models can generate accurate and personalized itineraries. Potential applications include:
-
-        \begin{itemize}
-            \item Personalized travel planning services tailored to individual preferences.
-            \item Real-time travel assistance tools offering dynamic recommendations.
-            \item Enhanced customer support systems providing quick, accurate responses.
-        \end{itemize}
-
-        In conclusion, integrating NLP models into tools like Roamify boosts the efficiency and personalization of travel experiences. Continued research will further enhance AI's role in delivering more intuitive and responsive travel planning solutions.
-
-
-\section{User Survey and Interview Analysis}
-
-    \subsection{Survey Methodology}
-        To understand potential users' travel planning behaviors and preferences for Roamify, we conducted a comprehensive survey across various demographic groups. The survey included multiple-choice and open-ended questions to capture insights into travel habits, challenges in planning, and expectations from a travel tool. The survey and interview responses are available here: \href{https://drive.google.com/drive/folders/1mKPTXZ7n7ZFmMEK6QBOKU0op3mf8hCta?usp=sharing}{\textbf{Survey Interviews}}.
-
-
-    \subsection{Survey Results and Analysis}
-        The survey received responses from a substantial number of participants, covering a diverse range of age groups and travel frequencies.
-        \\
-
-        \textbf{Key Insights from Surveys:}
-
-        \begin{itemize}
-            \item \textbf{Demographic Breakdown}: Most respondents were young adults (19-25 years) and adults (26-64 years), indicating travel planning is significant among working professionals and young individuals (Figure \ref{fig:demographic-distribution}).
-            \begin{figure}
-                \centering
-                \includegraphics[width=0.75\linewidth]{Demographic-distribution.png}
-                \caption{Demographic Distribution}
-                \label{fig:demographic-distribution}
-            \end{figure}
-            \item \textbf{Travel Frequency}: Most respondents travel once every 6 months or annually, preferring occasional travel due to work and life commitments (Figure \ref{fig:travel-frequency}).
-            \begin{figure}
-                \centering
-                \includegraphics[width=0.75\linewidth]{Travel-frequency.png}
-                \caption{Travel Frequency}
-                \label{fig:travel-frequency}
-            \end{figure}
-            \item \textbf{Types of Travel}: Casual, entertainment, and work travel are the most common, highlighting the importance of leisure and professional commitments in travel plans (Figure \ref{fig:types-of-travel}).
-            \begin{figure}
-                \centering
-                \includegraphics[width=0.75\linewidth]{Types-of-travel.png}
-                \caption{Types of Travel}
-                \label{fig:types-of-travel}
-            \end{figure}
-            \item \textbf{Itinerary Planning}: Online travel websites and YouTube are primary sources, showing a shift towards digital platforms for travel information (Figure \ref{fig:itenary-decision}).
-            \begin{figure}
-                \centering
-                \includegraphics[width=0.75\linewidth]{Itinerary-Decision.png}
-                \caption{Itinerary Decision}
-                \label{fig:itenary-decision}
-            \end{figure}
-            \item \textbf{Customization Preferences}: A significant majority prefer customized itineraries, emphasizing the demand for personalized travel tools (Figure \ref{fig:customization-preferences}).
-            \begin{figure}
-                \centering
-                \includegraphics[width=0.75\linewidth]{Customization-Preferences.png}
-                \caption{Customization Preferences}
-                \label{fig:customization-preferences}
-            \end{figure}
-            \item \textbf{Satisfaction with Travel Agencies}: Satisfaction levels vary, with moderate satisfaction indicating areas for improvement in travel agency services (Figure \ref{fig:satisfaction-with-travel-agencies}).
-            \begin{figure}
-                \centering
-                \includegraphics[width=0.75\linewidth]{Satisfaction-with-Travel-Agencies.png}
-                \caption{Satisfaction with Travel Agencies}
-                \label{fig:satisfaction-with-travel-agencies}
-            \end{figure}
-            \item \textbf{Challenges in Planning}: Key challenges include information overload, coordination difficulties, and a lack of personalized recommendations, making planning time-consuming and stressful (Figures \ref{fig:custom-itinerary-build-time}).
-        \end{itemize}
-            \begin{figure}
-                \centering
-                \includegraphics[width=0.75\linewidth]{Custom-Itinerary-Build-Time.png}
-                \caption{Custom Itinerary Build Time}
-                \label{fig:custom-itinerary-build-time}
-            \end{figure}
-            % \begin{figure}
-            %     \centering
-            %     \includegraphics[width=0.75\linewidth]{Help-from-Friends-Family-for-Itinerary.png}
-            %     \caption{Help from Friends & Family for Itinerary}
-            %     \label{fig:help-from-friends-family-for-itinerary}
-            % \end{figure}
-
-    \subsection{Interview Methodology and Findings}
-        In addition to the survey, in-depth interviews were conducted to gain deeper insights into travel planning experiences, focusing on pain points and expectations from a travel planning tool.
-
-        \textbf{Key Insights from Interviews:}
-        \begin{itemize}
-            \item \textbf{Frequency of Travel:} Interviewees typically travel 3-4 times a year, requiring flexible and comprehensive planning tools.
-            \item \textbf{Planning Process:} Extensive research, price comparisons, and seeking recommendations from friends and family highlight the complexity and time-consuming nature of travel planning.
-            \item \textbf{Expectations from AI Tools:} Generation X is less familiar with AI in travel planning, while Millennials and Generation Z are eager for AI tools that personalize recommendations, streamline bookings, and provide real-time updates.
-            \item \textbf{Personalization:} 60\% of interviewees emphasized the need for tools that adapt to their unique interests and preferences.
-            \item \textbf{User Experience:} Demand is high for user-friendly interfaces with seamless platform integration, clear information, and robust customer support.
-            \item \textbf{Age Group Preferences:} Generation X prefers offline travel agencies, while Millennials and Generation Z favor online agencies and AI-generated itineraries, considering factors like weather, budget, and intercity travel.
-            \item \textbf{Waiting Time Concerns:} 80\% of interviewees stressed the importance of reducing waiting times for adopting AI tools in travel planning.
-        \end{itemize}
-
-
-    \subsection{Ongoing Implications}
-        Survey and interview results show the need for Roamify, a comprehensive, individualized trip planning tool. Information overload, coordination challenges, and unpersonalised recommendations trouble users. Roamify can solve these problems and improve travel planning by using AI to provide customized itineraries, real-time updates, and an easy-to-use UI. Roamify will adapt to modern travelers' demands using these findings.
-
+    
+    Through an aptly posed set of research questions, this paper attempts to illustrate the
+    methodology behind the development of the Roamify application and then find scope within the
+    tourism industry. Besides, through such in-depth exploration, we wish to present a complete
+    understanding as to how mechanisms similar to Roamify can influence and assist in travel
+    planning and aid in capturing human needs and preferences so that user experience can be
+    improved accordingly
+
+\section{Related Work}
+  Large language models have a vast potential to be used for travel purposes, aiding travelers with their planning purposes as they save time and effort. However, a significant issue with using LLMs for travel is needing more tourism knowledge. Efforts have been in place to fine-tune LLMs to increase their resources for tourism and travel purposes\cite{ref3}. A detailed survey by Shengyu Gu discusses how these models can be used to explore possibilities such as personalized travel experiences and dynamic itineraries\cite{ref4}. Personalized travel experiences can be achieved by understanding user preferences and sentiments by analyzing textual data from reviews, direct customer interactions, and others. LLMs also possess the ability to generate informative travel guides that keep user preferences in mind, as well as generate compelling descriptions of attractions and sites to visit.
+
+  We wanted to achieve the task of personalized itineraries by finding features that try to capture the user's taste in the best possible manner. We found diverse features such as natural, amusement, historical, and cultural. Keeping these genres to a minimum was also important because users were required to input these details before the itinerary generation began.
 
 \newpage
+\section{System Design and Architecture}
 
-\begin{thebibliography}{1}
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{system-design-image.png}
+    \caption{System architecture}
+    \label{fig:system-design}
+\end{figure}
+  Roamify is a Large Language Model based application primarily designed to create travel itineraries for users by considering their preferences on different genres as well as collecting up-to-date data regarding popular travel attractions. As discussed in the previous section, existing LLMs face challenges in planning itineraries as they are trained on relevant data at the time, which may no reflect current traveling trends.
+
+  Roamify consists of four primary stages as part of its architecture as described in Figure \ref{fig:system-design}: \textbf{1) Data Collection}, \textbf{2) NLP Processing}, \textbf{3) Summarization}, and \textbf{4) Itinerary Generation}.
+
+\subsection{Data Collection}
+    The primary objective of the Data Collection phase is to gather relevant information from travel blogs and related websites. We implemented two methods for determining the user destination.
+
+    \begin{itemize}
+        \item \textbf{User Input:} The user directly inputs the desired destination along with the number of days they plan to spend thus allowing for a simple and reliable form of user input.
+
+        \item \textbf{Web Scraping from Open Tabs:} The extension also has
+        the ability to identify the destination by analyzing open tabs on the user's browser. This includes popular travel planning sites like MakeMyTrip as well as various travel blog such as TravelTriangle. By scraping these open tabs, the system can infer the user’s intended destination without the need for user input allowing for a more seamless user experience.
+    \end{itemize}
+
+    Once the target destination is determined, the system proceeds to gather up-to-date information by scraping data from highly-rated travel blog sites. The scraping process is carefully designed to effectively filter advertisements and other miscellaneous information that may not be deemed relevant for our use.
+
+    Expanding the scraping corpus comes with two limitations:
+    \begin{itemize}
+        \item Increased latency
+        \item Accumulation of redundant information
+    \end{itemize}
+
+  \subsection{NLP Processing}
+    The second stage in the pipeline involves cleaning and processing the data gathered from the Data collection phase. This stage focuses extracting only the relevant information about attractions from the scraped text.
+
+    Given that different websites follow different structures, we identified a common pattern across all the sources: attractions are typically numbered in ascending order. Using the insight, we applied the following steps to successfully determine the name of the attraction along with a short description.
+
+    \begin{itemize}
+        \item \textbf{Tokenization and Stopword Removal:} First, we tokenize the text and remove stopwords, after which we extract the sentences.
+
+        \item \textbf{Pattern Recognition:} We search for an increasing sequence starting from one. This signifies the start of the list of popular attractions.
+
+        \item \textbf{Information Extraction:} The text located between consecutive numbers is extracted and considered as the description or body for that particular attraction.
+
+        \item \textbf{Dictionary Creation:} Finally, we format the extracted information into a dictionary format, where the names of the attractions and their descriptions are stored as key-value pairs.
+    \end{itemize}
+
+    This ensures that accurate and organized information is captured on each attraction laying the basis for our travel itinerary.
+
+  \subsection{Summarization}
+    This stage of the pipeline deals with condensing the information from the dictionary passed as input from the previous stage. Each key-value pair consists of the attraction name pointing to its details. However, advertisements along with other junk text may still be present in these descriptions if they were not filtered out successfuly by the previous stages. Clearing this persistent junk requires a more advanced tool such as Google Flan T5 or Llama-8b-Instruct models. Before fine-tuning the model, the task of summarization was performed adequately; however, to reduce the overall latency of the process, we required only relevant details to be passed on to the last stage.
+
+    To achieve this, we fine-tuned both models using a custom dataset we prepared, which consisted of two components:
+
+    \begin{itemize}
+      \item \textbf{Context:} The attraction details extracted from the dictionary.
+      \item \textbf{Summary:} The concise and relevant summary of the attraction details.
+    \end{itemize}
+
+    The following example demonstrates the context obtained after scraping, the summary used in the fine-tuning datasets, and the outputs generated by T5 and LLaMA, respectively:
+
+\begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, top=0pt, bottom=0pt]
+\textbf{Context:}
+
+Cubbon Park, Sarangib for Pixabay. Situated over a sprawling 300 acres of land, the park was constructed by Richard Sankey. This massive green park, along with lawns, deserves a special mention. Offering statues of famous personalities, the park is one among the popular places to visit in Bangalore with friends. Location: Kasturba Road, Behind High Court of Karnataka, Ambedkar Veedhi, Sampangi Rama Nagara, Bangalore. Timings: Open on all days. Entry Fee: No entry fee. Suggested Read: Resorts Near Bangalore.
+\end{tcolorbox}\vspace{-10pt}
+\begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=0pt, innerbottommargin=0pt]
+\textbf{Summary (Dataset):}
+
+Cubbon Park, spanning 300 acres and constructed by Richard Sankey, is a massive green space in Bangalore featuring lawns and statues of famous personalities. Located on Kasturba Road, it is a popular spot for outings with friends. The park is open daily with no entry fee.
+\end{tcolorbox}\vspace{-10pt}
+\begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=0pt, innerbottommargin=0pt]
+\textbf{T5 Output:}
+
+Cubbon Park, a sprawling 300 acres of land, is a popular place to visit in Bangalore with friends. Offering statues of famous personalities, it is a popular place to visit with friends.
+\end{tcolorbox}\vspace{-10pt}
+\begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=0pt, innerbottommargin=0pt]
+\textbf{LLaMA Output:}
+
+The park was constructed by Richard Sankey. This massive green park, along with lawns, deserves a special mention. Offering statues of famous personalities, the park is one among the popular places to visit in Bangalore with friends. Location: Kasturba Road, Behind High Court of Karnataka.
+\end{tcolorbox}
+
+From the above descriptions, we can see that T5 is more effective at capturing the essential information; hence, it successfully condenses the description while clearing out any junk text. On the other hand, Llama was more successful at elaborating on the description. However, this came with a much higher processing time than T5. Since processing time is an essential factor for our application, we integrated the T5 transformer into the pipeline as our mode for summarization.
+
+\subsection{Itinerary Generation}
+The final stage of the pipeline involves using Llama-3 or ChatGPT-4 to plan the itinerary based on the summarized and concise attractions given to it by the T5 transformer. The model then plans an itinerary using the attractions based on the number of days inputted by the user.
+
+\begin{tcolorbox}[linewidth=1pt, innerleftmargin=15pt, innerrightmargin=15pt, innertopmargin=15pt, innerbottommargin=15pt]
+  \textbf{Prompt Design:} \\
+
+  Generate a detailed itinerary for me for a \underline{\textit{days}} day trip to  \underline{\textit{destination}} and here are the suggested places I would like to cover:
+
+  \begin{itemize}
+      \item \textbf{1. Attraction Name:}
+      \begin{itemize}
+          \item \textit{Description:} Attractions Details
+      \end{itemize}
+      \item \textbf{2. Attraction Name:}
+      \begin{itemize}
+          \item \textit{Description:} Attractions Details
+      \end{itemize}
+      \vspace{2\baselineskip} % Adds two line spaces
+      \item \textbf{N. Attraction Name:}
+      \begin{itemize}
+          \item \textit{Description:} Attractions Details
+      \end{itemize}
+  \end{itemize}
+\end{tcolorbox}
+
+\begin{figure*}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Itinerary comparison.png}
+    \caption{Comparison of Itineraries With and Without User Preferences Included}
+    \label{fig:itinerary_comparison}
+\end{figure*}
+
+The above prompt is used to generate a general itinerary response using Ollama. A sample itinerary is produced in the Appendix.
+
+However, these itineraries still needed to achieve the purpose of personalized recommendations based on users' preferences. On interviewing users, we identified some key features or distinct attraction genres that are important to them:
+
+\begin{itemize}[noitemsep, topsep=5pt, parsep=0pt, partopsep=0pt]
+    \item \textbf{Historical}
+    \item \textbf{Amusement}
+    \item \textbf{Natural}
+    \item \textbf{Cultural}
+\end{itemize}
+
+For each genre, the user is shown a slider from 1 to 5 to rate it. These ratings are stored and added to the prompt so the itinerary can be planned accordingly. The updated prompt is shown below:
+
+\subsection{Comparison of the Itineraries}
+
+In Figure \ref{fig:itinerary_comparison}, a detailed comparison between two itineraries is presented: one that does not take user preferences into account (Itinerary 1) and another that does (Itinerary 2). There are three salient differences that can be observed between the two itineraries:
+
+\begin{itemize}[noitemsep, topsep=5pt, parsep=0pt, partopsep=0pt]
+\item \textbf{Genre Emphasis:} Itinerary 2 places greater emphasis on the genre ratings provided by the user and accordingly balances the days across the different genres.
+
+\item \textbf{Detail Level:} Itinerary 1 provides more detailed descriptions of the attractions, while Itinerary 2 is more concise and includes specific visiting times for each location.
+
+\item \textbf{Flexibility vs. Personalization:} Itinerary 1 is more flexible and suited for a general audience, allowing spontaneous exploration, while Itinerary 2 is personalized and tailored to user preferences.
+\end{itemize}
+
+Keeping these differences in mind, we sought to find which
+itinerary is more beneficial for our use case. On asking interview participants, 75\% chose the itinerary that considered user preferences and admired the level of personalization that comes with it. Some participants were even told to go beyond the selected four features: historical, natural, amusement, and cultural, and add several more valuable features.
+\newpage
+
+\section{User Survey}
+
+To understand user preferences and behaviors regarding travel, we conducted a survey and visualized the results in a series of pie charts. Below are the key findings:
+
+\begin{itemize}
+    \item \textbf{Types of Travel}: The largest portion of respondents (38\%) mentioned that they travel casually, indicating a preference for non-work-related trips. Entertainment-related travel also made up a significant portion (29.6\%), followed by work-related trips (11.3\%). Family trips were less common, constituting only 2.8\%, while minimal travel was motivated by meetups (8.5\%) or taking a break (1.4\%).
+
+    \item \textbf{Travel Frequency}: The most common travel frequency reported by participants was once every six months (36.6\%), followed closely by once every three months (33.8\%). A smaller percentage of participants travel once a year (21.1\%), with even fewer traveling once a month (7\%) or twice a year (1.4\%).
+
+    \item \textbf{Satisfaction with Travel Agencies}: Respondents were largely neutral about their experience with travel agencies, with 43.8\% selecting neutral. Those satisfied made up 29.7\%, while a small portion expressed being very satisfied (6.3\%). Dissatisfaction was also present, with 10.9\% feeling unsatisfied and 9.4\% being very unsatisfied.
+
+    \item \textbf{Itinerary Decision}: Online travel websites were the most popular source for itinerary planning, with 46.5\% of participants using them. YouTube videos were also commonly used (31\%), while travel agents accounted for 14.1\%. Relatives and friends contributed to only 2.8\% of itinerary decisions, and a small fraction of participants preferred planning their itinerary themselves (4.2\%).
+
+    \item \textbf{Help from Friends/Family for Itinerary}: A striking 88.7\% of respondents indicated that they seek help from friends or family for planning their itineraries, while only 11.3\% prefer doing it alone.
+
+    \item \textbf{Demographic Distribution}: Young adults (ages 19-25) made up the majority of participants at 57.7\%. Adults between 26 and 64 years accounted for 29.6\%, while adolescents (ages 12-18) made up 9.9\%. Seniors (65 years and above) represented the smallest group at 2.8\%.
+
+    \item \textbf{Customization Preferences}: A large majority of respondents (88.7\%) preferred to customize their own itineraries rather than rely on preselected ones (7\%), with a small group opting for a mix of both (4.2\%).
+
+    \item \textbf{Custom Itinerary Build Time}: When asked how long it typically takes to build a custom itinerary, 32.4\% of respondents mentioned that it takes less than a day, while 28.2\% noted that it takes more than a week. A smaller proportion required 2-3 days (23.9\%) or exactly one day (15.5\%).
+\end{itemize}
+
+This detailed user survey analysis highlights the travel preferences and behaviors of the respondents, offering insights that can be used to tailor future travel planning services.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Travel-frequency.png}
+    \caption{Travel frequency}
+    \label{fig:enter-label}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Itinerary-Decision.png}
+    \caption{Itinerary Decision}
+    \label{fig:enter-label}
+    \end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Custom-Itinerary-Build-Time.png}
+    \caption{Custom Itinerary Build Time}
+    \label{fig:enter-label}
+    \end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Preference-for-an-AI-Travel-Planner.png}
+    \caption{Preference for an AI Travel Planner}
+    \label{fig:enter-label}
+\end{figure}
+
+
+\section{Interview Analysis and Testimonials}
+
+    To further boost the credibility of our extension and find its certain shortcomings, we conducted around 100 interviews and collected testimonials from various travel influencers across the globe. Our aim was to learn the key impacts of their suggestions. Their ideology was unique and enhanced the sovereignty of our project, showing how we can further elevate it to an epitome scale.
+    
+    In our conversation with travel influencers and content creators, we came to a surprising realization: most of the travel influencers are bound by impromptu trips and sudden planning. They claimed this excited them the most and that they prefer impromptu trips over a week-long planned trip. This insight confirmed that our extension serves its purpose effectively.
+    
+    To further fuel our interests, we asked them about their regular ongoing trip processes and planning. We were amused by the nuances they consider when planning a trip. Their trip planning focused on finding exotic locations not frequently explored by other day-to-day travelers. They were more interested in the excitement of discovering new places and concerned with finding the logistics behind each trip.
+    
+    In light of this information, we carefully analyzed their needs and made sure our goals aligned with our customer interests. When we proposed the idea of an AI planning mechanism that could plan a trip in minutes, and asked for their feedback, the responses were overwhelmingly positive. Many of the travel influencers were excited about the new technologies and their role in everyday life. When we presented the idea that a planning attribute could be associated with an AI mechanism like Roamify, they were enthusiastic.
+    
+    They claimed that an AI travel mechanism would save time when making impromptu plans, allowing them to focus more on the nuances of the trip rather than spending time finding the correct resources and real-time information. They believed they could spend this energy learning more about the history behind the places and other essential aspects they'd like to explore. Additionally, many travel influencers felt that the current data available online is outdated and does not reflect the true travel experiences they seek. On the contrary, our AI platform, powered by Llama 3, ensures real-time updates and provides accurate, specific information instantly at the click of a button.
+    
+    When asked about the challenges they face while traveling, many influencers mentioned that they would like to find more accessible and affordable stays, along with itineraries, instantly. This is one of the critical pipelines in our upcoming work for Roamify, where we are working towards enhancing user accessibility and ensuring they get all their relevant details at their fingertips.
+    
+    When we presented our prototype, we received multiple appraisals and suggestions for improvement. The major pros included the GUI of the platform, which is very simple and easy to use, and the recommendation system that carefully crafts the needs and ideas to convert a trip into an enthralling journey. Suggestions for improvement included adding more logistical details and stay-related information to help create an enriching experience.
+    
+    From the exhaustive survey we conducted with travel influencers of various age groups, we were pleased to see that, despite the age gap, people were enthusiastic about using an AI mechanism to meet their travel needs and create a better experience with their loved ones. A detailed pie chart depicting this has been presented herewith.
+
+\newpage
+\begin{thebibliography}{99}
+
+    \bibitem{ref3} Qikai Wei, Mingzhi Yang, Jinqiang Wang, Wenwei Mao, Jiabo Xu, Huansheng Ning. \textit{TourLLM: Enhancing LLMs with Tourism Knowledge}. 2024.
+
+    \bibitem{ref4} Shengyu Gu. \textit{A Survey of Large Language Models in Tourism (Tourism LLMs)}. 2024.
 
     \bibitem{IEEEhowto:kopka}
         @article{article,
@@ -834,6 +587,14 @@ The first itinerary prioritizes user preferences, while the second focuses on co
             \item Other
         \end{itemize}
 
+        \item \textbf{How do you decide your itinerary?}
+        \begin{itemize}
+            \item Travel Agents
+            \item YouTube videos
+            \item Online Travel websites
+            \item Other
+        \end{itemize}
+
         \item \textbf{Do you like to travel based on your own customized itinerary or preselected recommended tourist packages?}
         \begin{itemize}
             \item Own Customized
@@ -861,11 +622,8 @@ The first itinerary prioritizes user preferences, while the second focuses on co
             \item No
         \end{itemize}
     \end{enumerate}
-    \\
 
-% \newpage
-
-\section{Interview Questions}
+    \section{Interview Questions}
 \\
     In addition to the survey, we conducted in-depth interviews with selected participants to gain deeper insights into their travel planning experiences. Below are the interview questions:
     \\
@@ -883,4 +641,39 @@ The first itinerary prioritizes user preferences, while the second focuses on co
         \item Have you ever used an AI-driven travel planning website where you can ask for personalized travel suggestions? If so, how was your experience?
     \end{enumerate}
 
+% \begin{acks}
+% To Robert, for the bagels and explaining CMYK and color spaces.
+% \end{acks}
+% %%
+% %% The next two lines define the bibliography style to be used, and
+% %% the bibliography file.
+% \bibliographystyle{ACM-Reference-Format}
+% \bibliography{sample-base}
+
+
+% %%
+% %% If your work has an appendix, this is the place to put it.
+% \appendix
+
+% \section{Research Methods}
+
+% \subsection{Part One}
+
+% Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+% malesuada, quam in pulvinar varius, metus nunc fermentum urna, id
+% sollicitudin purus odio sit amet enim. Aliquam ullamcorper eu ipsum
+% vel mollis. Curabitur quis dictum nisl. Phasellus vel semper risus, et
+% lacinia dolor. Integer ultricies commodo sem nec semper.
+
+% \subsection{Part Two}
+
+% Etiam commodo feugiat nisl pulvinar pellentesque. Etiam auctor sodales
+% ligula, non varius nibh pulvinar semper. Suspendisse nec lectus non
+% ipsum convallis congue hendrerit vitae sapien. Donec at laoreet
+% eros. Vivamus non purus placerat, scelerisque diam eu, cursus
+% ante. Etiam aliquam tortor auctor efficitur mattis.
+
 \end{document}
+\endinput
+%%
+%% End of file `sample-sigconf-authordraft.tex'.
