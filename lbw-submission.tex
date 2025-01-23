@@ -29,7 +29,7 @@
 %% of the event, and this ID should be used as the parameter to this command.
 %%\acmSubmissionID{123-A56-BU3}
 
-\title{Roamify: Evaluating a Google Chrome Extension for Enhancing User Experience in Itinerary Planning}
+\title{Roamify: Designing and Evaluating an AI Powered Google Chrome Extension for Personalised Itinerary Planning}
 
 %%
 %% The "author" command and its associated commands are used to define
@@ -108,9 +108,10 @@
     To further understand the effectiveness of our work, we have outlined the following practical questions to help guide our research:
     
     \begin{itemize}
-        \item \textbf{RQ1 - User Preferences and Personalization:} Would users like to have personalizations in their travel itineraries about their interests, history, adventures, calm sceneries, etc.?
-        \item \textbf{RQ2 - Generated Responses:} Are the generated itinerary responses effective and can help their travel journey?
-        \item \textbf{RQ3 - Current Practices:} How do users plan their travels, and how do they feel about Roamify creating their travel plans employing AI mediums?
+        \item \textbf{RQ1 - Current Practices:} How do users plan their travels, and how do they feel about Roamify creating their travel plans employing AI mediums?
+        \item \textbf{RQ2 - User Preferences and Personalization:} Would users like to have personalizations in their travel itineraries about their interests, history, adventures, calm sceneries, etc.?
+        \item \textbf{RQ3 - Generated Responses:} Are the generated itinerary responses effective and can help their travel journey?
+        
     \end{itemize}
     
     Through a set of questions, this paper attempts to illustrate the methodology behind the development of the Roamify application and then find scope within the tourism industry. Additionally, through such in-depth exploration, we wish to present a complete understanding of how mechanisms similar to Roamify can influence and assist in travel planning and aid in capturing human needs and preferences so that user experience can be improved accordingly.
@@ -146,7 +147,7 @@
             \item \textbf{User Input:} The user directly inputs the desired destination and the number of days they plan to spend, thus allowing for a simple and reliable form of user input.
             
             \item \textbf{Web Scraping from Open Tabs:} The extension has
-            the ability to identify the destination by analyzing open tabs on the user’s browser. This includes popular travel planning sites like MakeMyTrip and various travel blogs such as TravelTriangle. By scraping these open tabs, the system can infer the user’s intended destination without requiring user input, allowing for a more seamless user experience.
+            the ability to identify the destination by analyzing open tabs on the user’s browser. This includes popular travel planning sites and various travel blogs. By scraping these open tabs, the system can infer the user’s intended destination without requiring user input, allowing for a more seamless user experience.
         \end{itemize}
         
         Once the target destination is determined, the system gathers up-to-date information by scraping data from highly-rated travel blog sites. The scraping process is carefully designed to effectively filter advertisements and other miscellaneous information that may not be deemed relevant for our use.
@@ -256,7 +257,7 @@
           \end{itemize}
         \end{tcolorbox}
         
-        The prompt shown above is used to generate a general itinerary using Ollama. A sample itinerary can be found in the Appendix.
+        The prompt shown above is used to generate a general itinerary using Ollama.
         
         However, these itineraries still needed to achieve the purpose of personalized recommendations based on users' preferences. On interviewing users, we identified some key features or distinct attraction genres that are important to them:
         
