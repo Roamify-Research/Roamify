@@ -15,21 +15,23 @@
 %% given in the file `manifest.txt'.
 %% 
 %% Template article for Elsevier's document class `elsarticle'
-%% with harvard style bibliographic references
-
-% \documentclass[preprint,12pt,authoryear]{elsarticle}
+%% with numbered style bibliographic references
+%% SP 2008/03/01
+%% $Id: elsarticle-template-num.tex 272 2025-01-09 17:36:26Z rishi $
+%%
+%\documentclass[preprint,12pt]{elsarticle}
 
 %% Use the option review to obtain double line spacing
 %% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
 
 %% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
 %% for a journal layout:
-% \documentclass[final,1p,times,authoryear]{elsarticle}
-% \documentclass[final,1p,times,twocolumn,authoryear]{elsarticle}
-\documentclass[final,3p,times,authoryear]{elsarticle}
-%% \documentclass[final,3p,times,twocolumn,authoryear]{elsarticle}
-% \documentclass[final,5p,times,authoryear]{elsarticle}
-% \documentclass[final,5p,times,twocolumn,authoryear]{elsarticle}
+\documentclass[final,1p,times]{elsarticle}
+%% \documentclass[final,1p,times,twocolumn]{elsarticle}
+%% \documentclass[final,3p,times]{elsarticle}
+%% \documentclass[final,3p,times,twocolumn]{elsarticle}
+%% \documentclass[final,5p,times]{elsarticle}
+%% \documentclass[final,5p,times,twocolumn]{elsarticle}
 
 %% For including figures, graphicx.sty has been loaded in
 %% elsarticle.cls. If you prefer to use the old commands
@@ -49,7 +51,6 @@
 \usepackage{float}
 \usepackage{enumitem}
 \usepackage{subcaption}
-
 %% The amsthm package provides extended theorem environments
 %% \usepackage{amsthm}
 
@@ -74,25 +75,22 @@
 %% use the cortext command for theassociated footnote;
 %% use the ead command for the email address,
 %% and the form \ead[url] for the home page:
+%% \title{Title\tnoteref{label1}}
+%% \tnotetext[label1]{}
+%% \author{Name\corref{cor1}\fnref{label2}}
+%% \ead{email address}
+%% \ead[url]{home page}
+%% \fntext[label2]{}
+%% \cortext[cor1]{}
+%% \affiliation{organization={},
+%%             addressline={},
+%%             city={},
+%%             postcode={},
+%%             state={},
+%%             country={}}
+%% \fntext[label3]{}
 
-\title{Roamify: Designing and Evaluating an LLM Based Google Chrome Extension for Personalised Itinerary Planning\thanks{Equal contribution.}}
-
-\author{Vikranth Udandarao\fnref{equal}}
-\ead{vikranth22570@iiitd.ac.in}
-\author{Noel Abraham Tiju\fnref{equal}}
-\ead{noel22338@iiitd.ac.in}
-\author{Muthuraj Vairamuthu\fnref{equal}}
-\ead{muthuraj22307@iiitd.ac.in}
-\author{Harsh Mistry\fnref{equal}}
-\ead{harsh22200@iiitd.ac.in}
-\author{Dr. Dhruv Kumar}
-\ead{dhruv.kumar@iiitd.ac.in}
-
-\affiliation{organization={Computer Science Engineering Dept, IIIT Delhi}, 
-            city={New Delhi}, 
-            country={India}}
-
-\fntext[equal]{Equal contribution.}
+\title{Roamify: Designing and Evaluating an LLM Based Google Chrome Extension for Personalised Itinerary Planning}
 
 %% use optional labels to link authors explicitly to addresses:
 %% \author[label1,label2]{}
@@ -110,10 +108,31 @@
 %%             state={},
 %%             country={}}
 
+%% Author affiliation
+\author[iiitd]{Vikranth Udandarao\fnref{equal}}
+\ead{vikranth22570@iiitd.ac.in}
+\author[iiitd]{Noel Abraham Tiju\fnref{equal}}
+\ead{noel22338@iiitd.ac.in}
+\author[iiitd]{Muthuraj Vairamuthu\fnref{equal}}
+\ead{muthuraj22307@iiitd.ac.in}
+\author[iiitd]{Harsh Mistry\fnref{equal}}
+\ead{harsh22200@iiitd.ac.in}
+\author[iiitd,bits]{Dhruv Kumar}
+\ead{dhruv.kumar@iiitd.ac.in, dhruv.kumar@pilani.bits-pilani.ac.in}
+
+\affiliation[iiitd]{organization={IIIT Delhi},
+            city={New Delhi},
+            country={India}}
+\affiliation[bits]{organization={BITS Pilani},
+            city={Pilani},
+            country={India}}
+
+\fntext[equal]{Equal contribution.}
+
 %% Abstract
 \begin{abstract}
 %% Text of abstract
-    In this paper, we present Roamify, an Artificial Intelligence powered travel assistant that tries to ease the process of travel planning. It uses Large Language Models like Llama and T5 to generate personalised itineraries per user preferences. Results from user surveys highlight the preference for AI powered mediums over existing methods to help in travel planning across all user age groups. These results firmly validate the potential need of such a travel assistant. We highlight the two primary design considerations for travel assistance: \textbf{D1)} incorporating a web-scraping method to gather up-to-date news articles about  destinations from various blog sources, which significantly improves our itinerary suggestions, and \textbf{D2)} utilising user preferences to create customised travel experiences along with a recommendation system which changes the itinerary according to the user needs. Our findings suggest that Roamify has the potential to improve and simplify how users across multiple age groups plan their travel experiences.
+    In this paper, we present Roamify, an Artificial Intelligence powered travel assistant that aims to ease the process of travel planning. We have tested and used multiple Large Language Models like Llama and T5 to generate personalised itineraries per user preferences. Results from user surveys highlight the preference for AI powered mediums over existing methods to help in travel planning across all user age groups. These results firmly validate the potential need of such a travel assistant. We highlight the two primary design considerations for travel assistance: \textbf{D1)} incorporating a web-scraping method to gather up-to-date news articles about  destinations from various blog sources, which significantly improves our itinerary suggestions, and \textbf{D2)} utilising user preferences to create customised travel experiences along with a recommendation system which changes the itinerary according to the user needs. Our findings suggest that Roamify has the potential to improve and simplify how users across multiple age groups plan their travel experiences.
 \end{abstract}
 
 %% Keywords
@@ -155,14 +174,10 @@ AI Assistants \sep Human-Computer Interaction \sep Large Language Models \sep Tr
     
     Through a set of questions, this paper attempts to illustrate the methodology behind the development of the Roamify application and then find scope within the tourism industry. Additionally, through such in-depth exploration, we wish to present a complete understanding of how mechanisms similar to Roamify can influence and assist in travel planning and aid in capturing human needs and preferences so that user experience can be improved accordingly.
 
-\vspace{-7pt}
-
 \section{Related Work}
     LLMs have a vast potential to be used for travel purposes, aiding travellers with their planning purposes as they save time and effort. However, a significant issue with using LLMs for travel is needing more tourism knowledge\cite{ref1}. Efforts have been made to fine-tune LLMs to increase their resources for tourism and travel purposes\cite{ref3}. A detailed survey by Shengyu Gu (2024) discusses how these models can be used to explore possibilities such as personalized travel experiences and dynamic itineraries\cite{ref4}. Personalized travel experiences can be achieved by understanding user preferences and sentiments by analyzing textual data from reviews, direct customer interactions, and others. LLMs also possess the ability to generate informative travel guides that keep user preferences in mind, as well as generate compelling descriptions of attractions and sites to visit.
     
     We wanted to achieve the task of personalized itineraries by finding features that capture the user's preferences in the best possible manner. We found diverse natural, amusement, historical, and cultural features. Keeping these genres to a minimum is also important because users must input these details before the itinerary generation begins.
-
-\vspace{-7pt}
 
 \section{System Design and Architecture}
     
@@ -176,8 +191,6 @@ AI Assistants \sep Human-Computer Interaction \sep Large Language Models \sep Tr
     Roamify is an LLM-based application designed to generate travel itineraries for users by considering their preferences in different genres and collecting up-to-date data regarding popular travel attractions. As discussed in the previous section, existing LLMs face challenges in planning itineraries as they are trained on relevant data at the time, which may not reflect current travelling trends.
     
     Roamify consists of four primary stages as part of its architecture as described in Figure \ref{fig:system-design}: \textbf{1) Data Collection}, \textbf{2) NLP Processing}, \textbf{3) Summarization}, and \textbf{4) Itinerary Generation}.
-    
-    \vspace{-7pt}
     
     \subsection{Data Collection}
         The primary objective of the Data Collection phase is to gather relevant information from travel blogs and related websites. We implemented two methods for determining the user destination.
@@ -197,8 +210,6 @@ AI Assistants \sep Human-Computer Interaction \sep Large Language Models \sep Tr
             \item Accumulation of redundant information
         \end{itemize}
     
-    \vspace{-7pt}
-    
     \subsection{NLP Processing}
         The second stage in the pipeline involves cleaning and processing the data gathered from the Data collection phase. This stage focuses on extracting only the relevant information about attractions from the scraped text.
         
@@ -216,14 +227,10 @@ AI Assistants \sep Human-Computer Interaction \sep Large Language Models \sep Tr
         
         This ensures that accurate and organized information is captured on each attraction, laying the basis for our travel itinerary.
     
-    \vspace{-7pt}
-    
     \subsection{Summarization}
         This stage of the pipeline deals with condensing the information from the dictionary passed as input from the previous stage. Each key-value pair consists of the attraction name pointing to its details. However, advertisements and other junk text may still be present in these descriptions if they were not filtered out successfully by the previous stages. Clearing this persistent junk requires a more advanced tool such as Google Flan T5 or Llama-8b-Instruct models. Before fine-tuning the model, the task of summarization was performed adequately; however, to reduce the overall latency of the process, we required only relevant details to be passed on to the last stage.
         
         To achieve this, we fine-tuned both models using a custom dataset we prepared, which consisted of two components:
-        
-        \vspace{-7pt}
         
         \begin{itemize}
           \item \textbf{Context:} The attraction details extracted from the dictionary.
@@ -237,19 +244,19 @@ AI Assistants \sep Human-Computer Interaction \sep Large Language Models \sep Tr
     \textbf{Context:}
     
     Cubbon Park, Sarangib for Pixabay. Situated over a sprawling 300 acres of land, the park was constructed by Richard Sankey. This massive green park, along with lawns, deserves a special mention. Offering statues of famous personalities, the park is one among the popular places to visit in Bangalore with friends. Location: Kasturba Road, Behind High Court of Karnataka, Ambedkar Veedhi, Sampangi Rama Nagara, Bangalore. Timings: Open on all days. Entry Fee: No entry fee. Suggested Read: Resorts Near Bangalore.
-    \end{tcolorbox}\vspace{-10pt}
+    \end{tcolorbox}
     \begin{tcolorbox}[boxrule=1pt, left=15pt, right=15pt, top=0pt, bottom=0pt]
     
     \textbf{Summary (Dataset):}
     
     Cubbon Park, spanning 300 acres and constructed by Richard Sankey, is a massive green space in Bangalore featuring lawns and statues of famous personalities. Located on Kasturba Road, it is a popular spot for outings with friends. The park is open daily with no entry fee.
-    \end{tcolorbox}\vspace{-10pt}
+    \end{tcolorbox}
     \begin{tcolorbox}[boxrule=1pt, left=15pt, right=15pt, top=0pt, bottom=0pt]
     
     \textbf{T5 Output:}
     
     Cubbon Park, a sprawling 300 acres of land, is a popular place to visit in Bangalore with friends. Offering statues of famous personalities, it is a popular place to visit with friends.
-    \end{tcolorbox}\vspace{-10pt}
+    \end{tcolorbox}
     \begin{tcolorbox}[boxrule=1pt, left=15pt, right=15pt, top=0pt, bottom=0pt]
     
     \textbf{LLaMA Output:}
@@ -259,23 +266,8 @@ AI Assistants \sep Human-Computer Interaction \sep Large Language Models \sep Tr
     
     From the above descriptions, we can see that T5 is more effective at capturing the essential information; hence, it successfully condenses the description while clearing out any junk text. On the other hand, Llama was more successful at elaborating on the description. However, this came with a much higher processing time than T5. Since processing time is an essential factor for our application, we integrated the T5 transformer into the pipeline as our mode for summarization.
     
-    \vspace{-7pt}
-    
     \subsection{Itinerary Generation}
         The final stage of the pipeline involves using Llama-3 or ChatGPT-4 to plan the itinerary based on the summarized and concise attractions given to it by the T5 transformer. The model then plans an itinerary using the attractions based on the number of days inputted by the user.
-        
-        % \vspace{-65pt}
-
-        \newpage
-        
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.95\columnwidth,height=0.6\textheight]{Itinerary-comparison-2.png}
-            \caption{Comparison of Itineraries With and Without User Preferences Included}
-            \label{fig:itinerary_comparison}
-        \end{figure}
-        
-        \vspace{-7pt}
         
         \begin{tcolorbox}[boxrule=1pt, left=15pt, right=15pt, top=15pt, bottom=15pt]
         
@@ -311,7 +303,14 @@ AI Assistants \sep Human-Computer Interaction \sep Large Language Models \sep Tr
         
         For each genre, the user is shown a slider from 1 to 5 to rate it. These ratings are stored and added to the prompt so the itinerary can be planned accordingly.
     
-    \vspace{-7pt}
+%    \newpage
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.95\columnwidth,height=0.6\textheight]{Itinerary-comparison-2.png}
+        \caption{Comparison of Itineraries With and Without User Preferences Included}
+        \label{fig:itinerary_comparison}
+    \end{figure}
     
     \subsection{Comparison of the Itineraries}
         
@@ -326,8 +325,6 @@ AI Assistants \sep Human-Computer Interaction \sep Large Language Models \sep Tr
         \end{itemize}
         
         Keeping these differences in mind, we sought to find which itinerary is more beneficial for our use case. On asking the interview participants, 75\% chose the itinerary that considered user preferences and appreciated the level of personalization it offered. Some participants were even told to go beyond the selected four features: historical, natural, amusement, and cultural, and suggest additional valuable features.
-
-\vspace{-7pt}
 
 \section{User Survey}
     
@@ -387,8 +384,6 @@ AI Assistants \sep Human-Computer Interaction \sep Large Language Models \sep Tr
     
     This detailed user survey analysis highlights the travel preferences and behaviors of the respondents, offering insights that can be used to tailor future travel planning services.
 
-\vspace{-7pt}
-
 \section{Interview Analysis and Testimonials}
     
     User surveys, interviews and recorded testimonials serve as the main bridge connecting an upcoming technology to its user space. To ensure Roamify serves the user's needs and ideally serves as a proper tool for navigation, around 10 interviews were conducted with travel influencers across the globe to understand the true potential of the product. Many travel influencers, bloggers, and frequent travellers were reached out; which can be accessed \href{https://drive.google.com/drive/folders/1mKPTXZ7n7ZFmMEK6QBOKU0op3mf8hCta?usp=sharing}{\textbf{here}}. Profiles were scouted by web surfing techniques, including approaching via social media profiles, blog channels and contacting associated managers.
@@ -407,8 +402,6 @@ AI Assistants \sep Human-Computer Interaction \sep Large Language Models \sep Tr
     
     Henceforth, we presented our prototype and received valuable feedback. The strengths included the user-friendly GUI of the platform, and the recommendation system that carefully personalizes and crafts itineraries to align with user's needs. Suggestions for improvement included adding more logistical details and stay-related information to help create an enriching experience. From the diverse survey conducted with travel influencers of various demographics, it was observed that despite the age gap, participants were enthusiastic about using an AI mechanism to meet their travel needs and create a better experience with their loved ones.
 
-\vspace{-7pt}
-
 \section{Conclusion}
     
     The goal of this research was to identify the best combination of LLMs for generating and fine-tuning itineraries. Initially, we trained question-answering models to extract details from attraction descriptions, but they underperformed. We then focused on text-to-text generation models, specifically LLaMA-3 and T5, for summarization.
@@ -418,8 +411,6 @@ AI Assistants \sep Human-Computer Interaction \sep Large Language Models \sep Tr
     We also investigated user preferences in itinerary planning, integrating them into Ollama's prompt for more personalized and satisfactory travel plans.
     
     In conclusion, the combination of T5 and LLaMA provided a balanced approach, ensuring both efficiency and comprehensiveness, while incorporating user preferences significantly enhanced personalization in travel itineraries.
-    
-    \vspace{-7pt}
     
     \subsection{Future Work}
         
@@ -435,6 +426,8 @@ AI Assistants \sep Human-Computer Interaction \sep Large Language Models \sep Tr
     We extend our sincere gratitude to Dr. Anmol Srivastava (Human-Centered Design Department, IIIT-Delhi), Vishaal Udandarao (University of Tübingen), and Arpit Bhatia (University of Copenhagen) for their valuable feedback and insightful suggestions. Their expertise and thoughtful reviews have been instrumental in refining the ideas and improving the overall quality of this work.
 
 \newpage
+
+\bibliographystyle{plain}
 
 \begin{thebibliography}{99}
     
